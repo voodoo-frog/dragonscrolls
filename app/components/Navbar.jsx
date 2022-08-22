@@ -51,7 +51,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' }, justifyContent: 'flex-end' }}>
             <IconButton
               size="large"
               aria-label="account of current user"
