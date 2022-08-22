@@ -42,6 +42,7 @@ export async function action({ request }: ActionArgs) {
   }
 
   const user = await verifyLogin(email, password);
+  console.log('VERIFIED USER', user);
 
   if (!user) {
     return json(

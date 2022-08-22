@@ -1,11 +1,11 @@
 import type { ActionArgs, LoaderArgs, MetaFunction, } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
-import * as React from "react";
+import { useRef, useEffect } from "react";
 
 import { getUserId, createUserSession } from "~/session.server";
 
-import { createUser, getUserByEmail } from "~/lib/auth";
+import { createUser, getUserByEmail, getUserByDisplay } from "~/lib/auth";
 import { safeRedirect, validateEmail } from "~/utils";
 
 export async function loader({ request }: LoaderArgs) {
@@ -16,6 +16,8 @@ export async function loader({ request }: LoaderArgs) {
 
 export async function action({ request }: ActionArgs) {
   const formData = await request.formData();
+  const name = formData.get("name");
+  const display = formData.get("display");
   const email = formData.get("email");
   const password = formData.get("password");
   const redirectTo = safeRedirect(formData.get("redirectTo"), "/");
@@ -41,8 +43,8 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-  const existingUser = await getUserByEmail(email);
-  if (existingUser) {
+  const existingEmail = await getUserByEmail(email);
+  if (existingEmail) {
     return json(
       {
         errors: {
@@ -54,7 +56,20 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-  const user = await createUser(email, password);
+  const existingDisplay = await getUserByDisplay(display);
+  if (existingDisplay) {
+    return json(
+      {
+        errors: {
+          email: "This display name is already in use",
+          password: null,
+        },
+      },
+      { status: 400 }
+    );
+  }
+
+  const user = await createUser(name, display, email, password);
 
   return createUserSession({
     request,
@@ -74,11 +89,17 @@ export default function Join() {
   const [searchParams] = useSearchParams();
   const redirectTo = searchParams.get("redirectTo") ?? undefined;
   const actionData = useActionData<typeof action>();
-  const emailRef = React.useRef<HTMLInputElement>(null);
-  const passwordRef = React.useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const displayRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
-    if (actionData?.errors?.email) {
+  useEffect(() => {
+    if (actionData?.errors?.name) {
+      nameRef.current?.focus();
+    } else if (actionData?.errors?.display) {
+      displayRef.current?.focus();
+    } else if (actionData?.errors?.email) {
       emailRef.current?.focus();
     } else if (actionData?.errors?.password) {
       passwordRef.current?.focus();
@@ -89,6 +110,62 @@ export default function Join() {
     <div className="flex min-h-full flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
+            <div className="mt-1">
+              <input
+                ref={nameRef}
+                id="name"
+                required
+                autoFocus={true}
+                name="name"
+                type="name"
+                autoComplete="name"
+                aria-invalid={actionData?.errors?.name ? true : undefined}
+                aria-describedby="name-error"
+                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+              />
+              {actionData?.errors?.name && (
+                <div className="pt-1 text-red-700" id="name-error">
+                  {actionData.errors.name}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="display"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Display Name
+            </label>
+            <div className="mt-1">
+              <input
+                ref={displayRef}
+                id="display"
+                required
+                autoFocus={true}
+                name="display"
+                type="display"
+                autoComplete="display"
+                aria-invalid={actionData?.errors?.display ? true : undefined}
+                aria-describedby="display-error"
+                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+              />
+              {actionData?.errors?.display && (
+                <div className="pt-1 text-red-700" id="display-error">
+                  {actionData.errors.display}
+                </div>
+              )}
+            </div>
+          </div>
+
           <div>
             <label
               htmlFor="email"

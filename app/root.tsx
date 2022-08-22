@@ -1,3 +1,4 @@
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   useCatch,
@@ -7,33 +8,29 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
 import Layout from "~/components/Layout";
 
-export const links = () => {
+export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
 };
 
-export const meta = () => ({
+export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "Dragon Scrolls: D&D 5e Wiki & Character Creator",
   viewport: "width=device-width,initial-scale=1",
 });
 
-export async function loader({ request }) {
+export async function loader({ request }: LoaderArgs) {
   return json({
     user: await getUser(request),
   });
 }
 
 const Document = ({ children }) => {
-  const { user } = useLoaderData();
-  console.log('user', user);
-
   return (
     <html lang="en" className="min-h-screen">
       <head>
@@ -66,7 +63,7 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }) {
-  console.log(error);
+  console.log('this is an error:', error);
   return (
     <Document>
       <Layout>

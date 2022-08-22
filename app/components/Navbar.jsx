@@ -1,14 +1,26 @@
 import { Form, Link } from "@remix-run/react";
-
-import IconButton from "@mui/material/IconButton";
-import { useOptionalUser } from "~/utils";
+import { useState } from "react";
 
 import { SiDungeonsanddragons as Logo } from "react-icons/si";
 import { GiHamburgerMenu } from "react-icons/gi";
 
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+
+import { useOptionalUser } from "~/utils";
+
 export default function Navbar() {
   const user = useOptionalUser();
-  console.log("user", user);
+  const [open, setOpen] = useState(false);
 
   return (
     <div
@@ -25,7 +37,7 @@ export default function Navbar() {
       </Link>
       <nav className="float-left hidden grow justify-around self-center text-white xl:block">
         <ul className="float-left block h-full w-full grow items-center justify-around">
-          <li className="float-left block self-center">
+          <li className="float-left h-full block self-center">
             <Link
               className="self-center rounded p-3 uppercase hover:bg-gray-900/50 hover:text-red-500"
               to="/classes"
@@ -81,36 +93,89 @@ export default function Navbar() {
               Monsters
             </Link>
           </li>
-          <li className="float-right block self-center">
-            {user ? (
-              <>
+          {user ? (
+            <>
+              {/* FIGURE OUT PADDING ISSUE WITH THESE FUCKING BUTTONS */}
+              <li className="float-right block self-center">
+                <Link
+                  className="self-center rounded p-3 uppercase bg-red-500 hover:bg-red-600"
+                  to="/logout"
+                >
+                  Logout
+                </Link>
+              </li>
+              <li className="float-right block self-center">
                 <Link className="self-center rounded p-3 uppercase" to="/races">
                   {user?.display}
                 </Link>
-                <Form action="/logout" method="post">
-                  <button
-                    type="submit"
-                    className="mx-3 self-center rounded bg-red-500 p-3 capitalize text-white hover:bg-red-600"
-                  >
-                    Logout
-                  </button>
-                </Form>
-              </>
-            ) : (
-              <Link
-                className="mr-3 self-center rounded bg-red-500 p-3 capitalize text-white hover:bg-red-600"
-                to="/login"
-              >
-                Login
-              </Link>
-            )}
-          </li>
+              </li>
+            </>
+          ) : (
+            <Link
+              className="mr-3 self-center rounded bg-red-500 p-3 capitalize text-white hover:bg-red-600"
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
         </ul>
       </nav>
 
-      <IconButton className="xl:hidden">
+      <IconButton className="xl:hidden" onClick={() => setOpen(true)}>
         <GiHamburgerMenu className="text-white xl:hidden" />
       </IconButton>
+
+      <Drawer
+        anchor='right'
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        <Box
+          sx={{ width: 250 }}
+          role="presentation"
+          onClick={() => setOpen(false)}
+          onKeyDown={() => setOpen(false)}
+        >
+          <List>
+            {user ? (
+              <ListItem disablePadding>
+                <ListItemButton href='/dashboard'>
+                  <ListItemIcon>
+                    <AccountCircleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={user?.display} />
+                </ListItemButton>
+              </ListItem>
+            ) : (
+              <ListItem disablePadding>
+                <ListItemButton href='login'>
+                  <ListItemText primary='Login' />
+                </ListItemButton>
+              </ListItem>
+            )}
+          </List>
+          <Divider />
+          <List>
+            {['Classes', 'Spells', 'Races', 'Backgrounds', 'Equipment', 'Basic Rules', 'Monsters'].map((text) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton href={text === 'Basic Rules' ? 'rules' : text.toLowerCase()}>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+          {user && (
+            <List>
+              <ListItem disablePadding>
+                <ListItemButton href='logout'>
+                  <ListItemText primary='Logout' />
+                </ListItemButton>
+              </ListItem>
+            </List>
+          )}
+        </Box>
+      </Drawer>
     </div>
   );
 }
