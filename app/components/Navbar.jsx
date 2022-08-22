@@ -97,12 +97,14 @@ export default function Navbar() {
             <>
               {/* FIGURE OUT PADDING ISSUE WITH THESE FUCKING BUTTONS */}
               <li className="float-right block self-center">
-                <Link
-                  className="self-center rounded p-3 uppercase bg-red-500 hover:bg-red-600"
-                  to="/logout"
-                >
-                  Logout
-                </Link>
+                <Form action="/logout" method="post">
+                  <button
+                    type="submit"
+                    className="self-center rounded p-3 uppercase bg-red-500 hover:bg-red-600"
+                  >
+                    Logout
+                  </button>
+                </Form>
               </li>
               <li className="float-right block self-center">
                 <Link className="self-center rounded p-3 uppercase" to="/races">
@@ -111,12 +113,11 @@ export default function Navbar() {
               </li>
             </>
           ) : (
-            <Link
-              className="mr-3 self-center rounded bg-red-500 p-3 capitalize text-white hover:bg-red-600"
-              to="/login"
-            >
-              Login
-            </Link>
+            <li className="float-right block self-center">
+              <Link className="self-center rounded p-3 uppercase bg-red-500 hover:bg-red-600" to="/login">
+                Login
+              </Link>
+            </li>
           )}
         </ul>
       </nav>
@@ -167,11 +168,18 @@ export default function Navbar() {
           <Divider />
           {user && (
             <List>
-              <ListItem disablePadding>
-                <ListItemButton href='logout'>
-                  <ListItemText primary='Logout' />
-                </ListItemButton>
-              </ListItem>
+              <ListItemButton>
+                <ListItem disablePadding>
+                  <Form action="/logout" method="post">
+                    <button
+                      type="submit"
+                      className="self-center rounded capitalize"
+                    >
+                      Logout
+                    </button>
+                  </Form>
+                </ListItem>
+              </ListItemButton>
             </List>
           )}
         </Box>

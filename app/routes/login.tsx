@@ -1,7 +1,7 @@
 import type { ActionArgs, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
-import * as React from "react";
+import { useRef, useEffect } from "react";
 
 import { createUserSession, getUserId } from "~/session.server";
 import { verifyLogin } from "~/lib/auth";
@@ -17,7 +17,7 @@ export async function action({ request }: ActionArgs) {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
-  const redirectTo = safeRedirect(formData.get("redirectTo"), "/notes");
+  const redirectTo = safeRedirect(formData.get("redirectTo"), "/");
   const remember = formData.get("remember");
 
   if (!validateEmail(email)) {
@@ -42,7 +42,6 @@ export async function action({ request }: ActionArgs) {
   }
 
   const user = await verifyLogin(email, password);
-  console.log('VERIFIED USER', user);
 
   if (!user) {
     return json(
@@ -53,7 +52,7 @@ export async function action({ request }: ActionArgs) {
 
   return createUserSession({
     request,
-    userId: user.id,
+    userId: user._doc._id.toString(),
     remember: remember === "on" ? true : false,
     redirectTo,
   });
@@ -67,12 +66,12 @@ export const meta: MetaFunction = () => {
 
 export default function LoginPage() {
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get("redirectTo") || "/notes";
+  const redirectTo = searchParams.get("redirectTo") || "/";
   const actionData = useActionData<typeof action>();
-  const emailRef = React.useRef<HTMLInputElement>(null);
-  const passwordRef = React.useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (actionData?.errors?.email) {
       emailRef.current?.focus();
     } else if (actionData?.errors?.password) {

@@ -4,25 +4,25 @@ import User from "~/models/user";
 
 import dbConnect from "~/lib/dbConnect";
 
-export async function getUserById(id) {
+export async function getUserById(id: string) {
   await dbConnect();
 
   return User.findById(id);
 }
 
-export async function getUserByEmail(email) {
+export async function getUserByEmail(email: string) {
   await dbConnect();
 
   return User.findOne({ email }).exec();
 }
 
-export async function getUserByDisplay(display) {
+export async function getUserByDisplay(display: string) {
   await dbConnect();
 
   return User.findOne({ display }).exec();
 }
 
-export async function createUser(name, display, email, password) {
+export async function createUser(name: string, display: string, email: string, password: string) {
   await dbConnect();
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -35,21 +35,16 @@ export async function createUser(name, display, email, password) {
   });
 }
 
-export async function deleteUserByEmail(email) {
+export async function deleteUserByEmail(email: string) {
   await dbConnect();
 
-  return User.delete({ email });
+  return User.deleteOne({ email });
 }
 
-export async function verifyLogin(email, password) {
+export async function verifyLogin(email: string, password: string) {
   await dbConnect();
 
   const userWithPassword = await User.findOne({ email }).select("+password");
-
-  console.log("userWithPassword", userWithPassword);
-
-  console.log("email", email);
-  console.log("password", password);
 
   if (!userWithPassword || !userWithPassword.password) {
     return null;
@@ -62,9 +57,6 @@ export async function verifyLogin(email, password) {
   }
 
   const { password: _password, ...userWithoutPassword } = userWithPassword;
-
-  console.log("userWithoutPassword", userWithoutPassword);
-  console.log("userWithPassword", userWithPassword);
 
   return userWithoutPassword;
 }

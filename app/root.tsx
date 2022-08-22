@@ -9,6 +9,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import type { ReactNode } from "react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
@@ -30,7 +31,11 @@ export async function loader({ request }: LoaderArgs) {
   });
 }
 
-const Document = ({ children }) => {
+interface Props {
+  children?: ReactNode;
+}
+
+const Document = ({ children }: Props) => {
   return (
     <html lang="en" className="min-h-screen">
       <head>
@@ -62,8 +67,7 @@ export default function App() {
   );
 }
 
-export function ErrorBoundary({ error }) {
-  console.log('this is an error:', error);
+export function ErrorBoundary({ error }: { error: Error; }) {
   return (
     <Document>
       <Layout>

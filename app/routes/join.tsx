@@ -24,21 +24,50 @@ export async function action({ request }: ActionArgs) {
 
   if (!validateEmail(email)) {
     return json(
-      { errors: { email: "Email is invalid", password: null } },
+      { errors: { email: "Email is invalid", password: null, display: null, name: null } },
       { status: 400 }
     );
   }
 
   if (typeof password !== "string" || password.length === 0) {
     return json(
-      { errors: { email: null, password: "Password is required" } },
+      { errors: { email: null, password: "Password is required", display: null, name: null } },
+      { status: 400 }
+    );
+  }
+
+  if (typeof name !== "string" || name.length === 0) {
+    return json(
+      { errors: { email: null, name: "Name is required", display: null, password: null } },
+      { status: 400 }
+    );
+  }
+
+
+  if (typeof display !== "string" || display.length === 0) {
+    return json(
+      { errors: { email: null, display: "Display is required", name: null, password: null } },
       { status: 400 }
     );
   }
 
   if (password.length < 8) {
     return json(
-      { errors: { email: null, password: "Password is too short" } },
+      { errors: { email: null, password: "Password is too short", display: null, name: null } },
+      { status: 400 }
+    );
+  }
+
+  if (name.length < 2) {
+    return json(
+      { errors: { email: null, name: "Name is too short", display: null, password: null } },
+      { status: 400 }
+    );
+  }
+
+  if (display.length < 2) {
+    return json(
+      { errors: { email: null, display: "Display name is too short", name: null, password: null } },
       { status: 400 }
     );
   }
@@ -50,6 +79,8 @@ export async function action({ request }: ActionArgs) {
         errors: {
           email: "A user already exists with this email",
           password: null,
+          display: null,
+          name: null
         },
       },
       { status: 400 }
@@ -61,8 +92,10 @@ export async function action({ request }: ActionArgs) {
     return json(
       {
         errors: {
-          email: "This display name is already in use",
+          display: "This display name is already in use",
           password: null,
+          email: null,
+          name: null
         },
       },
       { status: 400 }
