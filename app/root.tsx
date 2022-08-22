@@ -42,8 +42,7 @@ const Document = ({ children }: Props) => {
         <Meta />
         <Links />
       </head>
-
-      <body className="min-h-screen">
+      <body className="bg-[url('/images/parchment.jpeg')] bg-fixed bg-center bg-no-repeat bg-cover h-screen w-screen">
         {children}
         {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
       </body>
