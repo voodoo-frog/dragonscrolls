@@ -97,42 +97,40 @@ export default function SpellCard({ spell, expanded, handleChangeExpanded }) {
       </AccordionSummary>
       <AccordionDetails>
         <Grid container spacing={2} mb={3}>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={3}>
             <Typography sx={{ fontWeight: "bold" }}>Level</Typography>
             <Typography>{level}</Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={3}>
             <Typography sx={{ fontWeight: "bold" }}>Casting Time</Typography>
             <Typography>{casting_time}</Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={3}>
             <Typography sx={{ fontWeight: "bold" }}>Range / Area</Typography>
             <Typography>{range}</Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={3}>
             <Typography sx={{ fontWeight: "bold" }}>Components</Typography>
             <Typography>
               {components.join(", ")}
               {components.includes("M") && "*"}
             </Typography>
           </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={3}>
             <Typography sx={{ fontWeight: "bold" }}>Duration</Typography>
             <Typography>{duration}</Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={3}>
             <Typography sx={{ fontWeight: "bold" }}>School</Typography>
             <Typography>{school.name}</Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={3}>
             <Typography sx={{ fontWeight: "bold" }}>Attack / Save</Typography>
             <Typography className="capitalize">
               {attack_type || dc?.dc_type.name || ""}
             </Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6} sm={3}>
             <Typography sx={{ fontWeight: "bold" }}>Damage / Effect</Typography>
             <Typography>{damage?.damage_type.name}</Typography>
           </Grid>
