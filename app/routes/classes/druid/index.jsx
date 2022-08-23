@@ -58,7 +58,6 @@ export default function Druid() {
         <h5 className="m-3 text-lg font-bold capitalize">Beast Shapes</h5>
         <hr />
         <Table
-          sx={{ minWidth: 650 }}
           size="small"
           aria-label="wild shape table"
         >

@@ -60,7 +60,6 @@ export default function Sorcerer() {
         </h5>
         <hr />
         <Table
-          sx={{ minWidth: 650 }}
           size="small"
           aria-label="wild shape table"
         >

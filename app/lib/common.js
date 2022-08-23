@@ -130,9 +130,8 @@ export const table = (title, headers, rows, small = false) => (
       </>
     )}
     <Table
-      sx={{ minWidth: 650 }}
       aria-label="table"
-      size={small ? "small" : "medum"}
+      size={small ? "small" : "medium"}
     >
       <TableHead>
         <TableRow>
