@@ -43,7 +43,13 @@ export function useMatchesData(
 }
 
 function isUser(user: any) {
-  return user && typeof user === "object" && typeof user.email === "string" && typeof user.display === "string" && typeof user.name === "string";
+  return (
+    user &&
+    typeof user === "object" &&
+    typeof user.email === "string" &&
+    typeof user.display === "string" &&
+    typeof user.name === "string"
+  );
 }
 
 export function useOptionalUser() {

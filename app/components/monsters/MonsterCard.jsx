@@ -103,17 +103,19 @@ export default function MonsterCard({
       >
         <p className="w-[250px]">{name}</p>
 
-        <p className="w-[100px]">{challenge_rating}</p>
+        <div className="hidden lg:flex">
+          <p className="w-[100px]">{challenge_rating}</p>
 
-        <p className="w-[150px] capitalize">
-          {type === "swarm of Tiny beasts" ? "beast" : type}
-        </p>
+          <p className="w-[150px] capitalize">
+            {type === "swarm of Tiny beasts" ? "beast" : type}
+          </p>
 
-        <p className="w-[150px]">{size}</p>
+          <p className="w-[150px]">{size}</p>
 
-        <p className="capitalize">
-          {alignment.includes("50%") ? "neutral" : alignment}
-        </p>
+          <p className="capitalize">
+            {alignment.includes("50%") ? "neutral" : alignment}
+          </p>
+        </div>
       </AccordionSummary>
       <AccordionDetails>
         <h3 className="text-2xl font-bold">{name}</h3>

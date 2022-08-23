@@ -192,176 +192,178 @@ export default function EquipmentPage() {
             />
           </FormControl>
 
-          <FormControl
-            style={{
-              minWidth: 50,
-              margin: 10,
-              flex: 1,
-              justifyContent: "flex-end",
-            }}
-          >
-            <Typography
-              htmlFor="cost_min"
-              variant="caption"
-              sx={{ fontWeight: "bold" }}
+          <div className="hidden lg:flex">
+            <FormControl
+              style={{
+                minWidth: 50,
+                margin: 10,
+                flex: 1,
+                justifyContent: "flex-end",
+              }}
             >
-              Cost (gp)
-            </Typography>
-            <TextField
-              color="error"
-              id="cost_min"
-              placeholder="Min"
-              variant="outlined"
-              value={cost_min}
-              onChange={(e) =>
-                setSearch({ ...search, cost_min: e.target.value })
-              }
-              sx={{
-                bgcolor: "rgba(0,0,0,0.2)",
-                borderRadius: "50px",
-                color: "black",
-                "& .MuiOutlinedInput-root": {
+              <Typography
+                htmlFor="cost_min"
+                variant="caption"
+                sx={{ fontWeight: "bold" }}
+              >
+                Cost (gp)
+              </Typography>
+              <TextField
+                color="error"
+                id="cost_min"
+                placeholder="Min"
+                variant="outlined"
+                value={cost_min}
+                onChange={(e) =>
+                  setSearch({ ...search, cost_min: e.target.value })
+                }
+                sx={{
+                  bgcolor: "rgba(0,0,0,0.2)",
                   borderRadius: "50px",
                   color: "black",
-                },
-                "& .MuiInputLabel-root": { color: "black" },
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "50px",
+                    color: "black",
+                  },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
+              />
+            </FormControl>
+            <FormControl
+              style={{
+                minWidth: 50,
+                margin: 10,
+                flex: 1,
+                justifyContent: "flex-end",
               }}
-            />
-          </FormControl>
-          <FormControl
-            style={{
-              minWidth: 50,
-              margin: 10,
-              flex: 1,
-              justifyContent: "flex-end",
-            }}
-          >
-            <TextField
-              color="error"
-              id="cost_max"
-              placeholder="Max"
-              variant="outlined"
-              value={cost_max}
-              onChange={(e) =>
-                setSearch({ ...search, cost_max: e.target.value })
-              }
-              sx={{
-                bgcolor: "rgba(0,0,0,0.2)",
-                borderRadius: "50px",
-                color: "black",
-                "& .MuiOutlinedInput-root": {
+            >
+              <TextField
+                color="error"
+                id="cost_max"
+                placeholder="Max"
+                variant="outlined"
+                value={cost_max}
+                onChange={(e) =>
+                  setSearch({ ...search, cost_max: e.target.value })
+                }
+                sx={{
+                  bgcolor: "rgba(0,0,0,0.2)",
                   borderRadius: "50px",
                   color: "black",
-                },
-                "& .MuiInputLabel-root": { color: "black" },
-              }}
-            />
-          </FormControl>
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "50px",
+                    color: "black",
+                  },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
+              />
+            </FormControl>
 
-          <FormControl
-            style={{
-              minWidth: 50,
-              margin: 10,
-              flex: 1,
-              justifyContent: "flex-end",
-            }}
-          >
-            <Typography
-              htmlFor="weight_min"
-              variant="caption"
-              sx={{ fontWeight: "bold" }}
+            <FormControl
+              style={{
+                minWidth: 50,
+                margin: 10,
+                flex: 1,
+                justifyContent: "flex-end",
+              }}
             >
-              Weight (lbs)
-            </Typography>
-            <TextField
-              color="error"
-              id="weight_min"
-              placeholder="Min"
-              variant="outlined"
-              value={weight_min}
-              onChange={(e) =>
-                setSearch({ ...search, weight_min: e.target.value })
-              }
-              sx={{
-                bgcolor: "rgba(0,0,0,0.2)",
-                borderRadius: "50px",
-                color: "black",
-                "& .MuiOutlinedInput-root": {
+              <Typography
+                htmlFor="weight_min"
+                variant="caption"
+                sx={{ fontWeight: "bold" }}
+              >
+                Weight (lbs)
+              </Typography>
+              <TextField
+                color="error"
+                id="weight_min"
+                placeholder="Min"
+                variant="outlined"
+                value={weight_min}
+                onChange={(e) =>
+                  setSearch({ ...search, weight_min: e.target.value })
+                }
+                sx={{
+                  bgcolor: "rgba(0,0,0,0.2)",
                   borderRadius: "50px",
                   color: "black",
-                },
-                "& .MuiInputLabel-root": { color: "black" },
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "50px",
+                    color: "black",
+                  },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
+              />
+            </FormControl>
+            <FormControl
+              style={{
+                minWidth: 50,
+                margin: 10,
+                flex: 1,
+                justifyContent: "flex-end",
               }}
-            />
-          </FormControl>
-          <FormControl
-            style={{
-              minWidth: 50,
-              margin: 10,
-              flex: 1,
-              justifyContent: "flex-end",
-            }}
-          >
-            <TextField
-              color="error"
-              id="weight_max"
-              placeholder="Max"
-              variant="outlined"
-              value={weight_max}
-              onChange={(e) =>
-                setSearch({ ...search, weight_max: e.target.value })
-              }
-              sx={{
-                bgcolor: "rgba(0,0,0,0.2)",
-                borderRadius: "50px",
-                color: "black",
-                "& .MuiOutlinedInput-root": {
+            >
+              <TextField
+                color="error"
+                id="weight_max"
+                placeholder="Max"
+                variant="outlined"
+                value={weight_max}
+                onChange={(e) =>
+                  setSearch({ ...search, weight_max: e.target.value })
+                }
+                sx={{
+                  bgcolor: "rgba(0,0,0,0.2)",
                   borderRadius: "50px",
                   color: "black",
-                },
-                "& .MuiInputLabel-root": { color: "black" },
-              }}
-            />
-          </FormControl>
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "50px",
+                    color: "black",
+                  },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
+              />
+            </FormControl>
 
-          <FormControl
-            color="error"
-            style={{ minWidth: 150, margin: 10, flex: 2 }}
-          >
-            <Typography
-              htmlFor="category"
-              variant="caption"
-              sx={{ fontWeight: "bold" }}
+            <FormControl
+              color="error"
+              style={{ minWidth: 150, margin: 10, flex: 2 }}
             >
-              Categories
-            </Typography>
-            <Select
-              labelId="category-label"
-              id="category"
-              multiple
-              value={categories}
-              onChange={handleChangeCategories}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-              sx={{
-                bgcolor: "rgba(0,0,0,0.2)",
-                borderRadius: "50px",
-                color: "black",
-                "& .MuiOutlinedInput-root": {
+              <Typography
+                htmlFor="category"
+                variant="caption"
+                sx={{ fontWeight: "bold" }}
+              >
+                Categories
+              </Typography>
+              <Select
+                labelId="category-label"
+                id="category"
+                multiple
+                value={categories}
+                onChange={handleChangeCategories}
+                renderValue={(selected) => selected.join(", ")}
+                MenuProps={MenuProps}
+                sx={{
+                  bgcolor: "rgba(0,0,0,0.2)",
                   borderRadius: "50px",
                   color: "black",
-                },
-                "& .MuiInputLabel-root": { color: "black" },
-              }}
-            >
-              {categoryList.map((ct) => (
-                <MenuItem key={ct} value={ct}>
-                  <Checkbox checked={categories.indexOf(ct) > -1} />
-                  <ListItemText primary={ct} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "50px",
+                    color: "black",
+                  },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
+              >
+                {categoryList.map((ct) => (
+                  <MenuItem key={ct} value={ct}>
+                    <Checkbox checked={categories.indexOf(ct) > -1} />
+                    <ListItemText primary={ct} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
 
           <Button
             color="error"
@@ -369,6 +371,9 @@ export default function EquipmentPage() {
             variant="contained"
             className="self-center rounded bg-red-500 p-3 capitalize text-white hover:bg-red-600"
             onClick={handleReset}
+            sx={{
+              marginTop: "20px",
+            }}
           >
             Reset filters
           </Button>
@@ -377,9 +382,11 @@ export default function EquipmentPage() {
 
       <div className="text-md flex w-full pl-[50px] font-bold">
         <h5 className="w-[250px]">Name</h5>
-        <h5 className="w-[150px]">Cost (gp)</h5>
-        <h5 className="w-[150px]">Weight (lbs)</h5>
-        <h5>Category</h5>
+        <div className="hidden lg:flex">
+          <h5 className="w-[150px]">Cost (gp)</h5>
+          <h5 className="w-[150px]">Weight (lbs)</h5>
+          <h5>Category</h5>
+        </div>
       </div>
 
       <div className="m-3">

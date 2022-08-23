@@ -5,9 +5,9 @@
 
 import { installGlobals } from "@remix-run/node";
 
-import dbConnect from '~/lib/dbConnect';
+import dbConnect from "~/lib/dbConnect";
 
-import User from '~/models/user';
+import User from "~/models/user";
 
 installGlobals();
 dbConnect();
@@ -23,9 +23,7 @@ async function deleteUser(email: string) {
   try {
     await User.delete({ email });
   } catch (error) {
-    if (
-      error.code === "P2025"
-    ) {
+    if (error.code === "P2025") {
       console.log("User not found, so no need to delete");
     } else {
       throw error;

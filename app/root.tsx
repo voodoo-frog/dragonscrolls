@@ -10,7 +10,6 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { ReactNode } from "react";
-import { useState, useEffect } from "react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
@@ -36,53 +35,14 @@ interface Props {
   children?: ReactNode;
 }
 
-interface Size {
-  width: number;
-  height: number;
-}
-
-const styles = {
-  bgDesktop: {
-    background: 'url("/images/parchment.jpeg") no-repeat center center fixed',
-  },
-  bgMobile: {
-    backgroundColor: 'tan'
-  }
-};
-
 const Document = ({ children }: Props) => {
-  const handleResize = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-
-    setSize({
-      width: width,
-      height: height,
-    });
-  };
-  const [size, setSize] = useState<Size>();
-
-  useEffect(() => {
-    if (!size || !size.width) {
-      handleResize();
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup function
-    // Remove the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [size]);
-
   return (
     <html lang="en" className="min-h-screen">
       <head>
         <Meta />
         <Links />
       </head>
-      <body style={size && size.width >= 1024 ? styles.bgDesktop : styles.bgMobile} className="h-screen w-screen">
+      <body className="min-h-screen bg-[#aa885a] bg-fixed bg-center xl:bg-[url('/images/parchment.jpeg')]">
         {children}
         {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
       </body>
@@ -106,7 +66,7 @@ export default function App() {
   );
 }
 
-export function ErrorBoundary({ error }: { error: Error; }) {
+export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document>
       <Layout>

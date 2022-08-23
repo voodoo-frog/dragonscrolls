@@ -59,10 +59,7 @@ export default function Sorcerer() {
           Creating Spell Slots
         </h5>
         <hr />
-        <Table
-          size="small"
-          aria-label="wild shape table"
-        >
+        <Table size="small" aria-label="wild shape table">
           <TableHead>
             <TableRow>
               <TableCell className="font-bold">

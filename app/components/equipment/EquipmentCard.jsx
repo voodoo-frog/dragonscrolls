@@ -103,15 +103,17 @@ export default function EquipmentCard({
           <Typography variant="caption">{equipment_category.name}</Typography>
         </div>
 
-        <Typography className="w-[150px]">
-          {cost.quantity ? `${cost.quantity} ${cost.unit}` : "--"}
-        </Typography>
+        <div className="hidden lg:flex">
+          <Typography className="w-[150px]">
+            {cost.quantity ? `${cost.quantity} ${cost.unit}` : "--"}
+          </Typography>
 
-        <Typography className="w-[150px]">
-          {weight ? `${weight} ${weight === 1 ? "lb" : "lbs"}` : "--"}
-        </Typography>
+          <Typography className="w-[150px]">
+            {weight ? `${weight} ${weight === 1 ? "lb" : "lbs"}` : "--"}
+          </Typography>
 
-        <Typography>{category_name}</Typography>
+          <Typography>{category_name}</Typography>
+        </div>
       </AccordionSummary>
       <AccordionDetails>
         {desc.map((descItem, index) => {

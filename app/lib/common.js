@@ -129,10 +129,7 @@ export const table = (title, headers, rows, small = false) => (
         <hr />
       </>
     )}
-    <Table
-      aria-label="table"
-      size={small ? "small" : "medium"}
-    >
+    <Table aria-label="table" size={small ? "small" : "medium"}>
       <TableHead>
         <TableRow>
           {headers.map((header) => (

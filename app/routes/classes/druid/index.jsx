@@ -57,10 +57,7 @@ export default function Druid() {
       >
         <h5 className="m-3 text-lg font-bold capitalize">Beast Shapes</h5>
         <hr />
-        <Table
-          size="small"
-          aria-label="wild shape table"
-        >
+        <Table size="small" aria-label="wild shape table">
           <TableHead>
             <TableRow>
               <TableCell className="font-bold">

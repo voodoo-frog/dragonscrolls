@@ -22,7 +22,12 @@ export async function getUserByDisplay(display: string) {
   return User.findOne({ display }).exec();
 }
 
-export async function createUser(name: string, display: string, email: string, password: string) {
+export async function createUser(
+  name: string,
+  display: string,
+  email: string,
+  password: string
+) {
   await dbConnect();
 
   const hashedPassword = await bcrypt.hash(password, 10);

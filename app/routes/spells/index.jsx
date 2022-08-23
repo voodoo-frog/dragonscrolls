@@ -49,7 +49,11 @@ export const loader = async () => {
 
   /* Classes */
   const classResults = await Class.find({});
-  const casters = sorter(classResults.filter((data) => data.spellcasting));
+  const casters = sorter(
+    classResults
+      .filter((data) => data.spellcasting)
+      .filter((data) => data.name !== "Artificer")
+  );
 
   return { spells, schools, casters };
 };
@@ -190,8 +194,8 @@ export default function SpellsPage() {
 
   return (
     <>
-      <h3 className="m-3	text-4xl">Spells</h3>
-      <div className="flex grid w-full grid-cols-3 justify-items-center gap-4 p-3 md:grid-cols-4 lg:grid-cols-8">
+      <h3 className="m-3 text-4xl">Spells</h3>
+      <div className="flex grid w-full grid-cols-3 justify-items-center gap-4 p-3 lg:grid-cols-8">
         {casters.map((caster) => (
           <div
             key={caster.index}
@@ -217,7 +221,7 @@ export default function SpellsPage() {
 
       <Form method="post">
         <div className="flex w-full justify-between p-3">
-          <FormControl style={{ minWidth: 150, margin: 10, flex: 3 }}>
+          <FormControl style={{ margin: 10, flex: 3 }}>
             <Typography
               htmlFor="spell-name"
               variant="caption"
@@ -244,126 +248,132 @@ export default function SpellsPage() {
               }}
             />
           </FormControl>
-          <FormControl
-            color="error"
-            style={{ minWidth: 150, margin: 10, flex: 1 }}
-          >
-            <Typography
-              htmlFor="spell-name"
-              variant="caption"
-              sx={{ fontWeight: "bold" }}
+
+          <div className="hidden lg:flex">
+            <FormControl
+              color="error"
+              style={{ minWidth: 150, margin: 10, flex: 1 }}
             >
-              Spell Level
-            </Typography>
-            <Select
-              labelId="spell-level-label"
-              id="spell-level"
-              multiple
-              value={selectedLevels}
-              onChange={handleChangeLevels}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-              sx={{
-                bgcolor: "rgba(0,0,0,0.2)",
-                borderRadius: "50px",
-                color: "black",
-                "& .MuiOutlinedInput-root": {
+              <Typography
+                htmlFor="spell-level"
+                variant="caption"
+                sx={{ fontWeight: "bold" }}
+              >
+                Spell Level
+              </Typography>
+              <Select
+                labelId="spell-level-label"
+                id="spell-level"
+                multiple
+                value={selectedLevels}
+                onChange={handleChangeLevels}
+                renderValue={(selected) => selected.join(", ")}
+                MenuProps={MenuProps}
+                sx={{
+                  bgcolor: "rgba(0,0,0,0.2)",
                   borderRadius: "50px",
                   color: "black",
-                },
-                "& .MuiInputLabel-root": { color: "black" },
-              }}
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "50px",
+                    color: "black",
+                  },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
+              >
+                {levels.map((level) => (
+                  <MenuItem key={level} value={level}>
+                    <Checkbox checked={selectedLevels.indexOf(level) > -1} />
+                    <ListItemText primary={level} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl
+              color="error"
+              style={{ minWidth: 150, margin: 10, flex: 2 }}
             >
-              {levels.map((level) => (
-                <MenuItem key={level} value={level}>
-                  <Checkbox checked={selectedLevels.indexOf(level) > -1} />
-                  <ListItemText primary={level} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <FormControl
-            color="error"
-            style={{ minWidth: 150, margin: 10, flex: 2 }}
-          >
-            <Typography
-              htmlFor="magic-school"
-              variant="caption"
-              sx={{ fontWeight: "bold" }}
-            >
-              Magic School
-            </Typography>
-            <Select
-              labelId="magic-school-label"
-              id="magic-school"
-              multiple
-              value={selectedSchools}
-              onChange={handleChangeSchools}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-              sx={{
-                bgcolor: "rgba(0,0,0,0.2)",
-                borderRadius: "50px",
-                color: "black",
-                "& .MuiOutlinedInput-root": {
+              <Typography
+                htmlFor="magic-school"
+                variant="caption"
+                sx={{ fontWeight: "bold" }}
+              >
+                Magic School
+              </Typography>
+              <Select
+                labelId="magic-school-label"
+                id="magic-school"
+                multiple
+                value={selectedSchools}
+                onChange={handleChangeSchools}
+                renderValue={(selected) => selected.join(", ")}
+                MenuProps={MenuProps}
+                sx={{
+                  bgcolor: "rgba(0,0,0,0.2)",
                   borderRadius: "50px",
                   color: "black",
-                },
-                "& .MuiInputLabel-root": { color: "black" },
-              }}
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "50px",
+                    color: "black",
+                  },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
+              >
+                {schools.map(({ name }) => (
+                  <MenuItem key={name} value={name}>
+                    <Checkbox checked={selectedSchools.indexOf(name) > -1} />
+                    <ListItemText primary={name} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl
+              color="error"
+              style={{ minWidth: 150, margin: 10, flex: 2 }}
             >
-              {schools.map(({ name }) => (
-                <MenuItem key={name} value={name}>
-                  <Checkbox checked={selectedSchools.indexOf(name) > -1} />
-                  <ListItemText primary={name} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <FormControl
-            color="error"
-            style={{ minWidth: 150, margin: 10, flex: 2 }}
-          >
-            <Typography
-              htmlFor="casting-time"
-              variant="caption"
-              sx={{ fontWeight: "bold" }}
-            >
-              Casting Time
-            </Typography>
-            <Select
-              labelId="casting-time-label"
-              id="casting-time"
-              multiple
-              value={selectedCastingTimes}
-              onChange={handleChangeCastingTimes}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-              sx={{
-                bgcolor: "rgba(0,0,0,0.2)",
-                borderRadius: "50px",
-                color: "black",
-                "& .MuiOutlinedInput-root": {
+              <Typography
+                htmlFor="casting-time"
+                variant="caption"
+                sx={{ fontWeight: "bold" }}
+              >
+                Casting Time
+              </Typography>
+              <Select
+                labelId="casting-time-label"
+                id="casting-time"
+                multiple
+                value={selectedCastingTimes}
+                onChange={handleChangeCastingTimes}
+                renderValue={(selected) => selected.join(", ")}
+                MenuProps={MenuProps}
+                sx={{
+                  bgcolor: "rgba(0,0,0,0.2)",
                   borderRadius: "50px",
                   color: "black",
-                },
-                "& .MuiInputLabel-root": { color: "black" },
-              }}
-            >
-              {castingTimes.map((ct) => (
-                <MenuItem key={ct} value={ct}>
-                  <Checkbox checked={selectedCastingTimes.indexOf(ct) > -1} />
-                  <ListItemText primary={ct} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "50px",
+                    color: "black",
+                  },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
+              >
+                {castingTimes.map((ct) => (
+                  <MenuItem key={ct} value={ct}>
+                    <Checkbox checked={selectedCastingTimes.indexOf(ct) > -1} />
+                    <ListItemText primary={ct} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
           <Button
             color="error"
             size="large"
             variant="contained"
             className="self-center rounded bg-red-500 p-3 capitalize text-white hover:bg-red-600"
             onClick={handleReset}
+            sx={{
+              marginTop: "20px",
+            }}
           >
             Reset filters
           </Button>
