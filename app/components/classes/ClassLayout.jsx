@@ -22,7 +22,7 @@ export default function ClassLayout({ classData, children }) {
     <div className="mx-auto w-[80%] pb-10">
       <h3 className="mt-3	text-4xl font-bold capitalize">{index}</h3>
       <img
-        className="mx-auto my-8 w-1/2"
+        className="mx-auto my-8 w-full lg:w-1/2"
         src={`/images/${index}-full.png`}
         alt={`${index} class`}
       />

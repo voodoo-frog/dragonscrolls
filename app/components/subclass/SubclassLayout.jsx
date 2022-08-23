@@ -8,7 +8,7 @@ export default function SubclassLayout({ children = null, data }) {
         {subclass.subclass_flavor}: {name}
       </h3>
       <img
-        className="mx-auto my-8 w-1/2"
+        className="mx-auto my-8 w-full lg:w-1/2"
         src={`/images/${subclass.class.index}-${index}.png`}
         alt={`${subclass.class.index}-${index} subclass`}
       />

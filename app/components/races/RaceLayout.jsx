@@ -16,7 +16,7 @@ export default function RaceLayout({ race, children }) {
     <div className="mx-auto w-[80%] pb-10">
       <h3 className="mt-3	text-4xl font-bold capitalize">{name}</h3>
       <img
-        className="mx-auto my-8 w-1/2"
+        className="mx-auto my-8 w-full lg:w-1/2"
         src={`/images/${index}.png`}
         alt={`${index} class`}
       />
@@ -32,8 +32,8 @@ export default function RaceLayout({ race, children }) {
           {index === "human"
             ? "Your ability scores each increase by 1."
             : ability_bonuses
-                .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
-                .join(", ")}
+              .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
+              .join(", ")}
         </p>
 
         <p className="pt-3">

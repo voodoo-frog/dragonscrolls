@@ -1,9 +1,9 @@
 export default function UnderConstruction({ title = null }) {
   return (
     <div>
-      <h3 className="m-3 text-4xl">{title}</h3>
+      <h3 className={`m-3 text-4xl ${title === null ? 'hidden' : 'block'}`}>{title}</h3>
       <img
-        className="mx-auto my-3 w-1/2"
+        className="mx-auto mb-3 w-full lg:w-1/2"
         src={`/images/landscape.png`}
         alt={`dnd party`}
       />
