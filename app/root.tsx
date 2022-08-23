@@ -6,7 +6,6 @@ import {
   LiveReload,
   Meta,
   Outlet,
-  Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
 import type { ReactNode } from "react";
@@ -44,6 +43,7 @@ const Document = ({ children }: Props) => {
       </head>
       <body className="min-h-screen bg-[#aa885a] bg-fixed bg-center xl:bg-[url('/images/parchment.jpeg')]">
         {children}
+        <ScrollRestoration />
         {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
       </body>
     </html>
@@ -55,12 +55,6 @@ export default function App() {
     <Document>
       <Layout>
         <Outlet />
-
-        <ScrollRestoration />
-
-        <Scripts />
-
-        <LiveReload />
       </Layout>
     </Document>
   );
@@ -107,7 +101,19 @@ export function CatchBoundary() {
               </p>
             </div>
           </>
-        ) : null}
+        ) : <>
+          <img
+            className="mx-auto mb-5 mt-10 w-full lg:w-1/4"
+            src={`/images/discussion.png`}
+            alt={`people at table discussing`}
+          />
+
+          <div className="h-full w-full text-center text-xl">
+            <p>
+              It would seem we are experiencing some technical difficulties.
+            </p>
+          </div>
+        </>}
       </Layout>
     </Document>
   );
