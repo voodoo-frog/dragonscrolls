@@ -32,8 +32,8 @@ export default function RaceLayout({ race, children }) {
           {index === "human"
             ? "Your ability scores each increase by 1."
             : ability_bonuses
-              .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
-              .join(", ")}
+                .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
+                .join(", ")}
         </p>
 
         <p className="pt-3">

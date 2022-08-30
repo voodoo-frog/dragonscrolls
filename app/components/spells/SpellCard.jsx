@@ -144,9 +144,9 @@ export default function SpellCard({ spell, expanded, handleChangeExpanded }) {
               const rowGroup = [];
               Object.entries(item).map(([key, value]) => {
                 rowGroup.push(value);
-                !cols.includes(key) && cols.push(key);
+                return !cols.includes(key) && cols.push(key);
               });
-              rows.push(rowGroup);
+              return rows.push(rowGroup);
             });
 
             return table(undefined, cols, rows, true);

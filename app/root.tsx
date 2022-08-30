@@ -60,7 +60,7 @@ export default function App() {
   );
 }
 
-export function ErrorBoundary({ error }: { error: Error; }) {
+export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document>
       <Layout>
@@ -101,19 +101,21 @@ export function CatchBoundary() {
               </p>
             </div>
           </>
-        ) : <>
-          <img
-            className="mx-auto mb-5 mt-10 w-full lg:w-1/4"
-            src={`/images/discussion.png`}
-            alt={`people at table discussing`}
-          />
+        ) : (
+          <>
+            <img
+              className="mx-auto mb-5 mt-10 w-full lg:w-1/4"
+              src={`/images/discussion.png`}
+              alt={`people at table discussing`}
+            />
 
-          <div className="h-full w-full text-center text-xl">
-            <p>
-              It would seem we are experiencing some technical difficulties.
-            </p>
-          </div>
-        </>}
+            <div className="h-full w-full text-center text-xl">
+              <p>
+                It would seem we are experiencing some technical difficulties.
+              </p>
+            </div>
+          </>
+        )}
       </Layout>
     </Document>
   );
