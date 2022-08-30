@@ -13,7 +13,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
 import Menu from "@mui/material/Menu";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
 import { useOptionalUser } from "~/utils";
@@ -150,7 +149,7 @@ export default function Navbar() {
           <div className="flex lg:hidden">
             <div className="flex items-center">
               <div
-                onClick={() => console.log("clicked")}
+                onClick={() => setOpen(true)}
               >
                 {/* Hamburger Menu */}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6" color="white">
@@ -178,19 +177,17 @@ export default function Navbar() {
           <div className="hidden grow-0 lg:flex">
             <Box>
               {user ? (
-                <Tooltip title="Open settings">
-                  <IconButton
-                    onClick={() => setUserOpen(true)}
-                    sx={{ px: 3, color: "white", fontSize: 20 }}
-                    className="capitalize"
-                  >
-                    {/* User Icon */}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                    </svg>
-                    {user.display}
-                  </IconButton>
-                </Tooltip>
+                <IconButton
+                  onClick={() => setUserOpen(true)}
+                  sx={{ px: 3, color: "white", fontSize: 20 }}
+                  className="capitalize"
+                >
+                  {/* User Icon */}
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>
+                  {user.display}
+                </IconButton>
               ) : (
                 <Link
                   to={"/login"}
@@ -200,7 +197,7 @@ export default function Navbar() {
                 </Link>
               )}
               <Menu
-                sx={{ mt: "65px", mr: "200px" }}
+                sx={{ mt: "58px" }}
                 id="menu-appbar"
                 anchorEl={userOpen}
                 anchorOrigin={{
@@ -216,7 +213,7 @@ export default function Navbar() {
                 onClose={() => setUserOpen(false)}
               >
                 {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={() => setUserOpen(false)}>
+                  <MenuItem sx={{ borderBottom: '1px solid rgba(0, 0, 0, 0.3)' }} key={setting} onClick={() => setUserOpen(false)}>
                     <Link
                       to={
                         setting === "Basic Rules"

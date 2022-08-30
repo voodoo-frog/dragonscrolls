@@ -6,6 +6,7 @@ import {
   LiveReload,
   Meta,
   Outlet,
+  Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
 import type { ReactNode } from "react";
@@ -55,12 +56,13 @@ export default function App() {
     <Document>
       <Layout>
         <Outlet />
+        <Scripts />
       </Layout>
     </Document>
   );
 }
 
-export function ErrorBoundary({ error }: { error: Error }) {
+export function ErrorBoundary({ error }: { error: Error; }) {
   return (
     <Document>
       <Layout>
@@ -75,6 +77,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
         <div className="h-full w-full text-center text-xl">
           <p>Error: {error.message}</p>
         </div>
+        <Scripts />
       </Layout>
     </Document>
   );
@@ -116,6 +119,7 @@ export function CatchBoundary() {
             </div>
           </>
         )}
+        <Scripts />
       </Layout>
     </Document>
   );
