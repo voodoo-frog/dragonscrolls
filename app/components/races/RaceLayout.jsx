@@ -29,6 +29,7 @@ export default function RaceLayout({ race, children }) {
 
         <p className="pt-3">
           <span className="font-bold capitalize">Ability Score Increase: </span>
+          {/* TODO add ability_score_desc */}
           {index === "human"
             ? "Your ability scores each increase by 1."
             : ability_bonuses

@@ -1,13 +1,18 @@
 import { Link } from "@remix-run/react";
 
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Pagination from "@mui/material/Pagination";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import Pagination from "@mui/material/Pagination";
+
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export const sorter = (arr, category = "name", numeric = false) => {
   return arr.sort((a, b) => {
@@ -178,4 +183,95 @@ export const pagination = (array, page, onChange) => (
       onChange={onChange}
     />
   </div>
+);
+
+export const CharacterCreationFeature = ({
+  traits,
+  name,
+  index,
+  expanded,
+  handleChangeExpanded,
+  children,
+}) => (
+  <Accordion
+    className="mb-3"
+    expanded={expanded === name}
+    onChange={handleChangeExpanded(name)}
+  >
+    <AccordionSummary
+      expandIcon={<ExpandMoreIcon />}
+      aria-controls={`Damage Resistance-content`}
+      id={`Damage Resistance-header`}
+    >
+      <p>
+        <strong>{name}</strong>
+      </p>
+    </AccordionSummary>
+    <AccordionDetails>
+      {traits
+        .find((t) => t.index === index)
+        .desc.map((trait) => (
+          <p key={trait} className="mb-3">
+            {trait}
+          </p>
+        ))}
+      {children}
+    </AccordionDetails>
+  </Accordion>
+);
+
+export const CharacterCreationLanguages = ({
+  race,
+  expanded,
+  handleChangeExpanded,
+  children,
+}) => (
+  <Accordion
+    className="mb-3"
+    expanded={expanded === "language"}
+    onChange={handleChangeExpanded("language")}
+  >
+    <AccordionSummary
+      expandIcon={<ExpandMoreIcon />}
+      aria-controls={`${race.index}-content`}
+      id={`${race.index}-header`}
+    >
+      <p>
+        <strong>Languages</strong>
+      </p>
+    </AccordionSummary>
+    <AccordionDetails>
+      <p className="mb-3">{race.language_desc}</p>
+      {children}
+    </AccordionDetails>
+  </Accordion>
+);
+
+export const CharacterCreationAbilityScore = ({
+  race,
+  expanded,
+  handleChangeExpanded,
+  children,
+}) => (
+  <Accordion
+    className="mb-3"
+    expanded={expanded === "ability-score"}
+    onChange={handleChangeExpanded("ability-score")}
+  >
+    <AccordionSummary
+      expandIcon={<ExpandMoreIcon />}
+      aria-controls={`${race.index}-content`}
+      id={`${race.index}-header`}
+    >
+      <p>
+        <strong>Ability Score Increase</strong>
+      </p>
+    </AccordionSummary>
+    <AccordionDetails>
+      {/* TODO add ability_score_desc */}
+      {/* <p className="mb-3">{race.ability_score_desc}</p> */}
+      <p className="mb-3">TBD</p>
+      {children}
+    </AccordionDetails>
+  </Accordion>
 );
