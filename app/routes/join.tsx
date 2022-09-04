@@ -189,6 +189,11 @@ export default function Join() {
 
   return (
     <div className="flex min-h-full flex-col justify-center">
+      <img
+        className="mx-auto mb-5 w-full lg:w-1/3"
+        src={`/images/forest.png`}
+        alt={`404 not found`}
+      />
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
           <div>
@@ -304,7 +309,7 @@ export default function Join() {
           <input type="hidden" name="redirectTo" value={redirectTo} />
           <button
             type="submit"
-            className="w-full rounded bg-blue-500  py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
+            className="w-full rounded bg-red-500  py-2 px-4 text-white hover:bg-red-600 focus:bg-red-400"
           >
             Create Account
           </button>
@@ -312,7 +317,7 @@ export default function Join() {
             <div className="text-center text-sm text-gray-500">
               Already have an account?{" "}
               <Link
-                className="text-blue-500 underline"
+                className="text-black underline"
                 to={{
                   pathname: "/login",
                   search: searchParams.toString(),

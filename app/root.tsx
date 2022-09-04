@@ -62,14 +62,12 @@ export default function App() {
   );
 }
 
-export function ErrorBoundary({ error }: { error: Error; }) {
+export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document>
       <Layout>
-        <h3 className="m-3 text-center text-4xl">Error!</h3>
-
         <img
-          className="mx-auto mb-5 mt-10 w-full lg:w-1/4"
+          className="mx-auto mb-5 w-full lg:w-1/2"
           src={`/images/dungeon.png`}
           alt={`404 not found`}
         />
