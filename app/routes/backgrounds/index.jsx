@@ -18,7 +18,7 @@ export const meta = () => {
 export const loader = async () => {
   await dbConnect();
 
-  // Equipment
+  // Backgrounds
   const bgResults = await Background.find({});
   const backgrounds = sorter(bgResults);
 
