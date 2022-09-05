@@ -32,7 +32,7 @@ export default function CharacterNameRaceLayout({
           </p>
           <p className="my-2">{race.brief}</p>
         </div>
-        <div className="ml-3 p-0">
+        <div className="ml-3 shrink-0 p-0">
           <img
             className="h-[100px] w-[100px]"
             name={subrace.name || race.name}

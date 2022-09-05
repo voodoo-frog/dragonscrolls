@@ -13,6 +13,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 export const sorter = (arr, category = "name", numeric = false) => {
   return arr.sort((a, b) => {
@@ -191,6 +192,7 @@ export const CharacterCreationFeature = ({
   index,
   expanded,
   handleChangeExpanded,
+  error = false,
   children,
 }) => (
   <Accordion
@@ -200,11 +202,12 @@ export const CharacterCreationFeature = ({
   >
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
-      aria-controls={`Damage Resistance-content`}
-      id={`Damage Resistance-header`}
+      aria-controls={`${index}-content`}
+      id={`${index}-header`}
     >
-      <p>
+      <p className="flex w-full justify-between">
         <strong>{name}</strong>
+        {error && <WarningAmberIcon sx={{ color: "red" }} />}
       </p>
     </AccordionSummary>
     <AccordionDetails>
@@ -224,6 +227,7 @@ export const CharacterCreationLanguages = ({
   race,
   expanded,
   handleChangeExpanded,
+  error = false,
   children,
 }) => (
   <Accordion
@@ -233,11 +237,12 @@ export const CharacterCreationLanguages = ({
   >
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
-      aria-controls={`${race.index}-content`}
-      id={`${race.index}-header`}
+      aria-controls={`${race.index}-language-content`}
+      id={`${race.index}-language-header`}
     >
-      <p>
+      <p className="flex w-full justify-between">
         <strong>Languages</strong>
+        {error && <WarningAmberIcon sx={{ color: "red" }} />}
       </p>
     </AccordionSummary>
     <AccordionDetails>
@@ -251,6 +256,7 @@ export const CharacterCreationAbilityScore = ({
   race,
   expanded,
   handleChangeExpanded,
+  error = false,
   children,
 }) => (
   <Accordion
@@ -260,11 +266,12 @@ export const CharacterCreationAbilityScore = ({
   >
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
-      aria-controls={`${race.index}-content`}
-      id={`${race.index}-header`}
+      aria-controls={`${race.index}-ability-score-content`}
+      id={`${race.index}-ability-score-header`}
     >
-      <p>
+      <p className="flex w-full justify-between">
         <strong>Ability Score Increase</strong>
+        {error && <WarningAmberIcon sx={{ color: "red" }} />}
       </p>
     </AccordionSummary>
     <AccordionDetails>

@@ -12,6 +12,8 @@ import {
 } from "~/lib/common";
 
 export default function HalfElf({
+  character,
+  setCharacter,
   race,
   expanded,
   handleChangeExpanded,
@@ -30,10 +32,32 @@ export default function HalfElf({
   });
   const [extraLanguage, setExtraLanguage] = useState("");
 
+  const handleChangeAbilityScore = (e) => {
+    const { name, value } = e.target;
+    setChosenAbilityScores({
+      ...chosenAbilityScores,
+      [name]: value,
+    });
+
+    setCharacter({
+      ...character,
+      raceDetails: {
+        ...character.raceDetails,
+        abilityScores: {
+          ...character.raceDetails.abilityScores,
+          [name]: value,
+        },
+      },
+    });
+  };
+
   return (
     <>
       <CharacterCreationAbilityScore
         race={race}
+        error={
+          chosenAbilityScores.first === "" || chosenAbilityScores.second === ""
+        }
         expanded={expanded}
         handleChangeExpanded={handleChangeExpanded}
       >
@@ -45,14 +69,10 @@ export default function HalfElf({
             className="my-3"
             labelId="ability-score-1-select-label"
             id="ability-score-1-select"
+            name="first"
             value={chosenAbilityScores.first}
             label="Choose an Ability Score"
-            onChange={(e) =>
-              setChosenAbilityScores({
-                ...chosenAbilityScores,
-                first: e.target.value,
-              })
-            }
+            onChange={handleChangeAbilityScore}
           >
             {abilityScores
               .filter((score) => score.index !== "cha")
@@ -74,14 +94,10 @@ export default function HalfElf({
           <Select
             labelId="ability-score-2-select-label"
             id="ability-score-2-select"
+            name="second"
             value={chosenAbilityScores.second}
             label="Choose an Ability Score"
-            onChange={(e) =>
-              setChosenAbilityScores({
-                ...chosenAbilityScores,
-                second: e.target.value,
-              })
-            }
+            onChange={handleChangeAbilityScore}
           >
             {abilityScores
               .filter((score) => score.index !== "cha")
@@ -99,25 +115,31 @@ export default function HalfElf({
 
       <CharacterCreationLanguages
         race={race}
+        error={extraLanguage === ""}
         expanded={expanded}
         handleChangeExpanded={handleChangeExpanded}
       >
         <FormControl fullWidth>
-          <InputLabel id="skill-versatility-select-label">
+          <InputLabel id="extra-language-select-label">
             Choose a Language
           </InputLabel>
           <Select
-            labelId="skill-versatility-select-label"
-            id="skill-versatility-select"
+            labelId="extra-language-select-label"
+            id="extra-language-select"
             value={extraLanguage}
             label="Choose a Language"
             onChange={(e) => setExtraLanguage(e.target.value)}
           >
-            {languages.map((language) => (
-              <MenuItem key={language.index} value={language.index}>
-                {language.name}
-              </MenuItem>
-            ))}
+            {languages
+              .filter(
+                (language) =>
+                  language.index !== "common" && language.index !== "elvish"
+              )
+              .map((language) => (
+                <MenuItem key={language.index} value={language.index}>
+                  {language.name}
+                </MenuItem>
+              ))}
           </Select>
         </FormControl>
       </CharacterCreationLanguages>
@@ -142,6 +164,7 @@ export default function HalfElf({
         traits={traits}
         name="Skill Versatility"
         index="skill-versatility"
+        error={chosenSkills.first === "" || chosenSkills.second === ""}
         expanded={expanded}
         handleChangeExpanded={handleChangeExpanded}
       >
@@ -153,6 +176,7 @@ export default function HalfElf({
             className="my-3"
             labelId="skill-versatility-select-label"
             id="skill-versatility-select"
+            name="first"
             value={chosenSkills.first}
             label="Choose a Skill"
             onChange={(e) =>
@@ -176,6 +200,7 @@ export default function HalfElf({
           <Select
             labelId="skill-versatility-select-label"
             id="skill-versatility-select"
+            name="second"
             value={chosenSkills.second}
             label="Choose a Skill"
             onChange={(e) =>

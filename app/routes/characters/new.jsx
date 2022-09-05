@@ -30,6 +30,7 @@ import Equipment from "~/models/equipment";
 import Language from "~/models/language";
 import Race from "~/models/race";
 import Skill from "~/models/skill";
+import Spell from "~/models/spell";
 import Subclass from "~/models/subclass";
 import Subrace from "~/models/subrace";
 import Trait from "~/models/trait";
@@ -71,6 +72,10 @@ export const loader = async () => {
   const skillResults = await Skill.find({});
   const skills = sorter(skillResults);
 
+  // Spells
+  const spellResults = await Spell.find({});
+  const spells = sorter(spellResults);
+
   // Subclasses
   const subclassResults = await Subclass.find({});
   const subclasses = sorter(subclassResults);
@@ -91,6 +96,7 @@ export const loader = async () => {
     languages,
     races,
     skills,
+    spells,
     subclasses,
     subraces,
     traits,
@@ -115,13 +121,26 @@ export default function NewCharacter() {
     languages,
     races,
     skills,
+    spells,
     subclasses,
     subraces,
     traits,
   } = useLoaderData();
 
   const [activeStep, setActiveStep] = useState(0);
-  const [character, setCharacter] = useState({});
+  const [character, setCharacter] = useState({
+    race: "",
+    subrace: "",
+    languages: [],
+    ability_scores: {
+      str: 0,
+      dex: 0,
+      con: 0,
+      int: 0,
+      wis: 0,
+      cha: 0,
+    },
+  });
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -134,8 +153,6 @@ export default function NewCharacter() {
   const handleReset = () => {
     setActiveStep(0);
   };
-
-  console.log("character", character);
 
   return (
     <div className="m-5">
@@ -176,10 +193,12 @@ export default function NewCharacter() {
                 character={character}
                 setCharacter={setCharacter}
                 abilityScores={abilityScores}
+                equipment={equipment}
                 languages={languages}
                 races={races}
                 skills={skills}
                 subraces={subraces}
+                spells={spells}
                 traits={traits}
               />
             )}

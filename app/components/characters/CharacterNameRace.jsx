@@ -9,9 +9,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CharacterNameRaceLayout from "./CharacterNameRaceLayout";
 import CharacterSelectRace from "./CharacterSelectRace";
 
+import Dwarf from "./race/Dwarf";
 import Dragonborn from "./race/Dragonborn";
 import HalfElf from "./race/HalfElf";
 import Human from "./race/Human";
+import Elf from "./race/Elf";
 
 export default function CharacterNameRace({
   character,
@@ -20,6 +22,7 @@ export default function CharacterNameRace({
   languages,
   races,
   skills,
+  spells,
   subraces,
   traits,
 }) {
@@ -31,13 +34,6 @@ export default function CharacterNameRace({
   const [changeRace, setChangeRace] = useState(false);
 
   let raceDetails;
-
-  // console.log('abilityScores', abilityScores);
-  // console.log('languages', languages);
-  // console.log("races", races);
-  // console.log('skills', skills);
-  // console.log("subraces", subraces);
-  // console.log("traits", traits);
 
   const handleSelection = (race, subrace = "") => {
     setSelectedRace(race);
@@ -51,13 +47,55 @@ export default function CharacterNameRace({
     race !== displaySubrace ? setDisplaySubrace(race) : setDisplaySubrace("");
   };
 
-  const handleSelectRace = () => {
-    setCharacter({
+  const handleSelectRace = async () => {
+    const newCharacter = {
       ...character,
       race: selectedRace.index,
       subrace: selectedSubrace.index || null,
-    });
+      languages: [],
+    };
 
+    // Ability Score Modifiers
+    for (const score in character.ability_scores) {
+      let value = 0;
+
+      if (selectedRace.ability_bonuses) {
+        const bonus = selectedRace.ability_bonuses.find(
+          (bonus) => bonus.ability_score.index === score
+        );
+
+        if (bonus) {
+          value += bonus.bonus;
+        }
+      }
+
+      if (selectedSubrace.ability_bonuses) {
+        const bonus = selectedSubrace.ability_bonuses.find(
+          (bonus) => bonus.ability_score.index === score
+        );
+
+        if (bonus) {
+          value += bonus.bonus;
+        }
+      }
+
+      newCharacter.ability_scores[score] = value;
+    }
+
+    // Languages
+    if (selectedRace.languages) {
+      newCharacter.languages.push(
+        ...selectedRace.languages.map((language) => language.index)
+      );
+    }
+
+    if (selectedSubrace.languages) {
+      newCharacter.languages.push(
+        ...selectedSubrace.languages.map((language) => language.index)
+      );
+    }
+
+    await setCharacter(newCharacter);
     setModalOpen(false);
     setChangeRace(false);
     setDisplaySubrace("");
@@ -71,7 +109,41 @@ export default function CharacterNameRace({
     case "dragonborn":
       raceDetails = (
         <Dragonborn
-          race={races.find(race => race.index === character.race)}
+          character={character}
+          setCharacter={setCharacter}
+          race={races.find((race) => race.index === character.race)}
+          traits={traits}
+          expanded={expanded}
+          handleChangeExpanded={handleChangeExpanded}
+        />
+      );
+      break;
+    case "dwarf":
+      raceDetails = (
+        <Dwarf
+          character={character}
+          setCharacter={setCharacter}
+          race={races.find((race) => race.index === character.race)}
+          subrace={subraces.find(
+            (subrace) => subrace.index === character.subrace
+          )}
+          traits={traits}
+          expanded={expanded}
+          handleChangeExpanded={handleChangeExpanded}
+        />
+      );
+      break;
+    case "elf":
+      raceDetails = (
+        <Elf
+          character={character}
+          setCharacter={setCharacter}
+          race={races.find((race) => race.index === character.race)}
+          subrace={subraces.find(
+            (subrace) => subrace.index === character.subrace
+          )}
+          languages={languages}
+          spells={spells}
           traits={traits}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
@@ -81,7 +153,9 @@ export default function CharacterNameRace({
     case "half-elf":
       raceDetails = (
         <HalfElf
-          race={races.find(race => race.index === character.race)}
+          character={character}
+          setCharacter={setCharacter}
+          race={races.find((race) => race.index === character.race)}
           abilityScores={abilityScores}
           languages={languages}
           skills={skills}
@@ -94,16 +168,17 @@ export default function CharacterNameRace({
     case "human":
       raceDetails = (
         <Human
-          race={races.find(race => race.index === character.race)}
+          character={character}
+          setCharacter={setCharacter}
+          race={races.find((race) => race.index === character.race)}
           languages={languages}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
       );
       break;
-    // TODO need hill dwarf, high elf, lightfoot & mountain halfling
     default:
-      // half-orc, wood elf, rock gnome, tiefling
+      // half-orc, wood elf, lightfoot & mountain halfling, rock gnome, tiefling
       raceDetails = traits
         .filter((trait) =>
           trait.races.some((r) => r.index === selectedRace.index)
@@ -129,6 +204,7 @@ export default function CharacterNameRace({
             </AccordionDetails>
           </Accordion>
         ));
+      break;
   }
 
   return (
@@ -167,8 +243,10 @@ export default function CharacterNameRace({
         {/* Race Selected - Summary */}
         {character.race && !changeRace && (
           <CharacterNameRaceLayout
-            race={races.find(race => race.index === character.race)}
-            subrace={subraces.find(subrace => subrace.index === character.subrace)}
+            race={races.find((race) => race.index === character.race)}
+            subrace={subraces.find(
+              (subrace) => subrace.index === character.subrace
+            )}
             traits={traits}
             changeRace={() => setChangeRace(true)}
           >
@@ -184,15 +262,16 @@ export default function CharacterNameRace({
               <img
                 className="h-[80px] w-[80px] rounded-full"
                 name={character.subrace || character.race}
-                src={`/images/${character.subrace || character.race
-                  }-avatar.jpeg`}
+                src={`/images/${
+                  character.subrace || character.race
+                }-avatar.jpeg`}
                 alt={`${character.subrace || character.race} Avatar`}
               />
               <p className="ml-5 text-lg uppercase text-gray-500">
                 {character.subrace
                   ? subraces.find(
-                    (subrace) => subrace.index === character.subrace
-                  ).name
+                      (subrace) => subrace.index === character.subrace
+                    ).name
                   : races.find((race) => race.index === character.race).name}
               </p>
 
@@ -214,8 +293,8 @@ export default function CharacterNameRace({
               subraces={
                 character.subrace
                   ? subraces.filter(
-                    (subrace) => subrace.index !== character.subrace
-                  )
+                      (subrace) => subrace.index !== character.subrace
+                    )
                   : subraces
               }
               modalOpen={modalOpen}

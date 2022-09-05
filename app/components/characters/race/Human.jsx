@@ -29,6 +29,7 @@ export default function Human({
       <CharacterCreationLanguages
         race={race}
         expanded={expanded}
+        error={extraLanguage === ""}
         handleChangeExpanded={handleChangeExpanded}
       >
         <FormControl fullWidth>

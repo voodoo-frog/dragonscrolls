@@ -13,6 +13,8 @@ import {
 } from "~/lib/common";
 
 export default function Dragonborn({
+  character,
+  setCharacter,
   race,
   expanded,
   handleChangeExpanded,
@@ -21,7 +23,17 @@ export default function Dragonborn({
   const [draconicAncestry, setDraconicAncestry] = useState("");
 
   const handleChangeDraconicAncestry = (e) => {
-    setDraconicAncestry(e.target.value);
+    const { value } = e.target;
+
+    setDraconicAncestry(value);
+
+    setCharacter({
+      ...character,
+      raceDetails: {
+        ...character.raceDetails,
+        draconicAncestry: value,
+      },
+    });
   };
 
   const headers = ["Dragon", "Damage Type", "Breath Weapon"];
@@ -57,6 +69,7 @@ export default function Dragonborn({
         name="Draconic Ancestry"
         index="draconic-ancestry"
         expanded={expanded}
+        error={draconicAncestry === ""}
         handleChangeExpanded={handleChangeExpanded}
       >
         {table(undefined, headers, rows, true)}
