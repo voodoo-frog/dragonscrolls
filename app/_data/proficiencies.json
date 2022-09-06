@@ -1586,7 +1586,7 @@
   {
     "index": "saving-throw-str",
     "type": "Saving Throws",
-    "name": "Saving Throw: STR",
+    "name": "STR",
     "classes": [
       {
         "index": "barbarian",
@@ -1620,7 +1620,7 @@
   {
     "index": "saving-throw-dex",
     "type": "Saving Throws",
-    "name": "Saving Throw: DEX",
+    "name": "DEX",
     "classes": [
       {
         "index": "bard",
@@ -1654,7 +1654,7 @@
   {
     "index": "saving-throw-con",
     "type": "Saving Throws",
-    "name": "Saving Throw: CON",
+    "name": "CON",
     "classes": [
       {
         "index": "barbarian",
@@ -1683,7 +1683,7 @@
   {
     "index": "saving-throw-int",
     "type": "Saving Throws",
-    "name": "Saving Throw: INT",
+    "name": "INT",
     "classes": [
       {
         "index": "druid",
@@ -1712,7 +1712,7 @@
   {
     "index": "saving-throw-wis",
     "type": "Saving Throws",
-    "name": "Saving Throw: WIS",
+    "name": "WIS",
     "classes": [
       {
         "index": "cleric",
@@ -1751,7 +1751,7 @@
   {
     "index": "saving-throw-cha",
     "type": "Saving Throws",
-    "name": "Saving Throw: CHA",
+    "name": "CHA",
     "classes": [
       {
         "index": "bard",
@@ -1788,12 +1788,12 @@
     }
   },
   {
-    "index": "skill-acrobatics",
+    "index": "acrobatics",
     "type": "Skills",
-    "name": "Skill: Acrobatics",
+    "name": "Acrobatics",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-acrobatics",
+    "url": "/api/proficiencies/acrobatics",
     "reference": {
       "index": "acrobatics",
       "name": "Acrobatics",
@@ -1801,12 +1801,12 @@
     }
   },
   {
-    "index": "skill-animal-handling",
+    "index": "animal-handling",
     "type": "Skills",
-    "name": "Skill: Animal Handling",
+    "name": "Animal Handling",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-animal-handling",
+    "url": "/api/proficiencies/animal-handling",
     "reference": {
       "index": "animal-handling",
       "name": "Animal Handling",
@@ -1814,12 +1814,12 @@
     }
   },
   {
-    "index": "skill-arcana",
+    "index": "arcana",
     "type": "Skills",
-    "name": "Skill: Arcana",
+    "name": "Arcana",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-arcana",
+    "url": "/api/proficiencies/arcana",
     "reference": {
       "index": "arcana",
       "name": "Arcana",
@@ -1827,12 +1827,12 @@
     }
   },
   {
-    "index": "skill-athletics",
+    "index": "athletics",
     "type": "Skills",
-    "name": "Skill: Athletics",
+    "name": "Athletics",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-athletics",
+    "url": "/api/proficiencies/athletics",
     "reference": {
       "index": "athletics",
       "name": "Athletics",
@@ -1840,12 +1840,12 @@
     }
   },
   {
-    "index": "skill-deception",
+    "index": "deception",
     "type": "Skills",
-    "name": "Skill: Deception",
+    "name": "Deception",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-deception",
+    "url": "/api/proficiencies/deception",
     "reference": {
       "index": "deception",
       "name": "Deception",
@@ -1853,12 +1853,12 @@
     }
   },
   {
-    "index": "skill-history",
+    "index": "history",
     "type": "Skills",
-    "name": "Skill: History",
+    "name": "History",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-history",
+    "url": "/api/proficiencies/history",
     "reference": {
       "index": "history",
       "name": "History",
@@ -1866,12 +1866,12 @@
     }
   },
   {
-    "index": "skill-insight",
+    "index": "insight",
     "type": "Skills",
-    "name": "Skill: Insight",
+    "name": "Insight",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-insight",
+    "url": "/api/proficiencies/insight",
     "reference": {
       "index": "insight",
       "name": "Insight",
@@ -1879,12 +1879,12 @@
     }
   },
   {
-    "index": "skill-intimidation",
+    "index": "intimidation",
     "type": "Skills",
-    "name": "Skill: Intimidation",
+    "name": "Intimidation",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-intimidation",
+    "url": "/api/proficiencies/intimidation",
     "reference": {
       "index": "intimidation",
       "name": "Intimidation",
@@ -1892,12 +1892,12 @@
     }
   },
   {
-    "index": "skill-investigation",
+    "index": "investigation",
     "type": "Skills",
-    "name": "Skill: Investigation",
+    "name": "Investigation",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-investigation",
+    "url": "/api/proficiencies/investigation",
     "reference": {
       "index": "investigation",
       "name": "Investigation",
@@ -1905,12 +1905,12 @@
     }
   },
   {
-    "index": "skill-medicine",
+    "index": "medicine",
     "type": "Skills",
-    "name": "Skill: Medicine",
+    "name": "Medicine",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-medicine",
+    "url": "/api/proficiencies/medicine",
     "reference": {
       "index": "medicine",
       "name": "Medicine",
@@ -1918,12 +1918,12 @@
     }
   },
   {
-    "index": "skill-nature",
+    "index": "nature",
     "type": "Skills",
-    "name": "Skill: Nature",
+    "name": "Nature",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-nature",
+    "url": "/api/proficiencies/nature",
     "reference": {
       "index": "nature",
       "name": "Nature",
@@ -1931,9 +1931,9 @@
     }
   },
   {
-    "index": "skill-perception",
+    "index": "perception",
     "type": "Skills",
-    "name": "Skill: Perception",
+    "name": "Perception",
     "classes": [],
     "races": [
       {
@@ -1942,7 +1942,7 @@
         "url": "/api/races/elf"
       }
     ],
-    "url": "/api/proficiencies/skill-perception",
+    "url": "/api/proficiencies/perception",
     "reference": {
       "index": "perception",
       "name": "Perception",
@@ -1950,12 +1950,12 @@
     }
   },
   {
-    "index": "skill-performance",
+    "index": "performance",
     "type": "Skills",
-    "name": "Skill: Performance",
+    "name": "Performance",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-performance",
+    "url": "/api/proficiencies/performance",
     "reference": {
       "index": "performance",
       "name": "Performance",
@@ -1963,12 +1963,12 @@
     }
   },
   {
-    "index": "skill-persuasion",
+    "index": "persuasion",
     "type": "Skills",
-    "name": "Skill: Persuasion",
+    "name": "Persuasion",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-persuasion",
+    "url": "/api/proficiencies/persuasion",
     "reference": {
       "index": "persuasion",
       "name": "Persuasion",
@@ -1976,12 +1976,12 @@
     }
   },
   {
-    "index": "skill-religion",
+    "index": "religion",
     "type": "Skills",
-    "name": "Skill: Religion",
+    "name": "Religion",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-religion",
+    "url": "/api/proficiencies/religion",
     "reference": {
       "index": "religion",
       "name": "Religion",
@@ -1989,12 +1989,12 @@
     }
   },
   {
-    "index": "skill-sleight-of-hand",
+    "index": "sleight-of-hand",
     "type": "Skills",
-    "name": "Skill: Sleight of Hand",
+    "name": "Sleight of Hand",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-sleight-of-hand",
+    "url": "/api/proficiencies/sleight-of-hand",
     "reference": {
       "index": "sleight-of-hand",
       "name": "Sleight of Hand",
@@ -2002,12 +2002,12 @@
     }
   },
   {
-    "index": "skill-stealth",
+    "index": "stealth",
     "type": "Skills",
-    "name": "Skill: Stealth",
+    "name": "Stealth",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-stealth",
+    "url": "/api/proficiencies/stealth",
     "reference": {
       "index": "stealth",
       "name": "Stealth",
@@ -2015,12 +2015,12 @@
     }
   },
   {
-    "index": "skill-survival",
+    "index": "survival",
     "type": "Skills",
-    "name": "Skill: Survival",
+    "name": "Survival",
     "classes": [],
     "races": [],
-    "url": "/api/proficiencies/skill-survival",
+    "url": "/api/proficiencies/survival",
     "reference": {
       "index": "survival",
       "name": "Survival",

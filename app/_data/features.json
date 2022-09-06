@@ -547,94 +547,94 @@
         "type": "proficiency",
         "from": [
           {
-            "index": "skill-acrobatics",
-            "name": "Skill: Acrobatics",
-            "url": "/api/proficiencies/skill-acrobatics"
+            "index": "acrobatics",
+            "name": "Acrobatics",
+            "url": "/api/proficiencies/acrobatics"
           },
           {
-            "index": "skill-animal-handling",
-            "name": "Skill: Animal Handling",
-            "url": "/api/proficiencies/skill-animal-handling"
+            "index": "animal-handling",
+            "name": "Animal Handling",
+            "url": "/api/proficiencies/animal-handling"
           },
           {
-            "index": "skill-arcana",
-            "name": "Skill: Arcana",
-            "url": "/api/proficiencies/skill-arcana"
+            "index": "arcana",
+            "name": "Arcana",
+            "url": "/api/proficiencies/arcana"
           },
           {
-            "index": "skill-athletics",
-            "name": "Skill: Athletics",
-            "url": "/api/proficiencies/skill-athletics"
+            "index": "athletics",
+            "name": "Athletics",
+            "url": "/api/proficiencies/athletics"
           },
           {
-            "index": "skill-deception",
-            "name": "Skill: Deception",
-            "url": "/api/proficiencies/skill-deception"
+            "index": "deception",
+            "name": "Deception",
+            "url": "/api/proficiencies/deception"
           },
           {
-            "index": "skill-history",
-            "name": "Skill: History",
-            "url": "/api/proficiencies/skill-history"
+            "index": "history",
+            "name": "History",
+            "url": "/api/proficiencies/history"
           },
           {
-            "index": "skill-insight",
-            "name": "Skill: Insight",
-            "url": "/api/proficiencies/skill-insight"
+            "index": "insight",
+            "name": "Insight",
+            "url": "/api/proficiencies/insight"
           },
           {
-            "index": "skill-intimidation",
-            "name": "Skill: Intimidation",
-            "url": "/api/proficiencies/skill-intimidation"
+            "index": "intimidation",
+            "name": "Intimidation",
+            "url": "/api/proficiencies/intimidation"
           },
           {
-            "index": "skill-investigation",
-            "name": "Skill: Investigation",
-            "url": "/api/proficiencies/skill-investigation"
+            "index": "investigation",
+            "name": "Investigation",
+            "url": "/api/proficiencies/investigation"
           },
           {
-            "index": "skill-medicine",
-            "name": "Skill: Medicine",
-            "url": "/api/proficiencies/skill-medicine"
+            "index": "medicine",
+            "name": "Medicine",
+            "url": "/api/proficiencies/medicine"
           },
           {
-            "index": "skill-nature",
-            "name": "Skill: Nature",
-            "url": "/api/proficiencies/skill-nature"
+            "index": "nature",
+            "name": "Nature",
+            "url": "/api/proficiencies/nature"
           },
           {
-            "index": "skill-perception",
-            "name": "Skill: Perception",
-            "url": "/api/proficiencies/skill-perception"
+            "index": "perception",
+            "name": "Perception",
+            "url": "/api/proficiencies/perception"
           },
           {
-            "index": "skill-performance",
-            "name": "Skill: Performance",
-            "url": "/api/proficiencies/skill-performance"
+            "index": "performance",
+            "name": "Performance",
+            "url": "/api/proficiencies/performance"
           },
           {
-            "index": "skill-persuasion",
-            "name": "Skill: Persuasion",
-            "url": "/api/proficiencies/skill-persuasion"
+            "index": "persuasion",
+            "name": "Persuasion",
+            "url": "/api/proficiencies/persuasion"
           },
           {
-            "index": "skill-religion",
-            "name": "Skill: Religion",
-            "url": "/api/proficiencies/skill-religion"
+            "index": "religion",
+            "name": "Religion",
+            "url": "/api/proficiencies/religion"
           },
           {
-            "index": "skill-sleight-of-hand",
-            "name": "Skill: Sleight of Hand",
-            "url": "/api/proficiencies/skill-sleight-of-hand"
+            "index": "sleight-of-hand",
+            "name": "Sleight of Hand",
+            "url": "/api/proficiencies/sleight-of-hand"
           },
           {
-            "index": "skill-stealth",
-            "name": "Skill: Stealth",
-            "url": "/api/proficiencies/skill-stealth"
+            "index": "stealth",
+            "name": "Stealth",
+            "url": "/api/proficiencies/stealth"
           },
           {
-            "index": "skill-survival",
-            "name": "Skill: Survival",
-            "url": "/api/proficiencies/skill-survival"
+            "index": "survival",
+            "name": "Survival",
+            "url": "/api/proficiencies/survival"
           }
         ]
       }
@@ -790,89 +790,89 @@
         "type": "proficiency",
         "from": [
           {
-            "index": "skill-acrobatics",
-            "name": "Skill: Acrobatics",
-            "url": "/api/proficiencies/skill-acrobatics"
+            "index": "acrobatics",
+            "name": "Acrobatics",
+            "url": "/api/proficiencies/acrobatics"
           },
           {
-            "index": "skill-animal-handling",
-            "name": "Skill: Animal Handling",
-            "url": "/api/proficiencies/skill-animal-handling"
+            "index": "animal-handling",
+            "name": "Animal Handling",
+            "url": "/api/proficiencies/animal-handling"
           },
           {
-            "index": "skill-arcana",
-            "name": "Skill: Arcana",
-            "url": "/api/proficiencies/skill-arcana"
+            "index": "arcana",
+            "name": "Arcana",
+            "url": "/api/proficiencies/arcana"
           },
           {
-            "index": "skill-athletics",
-            "name": "Skill: Athletics",
-            "url": "/api/proficiencies/skill-athletics"
+            "index": "athletics",
+            "name": "Athletics",
+            "url": "/api/proficiencies/athletics"
           },
           {
-            "index": "skill-deception",
-            "name": "Skill: Deception",
-            "url": "/api/proficiencies/skill-deception"
+            "index": "deception",
+            "name": "Deception",
+            "url": "/api/proficiencies/deception"
           },
           {
-            "index": "skill-history",
-            "name": "Skill: History",
-            "url": "/api/proficiencies/skill-history"
+            "index": "history",
+            "name": "History",
+            "url": "/api/proficiencies/history"
           },
           {
-            "index": "skill-insight",
-            "name": "Skill: Insight",
-            "url": "/api/proficiencies/skill-insight"
+            "index": "insight",
+            "name": "Insight",
+            "url": "/api/proficiencies/insight"
           },
           {
-            "index": "skill-intimidation",
-            "name": "Skill: Intimidation",
-            "url": "/api/proficiencies/skill-intimidation"
+            "index": "intimidation",
+            "name": "Intimidation",
+            "url": "/api/proficiencies/intimidation"
           },
           {
-            "index": "skill-investigation",
-            "name": "Skill: Investigation",
-            "url": "/api/proficiencies/skill-investigation"
+            "index": "investigation",
+            "name": "Investigation",
+            "url": "/api/proficiencies/investigation"
           },
           {
-            "index": "skill-medicine",
-            "name": "Skill: Medicine",
-            "url": "/api/proficiencies/skill-medicine"
+            "index": "medicine",
+            "name": "Medicine",
+            "url": "/api/proficiencies/medicine"
           },
           {
-            "index": "skill-nature",
-            "name": "Skill: Nature",
-            "url": "/api/proficiencies/skill-nature"
+            "index": "nature",
+            "name": "Nature",
+            "url": "/api/proficiencies/nature"
           },
           {
-            "index": "skill-perception",
-            "name": "Skill: Perception",
-            "url": "/api/proficiencies/skill-perception"
+            "index": "perception",
+            "name": "Perception",
+            "url": "/api/proficiencies/perception"
           },
           {
-            "index": "skill-performance",
-            "name": "Skill: Performance",
-            "url": "/api/proficiencies/skill-performance"
+            "index": "performance",
+            "name": "Performance",
+            "url": "/api/proficiencies/performance"
           },
           {
-            "index": "skill-persuasion",
-            "name": "Skill: Persuasion",
-            "url": "/api/proficiencies/skill-persuasion"
+            "index": "persuasion",
+            "name": "Persuasion",
+            "url": "/api/proficiencies/persuasion"
           },
           {
-            "index": "skill-religion",
-            "name": "Skill: Religion",
-            "url": "/api/proficiencies/skill-religion"
+            "index": "religion",
+            "name": "Religion",
+            "url": "/api/proficiencies/religion"
           },
           {
-            "index": "skill-sleight-of-hand",
-            "name": "Skill: Sleight of Hand",
-            "url": "/api/proficiencies/skill-sleight-of-hand"
+            "index": "sleight-of-hand",
+            "name": "Sleight of Hand",
+            "url": "/api/proficiencies/sleight-of-hand"
           },
           {
-            "index": "skill-stealth",
-            "name": "Skill: Stealth",
-            "url": "/api/proficiencies/skill-stealth"
+            "index": "stealth",
+            "name": "Stealth",
+            "url": "/api/proficiencies/stealth"
           }
         ]
       }
@@ -4723,94 +4723,94 @@
         "type": "proficiency",
         "from": [
           {
-            "index": "skill-acrobatics",
-            "name": "Skill: Acrobatics",
-            "url": "/api/proficiencies/skill-acrobatics"
+            "index": "acrobatics",
+            "name": "Acrobatics",
+            "url": "/api/proficiencies/acrobatics"
           },
           {
-            "index": "skill-animal-handling",
-            "name": "Skill: Animal Handling",
-            "url": "/api/proficiencies/skill-animal-handling"
+            "index": "animal-handling",
+            "name": "Animal Handling",
+            "url": "/api/proficiencies/animal-handling"
           },
           {
-            "index": "skill-arcana",
-            "name": "Skill: Arcana",
-            "url": "/api/proficiencies/skill-arcana"
+            "index": "arcana",
+            "name": "Arcana",
+            "url": "/api/proficiencies/arcana"
           },
           {
-            "index": "skill-athletics",
-            "name": "Skill: Athletics",
-            "url": "/api/proficiencies/skill-athletics"
+            "index": "athletics",
+            "name": "Athletics",
+            "url": "/api/proficiencies/athletics"
           },
           {
-            "index": "skill-deception",
-            "name": "Skill: Deception",
-            "url": "/api/proficiencies/skill-deception"
+            "index": "deception",
+            "name": "Deception",
+            "url": "/api/proficiencies/deception"
           },
           {
-            "index": "skill-history",
-            "name": "Skill: History",
-            "url": "/api/proficiencies/skill-history"
+            "index": "history",
+            "name": "History",
+            "url": "/api/proficiencies/history"
           },
           {
-            "index": "skill-insight",
-            "name": "Skill: Insight",
-            "url": "/api/proficiencies/skill-insight"
+            "index": "insight",
+            "name": "Insight",
+            "url": "/api/proficiencies/insight"
           },
           {
-            "index": "skill-intimidation",
-            "name": "Skill: Intimidation",
-            "url": "/api/proficiencies/skill-intimidation"
+            "index": "intimidation",
+            "name": "Intimidation",
+            "url": "/api/proficiencies/intimidation"
           },
           {
-            "index": "skill-investigation",
-            "name": "Skill: Investigation",
-            "url": "/api/proficiencies/skill-investigation"
+            "index": "investigation",
+            "name": "Investigation",
+            "url": "/api/proficiencies/investigation"
           },
           {
-            "index": "skill-medicine",
-            "name": "Skill: Medicine",
-            "url": "/api/proficiencies/skill-medicine"
+            "index": "medicine",
+            "name": "Medicine",
+            "url": "/api/proficiencies/medicine"
           },
           {
-            "index": "skill-nature",
-            "name": "Skill: Nature",
-            "url": "/api/proficiencies/skill-nature"
+            "index": "nature",
+            "name": "Nature",
+            "url": "/api/proficiencies/nature"
           },
           {
-            "index": "skill-perception",
-            "name": "Skill: Perception",
-            "url": "/api/proficiencies/skill-perception"
+            "index": "perception",
+            "name": "Perception",
+            "url": "/api/proficiencies/perception"
           },
           {
-            "index": "skill-performance",
-            "name": "Skill: Performance",
-            "url": "/api/proficiencies/skill-performance"
+            "index": "performance",
+            "name": "Performance",
+            "url": "/api/proficiencies/performance"
           },
           {
-            "index": "skill-persuasion",
-            "name": "Skill: Persuasion",
-            "url": "/api/proficiencies/skill-persuasion"
+            "index": "persuasion",
+            "name": "Persuasion",
+            "url": "/api/proficiencies/persuasion"
           },
           {
-            "index": "skill-religion",
-            "name": "Skill: Religion",
-            "url": "/api/proficiencies/skill-religion"
+            "index": "religion",
+            "name": "Religion",
+            "url": "/api/proficiencies/religion"
           },
           {
-            "index": "skill-sleight-of-hand",
-            "name": "Skill: Sleight of Hand",
-            "url": "/api/proficiencies/skill-sleight-of-hand"
+            "index": "sleight-of-hand",
+            "name": "Sleight of Hand",
+            "url": "/api/proficiencies/sleight-of-hand"
           },
           {
-            "index": "skill-stealth",
-            "name": "Skill: Stealth",
-            "url": "/api/proficiencies/skill-stealth"
+            "index": "stealth",
+            "name": "Stealth",
+            "url": "/api/proficiencies/stealth"
           },
           {
-            "index": "skill-survival",
-            "name": "Skill: Survival",
-            "url": "/api/proficiencies/skill-survival"
+            "index": "survival",
+            "name": "Survival",
+            "url": "/api/proficiencies/survival"
           },
           {
             "index": "thieves-tools",
@@ -4977,94 +4977,94 @@
         "type": "proficiency",
         "from": [
           {
-            "index": "skill-acrobatics",
-            "name": "Skill: Acrobatics",
-            "url": "/api/proficiencies/skill-acrobatics"
+            "index": "acrobatics",
+            "name": "Acrobatics",
+            "url": "/api/proficiencies/acrobatics"
           },
           {
-            "index": "skill-animal-handling",
-            "name": "Skill: Animal Handling",
-            "url": "/api/proficiencies/skill-animal-handling"
+            "index": "animal-handling",
+            "name": "Animal Handling",
+            "url": "/api/proficiencies/animal-handling"
           },
           {
-            "index": "skill-arcana",
-            "name": "Skill: Arcana",
-            "url": "/api/proficiencies/skill-arcana"
+            "index": "arcana",
+            "name": "Arcana",
+            "url": "/api/proficiencies/arcana"
           },
           {
-            "index": "skill-athletics",
-            "name": "Skill: Athletics",
-            "url": "/api/proficiencies/skill-athletics"
+            "index": "athletics",
+            "name": "Athletics",
+            "url": "/api/proficiencies/athletics"
           },
           {
-            "index": "skill-deception",
-            "name": "Skill: Deception",
-            "url": "/api/proficiencies/skill-deception"
+            "index": "deception",
+            "name": "Deception",
+            "url": "/api/proficiencies/deception"
           },
           {
-            "index": "skill-history",
-            "name": "Skill: History",
-            "url": "/api/proficiencies/skill-history"
+            "index": "history",
+            "name": "History",
+            "url": "/api/proficiencies/history"
           },
           {
-            "index": "skill-insight",
-            "name": "Skill: Insight",
-            "url": "/api/proficiencies/skill-insight"
+            "index": "insight",
+            "name": "Insight",
+            "url": "/api/proficiencies/insight"
           },
           {
-            "index": "skill-intimidation",
-            "name": "Skill: Intimidation",
-            "url": "/api/proficiencies/skill-intimidation"
+            "index": "intimidation",
+            "name": "Intimidation",
+            "url": "/api/proficiencies/intimidation"
           },
           {
-            "index": "skill-investigation",
-            "name": "Skill: Investigation",
-            "url": "/api/proficiencies/skill-investigation"
+            "index": "investigation",
+            "name": "Investigation",
+            "url": "/api/proficiencies/investigation"
           },
           {
-            "index": "skill-medicine",
-            "name": "Skill: Medicine",
-            "url": "/api/proficiencies/skill-medicine"
+            "index": "medicine",
+            "name": "Medicine",
+            "url": "/api/proficiencies/medicine"
           },
           {
-            "index": "skill-nature",
-            "name": "Skill: Nature",
-            "url": "/api/proficiencies/skill-nature"
+            "index": "nature",
+            "name": "Nature",
+            "url": "/api/proficiencies/nature"
           },
           {
-            "index": "skill-perception",
-            "name": "Skill: Perception",
-            "url": "/api/proficiencies/skill-perception"
+            "index": "perception",
+            "name": "Perception",
+            "url": "/api/proficiencies/perception"
           },
           {
-            "index": "skill-performance",
-            "name": "Skill: Performance",
-            "url": "/api/proficiencies/skill-performance"
+            "index": "performance",
+            "name": "Performance",
+            "url": "/api/proficiencies/performance"
           },
           {
-            "index": "skill-persuasion",
-            "name": "Skill: Persuasion",
-            "url": "/api/proficiencies/skill-persuasion"
+            "index": "persuasion",
+            "name": "Persuasion",
+            "url": "/api/proficiencies/persuasion"
           },
           {
-            "index": "skill-religion",
-            "name": "Skill: Religion",
-            "url": "/api/proficiencies/skill-religion"
+            "index": "religion",
+            "name": "Religion",
+            "url": "/api/proficiencies/religion"
           },
           {
-            "index": "skill-sleight-of-hand",
-            "name": "Skill: Sleight of Hand",
-            "url": "/api/proficiencies/skill-sleight-of-hand"
+            "index": "sleight-of-hand",
+            "name": "Sleight of Hand",
+            "url": "/api/proficiencies/sleight-of-hand"
           },
           {
-            "index": "skill-stealth",
-            "name": "Skill: Stealth",
-            "url": "/api/proficiencies/skill-stealth"
+            "index": "stealth",
+            "name": "Stealth",
+            "url": "/api/proficiencies/stealth"
           },
           {
-            "index": "skill-survival",
-            "name": "Skill: Survival",
-            "url": "/api/proficiencies/skill-survival"
+            "index": "survival",
+            "name": "Survival",
+            "url": "/api/proficiencies/survival"
           },
           {
             "index": "thieves-tools",
@@ -5764,42 +5764,42 @@
         "from": [
           {
             "index": "metamagic-careful-spell",
-            "name": "Metamagic: Careful Spell",
+            "name": "Careful Spell",
             "url": "/api/features/metamagic-careful-spell"
           },
           {
             "index": "metamagic-distant-spell",
-            "name": "Metamagic: Distant Spell",
+            "name": "Distant Spell",
             "url": "/api/features/metamagic-distant-spell"
           },
           {
             "index": "metamagic-empowered-spell",
-            "name": "Metamagic: Empowered Spell",
+            "name": "Empowered Spell",
             "url": "/api/features/metamagic-empowered-spell"
           },
           {
             "index": "metamagic-extended-spell",
-            "name": "Metamagic: Extended Spell",
+            "name": "Extended Spell",
             "url": "/api/features/metamagic-extended-spell"
           },
           {
             "index": "metamagic-heightened-spell",
-            "name": "Metamagic: Heightened Spell",
+            "name": "Heightened Spell",
             "url": "/api/features/metamagic-heightened-spell"
           },
           {
             "index": "metamagic-quickened-spell",
-            "name": "Metamagic: Quickened Spell",
+            "name": "Quickened Spell",
             "url": "/api/features/metamagic-quickened-spell"
           },
           {
             "index": "metamagic-subtle-spell",
-            "name": "Metamagic: Subtle Spell",
+            "name": "Subtle Spell",
             "url": "/api/features/metamagic-subtle-spell"
           },
           {
             "index": "metamagic-twinned-spell",
-            "name": "Metamagic: Twinned Spell",
+            "name": "Twinned Spell",
             "url": "/api/features/metamagic-twinned-spell"
           }
         ]
@@ -5814,7 +5814,7 @@
       "name": "Sorcerer",
       "url": "/api/classes/sorcerer"
     },
-    "name": "Metamagic: Careful Spell",
+    "name": "Careful Spell",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -5834,7 +5834,7 @@
       "name": "Sorcerer",
       "url": "/api/classes/sorcerer"
     },
-    "name": "Metamagic: Distant Spell",
+    "name": "Distant Spell",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -5855,7 +5855,7 @@
       "name": "Sorcerer",
       "url": "/api/classes/sorcerer"
     },
-    "name": "Metamagic: Empowered Spell",
+    "name": "Empowered Spell",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -5876,7 +5876,7 @@
       "name": "Sorcerer",
       "url": "/api/classes/sorcerer"
     },
-    "name": "Metamagic: Extended Spell",
+    "name": "Extended Spell",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -5896,7 +5896,7 @@
       "name": "Sorcerer",
       "url": "/api/classes/sorcerer"
     },
-    "name": "Metamagic: Heightened Spell",
+    "name": "Heightened Spell",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -5916,7 +5916,7 @@
       "name": "Sorcerer",
       "url": "/api/classes/sorcerer"
     },
-    "name": "Metamagic: Quickened Spell",
+    "name": "Quickened Spell",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -5936,7 +5936,7 @@
       "name": "Sorcerer",
       "url": "/api/classes/sorcerer"
     },
-    "name": "Metamagic: Subtle Spell",
+    "name": "Subtle Spell",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -5956,7 +5956,7 @@
       "name": "Sorcerer",
       "url": "/api/classes/sorcerer"
     },
-    "name": "Metamagic: Twinned Spell",
+    "name": "Twinned Spell",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -6037,42 +6037,42 @@
         "from": [
           {
             "index": "metamagic-careful-spell",
-            "name": "Metamagic: Careful Spell",
+            "name": "Careful Spell",
             "url": "/api/features/metamagic-careful-spell"
           },
           {
             "index": "metamagic-distant-spell",
-            "name": "Metamagic: Distant Spell",
+            "name": "Distant Spell",
             "url": "/api/features/metamagic-distant-spell"
           },
           {
             "index": "metamagic-empowered-spell",
-            "name": "Metamagic: Empowered Spell",
+            "name": "Empowered Spell",
             "url": "/api/features/metamagic-empowered-spell"
           },
           {
             "index": "metamagic-extended-spell",
-            "name": "Metamagic: Extended Spell",
+            "name": "Extended Spell",
             "url": "/api/features/metamagic-extended-spell"
           },
           {
             "index": "metamagic-heightened-spell",
-            "name": "Metamagic: Heightened Spell",
+            "name": "Heightened Spell",
             "url": "/api/features/metamagic-heightened-spell"
           },
           {
             "index": "metamagic-quickened-spell",
-            "name": "Metamagic: Quickened Spell",
+            "name": "Quickened Spell",
             "url": "/api/features/metamagic-quickened-spell"
           },
           {
             "index": "metamagic-subtle-spell",
-            "name": "Metamagic: Subtle Spell",
+            "name": "Subtle Spell",
             "url": "/api/features/metamagic-subtle-spell"
           },
           {
             "index": "metamagic-twinned-spell",
-            "name": "Metamagic: Twinned Spell",
+            "name": "Twinned Spell",
             "url": "/api/features/metamagic-twinned-spell"
           }
         ]
@@ -6152,42 +6152,42 @@
         "from": [
           {
             "index": "metamagic-careful-spell",
-            "name": "Metamagic: Careful Spell",
+            "name": "Careful Spell",
             "url": "/api/features/metamagic-careful-spell"
           },
           {
             "index": "metamagic-distant-spell",
-            "name": "Metamagic: Distant Spell",
+            "name": "Distant Spell",
             "url": "/api/features/metamagic-distant-spell"
           },
           {
             "index": "metamagic-empowered-spell",
-            "name": "Metamagic: Empowered Spell",
+            "name": "Empowered Spell",
             "url": "/api/features/metamagic-empowered-spell"
           },
           {
             "index": "metamagic-extended-spell",
-            "name": "Metamagic: Extended Spell",
+            "name": "Extended Spell",
             "url": "/api/features/metamagic-extended-spell"
           },
           {
             "index": "metamagic-heightened-spell",
-            "name": "Metamagic: Heightened Spell",
+            "name": "Heightened Spell",
             "url": "/api/features/metamagic-heightened-spell"
           },
           {
             "index": "metamagic-quickened-spell",
-            "name": "Metamagic: Quickened Spell",
+            "name": "Quickened Spell",
             "url": "/api/features/metamagic-quickened-spell"
           },
           {
             "index": "metamagic-subtle-spell",
-            "name": "Metamagic: Subtle Spell",
+            "name": "Subtle Spell",
             "url": "/api/features/metamagic-subtle-spell"
           },
           {
             "index": "metamagic-twinned-spell",
-            "name": "Metamagic: Twinned Spell",
+            "name": "Twinned Spell",
             "url": "/api/features/metamagic-twinned-spell"
           }
         ]
@@ -6319,82 +6319,82 @@
         "from": [
           {
             "index": "eldritch-invocation-agonizing-blast",
-            "name": "Eldritch Invocation: Agonizing Blast",
+            "name": "Agonizing Blast",
             "url": "/api/features/eldritch-invocation-agonizing-blast"
           },
           {
             "index": "eldritch-invocation-armor-of-shadows",
-            "name": "Eldritch Invocation: Armor of Shadows",
+            "name": "Armor of Shadows",
             "url": "/api/features/eldritch-invocation-armor-of-shadows"
           },
           {
             "index": "eldritch-invocation-beast-speech",
-            "name": "Eldritch Invocation: Beast Speech",
+            "name": "Beast Speech",
             "url": "/api/features/eldritch-invocation-beast-speech"
           },
           {
             "index": "eldritch-invocation-beguiling-influence",
-            "name": "Eldritch Invocation: Beguiling Influence",
+            "name": "Beguiling Influence",
             "url": "/api/features/eldritch-invocation-beguiling-influence"
           },
           {
             "index": "eldritch-invocation-book-of-ancient-secrets",
-            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "name": "Book of Ancient Secrets",
             "url": "/api/features/eldritch-invocation-book-of-ancient-secrets"
           },
           {
             "index": "eldritch-invocation-devils-sight",
-            "name": "Eldritch Invocation: Devil's Sight",
+            "name": "Devil's Sight",
             "url": "/api/features/eldritch-invocation-devils-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-sight",
-            "name": "Eldritch Invocation: Eldritch Sight",
+            "name": "Eldritch Sight",
             "url": "/api/features/eldritch-invocation-eldritch-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-spear",
-            "name": "Eldritch Invocation: Eldritch Spear",
+            "name": "Eldritch Spear",
             "url": "/api/features/eldritch-invocation-eldritch-spear"
           },
           {
             "index": "eldritch-invocation-eyes-of-the-rune-keeper",
-            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "name": "Eyes of the Rune Keeper",
             "url": "/api/features/eldritch-invocation-eyes-of-the-rune-keeper"
           },
           {
             "index": "eldritch-invocation-fiendish-vigor",
-            "name": "Eldritch Invocation: Fiendish Vigor",
+            "name": "Fiendish Vigor",
             "url": "/api/features/eldritch-invocation-fiendish-vigor"
           },
           {
             "index": "eldritch-invocation-gaze-of-two-minds",
-            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "name": "Gaze of Two Minds",
             "url": "/api/features/eldritch-invocation-gaze-of-two-minds"
           },
           {
             "index": "eldritch-invocation-mask-of-many-faces",
-            "name": "Eldritch Invocation: Mask of Many Faces",
+            "name": "Mask of Many Faces",
             "url": "/api/features/eldritch-invocation-mask-of-many-faces"
           },
           {
             "index": "eldritch-invocation-misty-visions",
-            "name": "Eldritch Invocation: Misty Visions",
+            "name": "Misty Visions",
             "url": "/api/features/eldritch-invocation-misty-visions"
           },
           {
             "index": "eldritch-invocation-repelling-blast",
-            "name": "Eldritch Invocation: Repelling Blast",
+            "name": "Repelling Blast",
             "url": "/api/features/eldritch-invocation-repelling-blast"
           },
           {
             "index": "eldritch-invocation-thief-of-five-fates",
-            "name": "Eldritch Invocation: Thief of Five Fates",
+            "name": "Thief of Five Fates",
             "url": "/api/features/eldritch-invocation-thief-of-five-fates"
           },
           {
             "index": "eldritch-invocation-voice-of-the-chain-master",
-            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "name": "Voice of the Chain Master",
             "url": "/api/features/eldritch-invocation-voice-of-the-chain-master"
           }
         ]
@@ -6409,11 +6409,12 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Agonizing Blast",
+    "name": "Agonizing Blast",
     "level": 2,
     "prerequisites": [
       {
         "type": "Spell",
+        "name": "Eldritch Blast",
         "spell": "/api/spells/eldritch-blast"
       }
     ],
@@ -6434,7 +6435,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Armor of Shadows",
+    "name": "Armor of Shadows",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6454,7 +6455,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Beast Speech",
+    "name": "Beast Speech",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6474,7 +6475,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Beguiling Influence",
+    "name": "Beguiling Influence",
     "level": 2,
     "prerequisites": [],
     "desc": ["You gain proficiency in the Deception and Persuasion skills."],
@@ -6492,11 +6493,12 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Book of Ancient Secrets",
+    "name": "Book of Ancient Secrets",
     "level": 2,
     "prerequisites": [
       {
         "type": "feature",
+        "name": "Pact of the Tome",
         "feature": "/api/features/pact-of-the-tome"
       }
     ],
@@ -6518,7 +6520,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Devil's Sight",
+    "name": "Devil's Sight",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6538,7 +6540,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Eldritch Sight",
+    "name": "Eldritch Sight",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6558,11 +6560,12 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Eldritch Spear",
+    "name": "Eldritch Spear",
     "level": 2,
     "prerequisites": [
       {
         "type": "Spell",
+        "name": "Eldritch Blast",
         "spell": "/api/spells/eldritch-blast"
       }
     ],
@@ -6581,7 +6584,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+    "name": "Eyes of the Rune Keeper",
     "level": 2,
     "prerequisites": [],
     "desc": ["You can read all writing."],
@@ -6599,7 +6602,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Fiendish Vigor",
+    "name": "Fiendish Vigor",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6619,7 +6622,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Gaze of Two Minds",
+    "name": "Gaze of Two Minds",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6639,7 +6642,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Mask of Many Faces",
+    "name": "Mask of Many Faces",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6659,7 +6662,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Misty Visions",
+    "name": "Misty Visions",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6679,11 +6682,12 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Repelling Blast",
+    "name": "Repelling Blast",
     "level": 2,
     "prerequisites": [
       {
         "type": "Spell",
+        "name": "Eldritch Blast",
         "spell": "/api/spells/eldritch-blast"
       }
     ],
@@ -6704,7 +6708,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Thief of Five Fates",
+    "name": "Thief of Five Fates",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -6724,11 +6728,12 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Voice of the Chain Master",
+    "name": "Voice of the Chain Master",
     "level": 2,
     "prerequisites": [
       {
         "type": "feature",
+        "name": "Pact of the Chain",
         "feature": "/api/features/pact-of-the-chain"
       }
     ],
@@ -6750,7 +6755,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Mire the Mind",
+    "name": "Mire the Mind",
     "level": 5,
     "prerequisites": [
       {
@@ -6775,7 +6780,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: One with Shadows",
+    "name": "One with Shadows",
     "level": 5,
     "prerequisites": [
       {
@@ -6800,7 +6805,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Sign of Ill Omen",
+    "name": "Sign of Ill Omen",
     "level": 5,
     "prerequisites": [
       {
@@ -6825,7 +6830,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Thirsting Blade",
+    "name": "Thirsting Blade",
     "level": 5,
     "prerequisites": [
       {
@@ -6834,6 +6839,7 @@
       },
       {
         "type": "feature",
+        "name": "Pact of the Blade",
         "feature": "/api/features/pact-of-the-blade"
       }
     ],
@@ -6854,7 +6860,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Bewitching Whispers",
+    "name": "Bewitching Whispers",
     "level": 7,
     "prerequisites": [
       {
@@ -6879,7 +6885,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Dreadful Word",
+    "name": "Dreadful Word",
     "level": 7,
     "prerequisites": [
       {
@@ -6904,7 +6910,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Sculptor of Flesh",
+    "name": "Sculptor of Flesh",
     "level": 7,
     "prerequisites": [
       {
@@ -6929,7 +6935,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Ascendant Step",
+    "name": "Ascendant Step",
     "level": 9,
     "prerequisites": [
       {
@@ -6954,7 +6960,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Minions of Chaos",
+    "name": "Minions of Chaos",
     "level": 9,
     "prerequisites": [
       {
@@ -6979,7 +6985,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Otherworldly Leap",
+    "name": "Otherworldly Leap",
     "level": 9,
     "prerequisites": [
       {
@@ -7004,7 +7010,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Whispers of the Grave",
+    "name": "Whispers of the Grave",
     "level": 9,
     "prerequisites": [
       {
@@ -7029,7 +7035,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Lifedrinker",
+    "name": "Lifedrinker",
     "level": 12,
     "prerequisites": [
       {
@@ -7038,6 +7044,7 @@
       },
       {
         "type": "feature",
+        "name": "Pact of the Blade",
         "feature": "/api/features/pact-of-the-blade"
       }
     ],
@@ -7058,7 +7065,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Chains of Carceri",
+    "name": "Chains of Carceri",
     "level": 15,
     "prerequisites": [
       {
@@ -7067,6 +7074,7 @@
       },
       {
         "type": "feature",
+        "name": "Pact of the Chain",
         "feature": "/api/features/pact-of-the-chain"
       }
     ],
@@ -7087,7 +7095,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Master of Myriad Forms",
+    "name": "Master of Myriad Forms",
     "level": 15,
     "prerequisites": [
       {
@@ -7112,7 +7120,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Visions of Distant Realms",
+    "name": "Visions of Distant Realms",
     "level": 15,
     "prerequisites": [
       {
@@ -7137,7 +7145,7 @@
       "name": "Warlock",
       "url": "/api/classes/warlock"
     },
-    "name": "Eldritch Invocation: Witch Sight",
+    "name": "Witch Sight",
     "level": 15,
     "prerequisites": [
       {
@@ -7298,82 +7306,82 @@
         "from": [
           {
             "index": "eldritch-invocation-agonizing-blast",
-            "name": "Eldritch Invocation: Agonizing Blast",
+            "name": "Agonizing Blast",
             "url": "/api/features/eldritch-invocation-agonizing-blast"
           },
           {
             "index": "eldritch-invocation-armor-of-shadows",
-            "name": "Eldritch Invocation: Armor of Shadows",
+            "name": "Armor of Shadows",
             "url": "/api/features/eldritch-invocation-armor-of-shadows"
           },
           {
             "index": "eldritch-invocation-beast-speech",
-            "name": "Eldritch Invocation: Beast Speech",
+            "name": "Beast Speech",
             "url": "/api/features/eldritch-invocation-beast-speech"
           },
           {
             "index": "eldritch-invocation-beguiling-influence",
-            "name": "Eldritch Invocation: Beguiling Influence",
+            "name": "Beguiling Influence",
             "url": "/api/features/eldritch-invocation-beguiling-influence"
           },
           {
             "index": "eldritch-invocation-book-of-ancient-secrets",
-            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "name": "Book of Ancient Secrets",
             "url": "/api/features/eldritch-invocation-book-of-ancient-secrets"
           },
           {
             "index": "eldritch-invocation-devils-sight",
-            "name": "Eldritch Invocation: Devil's Sight",
+            "name": "Devil's Sight",
             "url": "/api/features/eldritch-invocation-devils-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-sight",
-            "name": "Eldritch Invocation: Eldritch Sight",
+            "name": "Eldritch Sight",
             "url": "/api/features/eldritch-invocation-eldritch-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-spear",
-            "name": "Eldritch Invocation: Eldritch Spear",
+            "name": "Eldritch Spear",
             "url": "/api/features/eldritch-invocation-eldritch-spear"
           },
           {
             "index": "eldritch-invocation-eyes-of-the-rune-keeper",
-            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "name": "Eyes of the Rune Keeper",
             "url": "/api/features/eldritch-invocation-eyes-of-the-rune-keeper"
           },
           {
             "index": "eldritch-invocation-fiendish-vigor",
-            "name": "Eldritch Invocation: Fiendish Vigor",
+            "name": "Fiendish Vigor",
             "url": "/api/features/eldritch-invocation-fiendish-vigor"
           },
           {
             "index": "eldritch-invocation-gaze-of-two-minds",
-            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "name": "Gaze of Two Minds",
             "url": "/api/features/eldritch-invocation-gaze-of-two-minds"
           },
           {
             "index": "eldritch-invocation-mask-of-many-faces",
-            "name": "Eldritch Invocation: Mask of Many Faces",
+            "name": "Mask of Many Faces",
             "url": "/api/features/eldritch-invocation-mask-of-many-faces"
           },
           {
             "index": "eldritch-invocation-misty-visions",
-            "name": "Eldritch Invocation: Misty Visions",
+            "name": "Misty Visions",
             "url": "/api/features/eldritch-invocation-misty-visions"
           },
           {
             "index": "eldritch-invocation-repelling-blast",
-            "name": "Eldritch Invocation: Repelling Blast",
+            "name": "Repelling Blast",
             "url": "/api/features/eldritch-invocation-repelling-blast"
           },
           {
             "index": "eldritch-invocation-thief-of-five-fates",
-            "name": "Eldritch Invocation: Thief of Five Fates",
+            "name": "Thief of Five Fates",
             "url": "/api/features/eldritch-invocation-thief-of-five-fates"
           },
           {
             "index": "eldritch-invocation-voice-of-the-chain-master",
-            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "name": "Voice of the Chain Master",
             "url": "/api/features/eldritch-invocation-voice-of-the-chain-master"
           }
         ]
@@ -7424,82 +7432,82 @@
         "from": [
           {
             "index": "eldritch-invocation-agonizing-blast",
-            "name": "Eldritch Invocation: Agonizing Blast",
+            "name": "Agonizing Blast",
             "url": "/api/features/eldritch-invocation-agonizing-blast"
           },
           {
             "index": "eldritch-invocation-armor-of-shadows",
-            "name": "Eldritch Invocation: Armor of Shadows",
+            "name": "Armor of Shadows",
             "url": "/api/features/eldritch-invocation-armor-of-shadows"
           },
           {
             "index": "eldritch-invocation-beast-speech",
-            "name": "Eldritch Invocation: Beast Speech",
+            "name": "Beast Speech",
             "url": "/api/features/eldritch-invocation-beast-speech"
           },
           {
             "index": "eldritch-invocation-beguiling-influence",
-            "name": "Eldritch Invocation: Beguiling Influence",
+            "name": "Beguiling Influence",
             "url": "/api/features/eldritch-invocation-beguiling-influence"
           },
           {
             "index": "eldritch-invocation-book-of-ancient-secrets",
-            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "name": "Book of Ancient Secrets",
             "url": "/api/features/eldritch-invocation-book-of-ancient-secrets"
           },
           {
             "index": "eldritch-invocation-devils-sight",
-            "name": "Eldritch Invocation: Devil's Sight",
+            "name": "Devil's Sight",
             "url": "/api/features/eldritch-invocation-devils-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-sight",
-            "name": "Eldritch Invocation: Eldritch Sight",
+            "name": "Eldritch Sight",
             "url": "/api/features/eldritch-invocation-eldritch-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-spear",
-            "name": "Eldritch Invocation: Eldritch Spear",
+            "name": "Eldritch Spear",
             "url": "/api/features/eldritch-invocation-eldritch-spear"
           },
           {
             "index": "eldritch-invocation-eyes-of-the-rune-keeper",
-            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "name": "Eyes of the Rune Keeper",
             "url": "/api/features/eldritch-invocation-eyes-of-the-rune-keeper"
           },
           {
             "index": "eldritch-invocation-fiendish-vigor",
-            "name": "Eldritch Invocation: Fiendish Vigor",
+            "name": "Fiendish Vigor",
             "url": "/api/features/eldritch-invocation-fiendish-vigor"
           },
           {
             "index": "eldritch-invocation-gaze-of-two-minds",
-            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "name": "Gaze of Two Minds",
             "url": "/api/features/eldritch-invocation-gaze-of-two-minds"
           },
           {
             "index": "eldritch-invocation-mask-of-many-faces",
-            "name": "Eldritch Invocation: Mask of Many Faces",
+            "name": "Mask of Many Faces",
             "url": "/api/features/eldritch-invocation-mask-of-many-faces"
           },
           {
             "index": "eldritch-invocation-misty-visions",
-            "name": "Eldritch Invocation: Misty Visions",
+            "name": "Misty Visions",
             "url": "/api/features/eldritch-invocation-misty-visions"
           },
           {
             "index": "eldritch-invocation-repelling-blast",
-            "name": "Eldritch Invocation: Repelling Blast",
+            "name": "Repelling Blast",
             "url": "/api/features/eldritch-invocation-repelling-blast"
           },
           {
             "index": "eldritch-invocation-thief-of-five-fates",
-            "name": "Eldritch Invocation: Thief of Five Fates",
+            "name": "Thief of Five Fates",
             "url": "/api/features/eldritch-invocation-thief-of-five-fates"
           },
           {
             "index": "eldritch-invocation-voice-of-the-chain-master",
-            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "name": "Voice of the Chain Master",
             "url": "/api/features/eldritch-invocation-voice-of-the-chain-master"
           }
         ]
@@ -7544,82 +7552,82 @@
         "from": [
           {
             "index": "eldritch-invocation-agonizing-blast",
-            "name": "Eldritch Invocation: Agonizing Blast",
+            "name": "Agonizing Blast",
             "url": "/api/features/eldritch-invocation-agonizing-blast"
           },
           {
             "index": "eldritch-invocation-armor-of-shadows",
-            "name": "Eldritch Invocation: Armor of Shadows",
+            "name": "Armor of Shadows",
             "url": "/api/features/eldritch-invocation-armor-of-shadows"
           },
           {
             "index": "eldritch-invocation-beast-speech",
-            "name": "Eldritch Invocation: Beast Speech",
+            "name": "Beast Speech",
             "url": "/api/features/eldritch-invocation-beast-speech"
           },
           {
             "index": "eldritch-invocation-beguiling-influence",
-            "name": "Eldritch Invocation: Beguiling Influence",
+            "name": "Beguiling Influence",
             "url": "/api/features/eldritch-invocation-beguiling-influence"
           },
           {
             "index": "eldritch-invocation-book-of-ancient-secrets",
-            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "name": "Book of Ancient Secrets",
             "url": "/api/features/eldritch-invocation-book-of-ancient-secrets"
           },
           {
             "index": "eldritch-invocation-devils-sight",
-            "name": "Eldritch Invocation: Devil's Sight",
+            "name": "Devil's Sight",
             "url": "/api/features/eldritch-invocation-devils-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-sight",
-            "name": "Eldritch Invocation: Eldritch Sight",
+            "name": "Eldritch Sight",
             "url": "/api/features/eldritch-invocation-eldritch-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-spear",
-            "name": "Eldritch Invocation: Eldritch Spear",
+            "name": "Eldritch Spear",
             "url": "/api/features/eldritch-invocation-eldritch-spear"
           },
           {
             "index": "eldritch-invocation-eyes-of-the-rune-keeper",
-            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "name": "Eyes of the Rune Keeper",
             "url": "/api/features/eldritch-invocation-eyes-of-the-rune-keeper"
           },
           {
             "index": "eldritch-invocation-fiendish-vigor",
-            "name": "Eldritch Invocation: Fiendish Vigor",
+            "name": "Fiendish Vigor",
             "url": "/api/features/eldritch-invocation-fiendish-vigor"
           },
           {
             "index": "eldritch-invocation-gaze-of-two-minds",
-            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "name": "Gaze of Two Minds",
             "url": "/api/features/eldritch-invocation-gaze-of-two-minds"
           },
           {
             "index": "eldritch-invocation-mask-of-many-faces",
-            "name": "Eldritch Invocation: Mask of Many Faces",
+            "name": "Mask of Many Faces",
             "url": "/api/features/eldritch-invocation-mask-of-many-faces"
           },
           {
             "index": "eldritch-invocation-misty-visions",
-            "name": "Eldritch Invocation: Misty Visions",
+            "name": "Misty Visions",
             "url": "/api/features/eldritch-invocation-misty-visions"
           },
           {
             "index": "eldritch-invocation-repelling-blast",
-            "name": "Eldritch Invocation: Repelling Blast",
+            "name": "Repelling Blast",
             "url": "/api/features/eldritch-invocation-repelling-blast"
           },
           {
             "index": "eldritch-invocation-thief-of-five-fates",
-            "name": "Eldritch Invocation: Thief of Five Fates",
+            "name": "Thief of Five Fates",
             "url": "/api/features/eldritch-invocation-thief-of-five-fates"
           },
           {
             "index": "eldritch-invocation-voice-of-the-chain-master",
-            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "name": "Voice of the Chain Master",
             "url": "/api/features/eldritch-invocation-voice-of-the-chain-master"
           }
         ]
@@ -7701,82 +7709,82 @@
         "from": [
           {
             "index": "eldritch-invocation-agonizing-blast",
-            "name": "Eldritch Invocation: Agonizing Blast",
+            "name": "Agonizing Blast",
             "url": "/api/features/eldritch-invocation-agonizing-blast"
           },
           {
             "index": "eldritch-invocation-armor-of-shadows",
-            "name": "Eldritch Invocation: Armor of Shadows",
+            "name": "Armor of Shadows",
             "url": "/api/features/eldritch-invocation-armor-of-shadows"
           },
           {
             "index": "eldritch-invocation-beast-speech",
-            "name": "Eldritch Invocation: Beast Speech",
+            "name": "Beast Speech",
             "url": "/api/features/eldritch-invocation-beast-speech"
           },
           {
             "index": "eldritch-invocation-beguiling-influence",
-            "name": "Eldritch Invocation: Beguiling Influence",
+            "name": "Beguiling Influence",
             "url": "/api/features/eldritch-invocation-beguiling-influence"
           },
           {
             "index": "eldritch-invocation-book-of-ancient-secrets",
-            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "name": "Book of Ancient Secrets",
             "url": "/api/features/eldritch-invocation-book-of-ancient-secrets"
           },
           {
             "index": "eldritch-invocation-devils-sight",
-            "name": "Eldritch Invocation: Devil's Sight",
+            "name": "Devil's Sight",
             "url": "/api/features/eldritch-invocation-devils-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-sight",
-            "name": "Eldritch Invocation: Eldritch Sight",
+            "name": "Eldritch Sight",
             "url": "/api/features/eldritch-invocation-eldritch-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-spear",
-            "name": "Eldritch Invocation: Eldritch Spear",
+            "name": "Eldritch Spear",
             "url": "/api/features/eldritch-invocation-eldritch-spear"
           },
           {
             "index": "eldritch-invocation-eyes-of-the-rune-keeper",
-            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "name": "Eyes of the Rune Keeper",
             "url": "/api/features/eldritch-invocation-eyes-of-the-rune-keeper"
           },
           {
             "index": "eldritch-invocation-fiendish-vigor",
-            "name": "Eldritch Invocation: Fiendish Vigor",
+            "name": "Fiendish Vigor",
             "url": "/api/features/eldritch-invocation-fiendish-vigor"
           },
           {
             "index": "eldritch-invocation-gaze-of-two-minds",
-            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "name": "Gaze of Two Minds",
             "url": "/api/features/eldritch-invocation-gaze-of-two-minds"
           },
           {
             "index": "eldritch-invocation-mask-of-many-faces",
-            "name": "Eldritch Invocation: Mask of Many Faces",
+            "name": "Mask of Many Faces",
             "url": "/api/features/eldritch-invocation-mask-of-many-faces"
           },
           {
             "index": "eldritch-invocation-misty-visions",
-            "name": "Eldritch Invocation: Misty Visions",
+            "name": "Misty Visions",
             "url": "/api/features/eldritch-invocation-misty-visions"
           },
           {
             "index": "eldritch-invocation-repelling-blast",
-            "name": "Eldritch Invocation: Repelling Blast",
+            "name": "Repelling Blast",
             "url": "/api/features/eldritch-invocation-repelling-blast"
           },
           {
             "index": "eldritch-invocation-thief-of-five-fates",
-            "name": "Eldritch Invocation: Thief of Five Fates",
+            "name": "Thief of Five Fates",
             "url": "/api/features/eldritch-invocation-thief-of-five-fates"
           },
           {
             "index": "eldritch-invocation-voice-of-the-chain-master",
-            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "name": "Voice of the Chain Master",
             "url": "/api/features/eldritch-invocation-voice-of-the-chain-master"
           }
         ]
@@ -7862,82 +7870,82 @@
         "from": [
           {
             "index": "eldritch-invocation-agonizing-blast",
-            "name": "Eldritch Invocation: Agonizing Blast",
+            "name": "Agonizing Blast",
             "url": "/api/features/eldritch-invocation-agonizing-blast"
           },
           {
             "index": "eldritch-invocation-armor-of-shadows",
-            "name": "Eldritch Invocation: Armor of Shadows",
+            "name": "Armor of Shadows",
             "url": "/api/features/eldritch-invocation-armor-of-shadows"
           },
           {
             "index": "eldritch-invocation-beast-speech",
-            "name": "Eldritch Invocation: Beast Speech",
+            "name": "Beast Speech",
             "url": "/api/features/eldritch-invocation-beast-speech"
           },
           {
             "index": "eldritch-invocation-beguiling-influence",
-            "name": "Eldritch Invocation: Beguiling Influence",
+            "name": "Beguiling Influence",
             "url": "/api/features/eldritch-invocation-beguiling-influence"
           },
           {
             "index": "eldritch-invocation-book-of-ancient-secrets",
-            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "name": "Book of Ancient Secrets",
             "url": "/api/features/eldritch-invocation-book-of-ancient-secrets"
           },
           {
             "index": "eldritch-invocation-devils-sight",
-            "name": "Eldritch Invocation: Devil's Sight",
+            "name": "Devil's Sight",
             "url": "/api/features/eldritch-invocation-devils-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-sight",
-            "name": "Eldritch Invocation: Eldritch Sight",
+            "name": "Eldritch Sight",
             "url": "/api/features/eldritch-invocation-eldritch-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-spear",
-            "name": "Eldritch Invocation: Eldritch Spear",
+            "name": "Eldritch Spear",
             "url": "/api/features/eldritch-invocation-eldritch-spear"
           },
           {
             "index": "eldritch-invocation-eyes-of-the-rune-keeper",
-            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "name": "Eyes of the Rune Keeper",
             "url": "/api/features/eldritch-invocation-eyes-of-the-rune-keeper"
           },
           {
             "index": "eldritch-invocation-fiendish-vigor",
-            "name": "Eldritch Invocation: Fiendish Vigor",
+            "name": "Fiendish Vigor",
             "url": "/api/features/eldritch-invocation-fiendish-vigor"
           },
           {
             "index": "eldritch-invocation-gaze-of-two-minds",
-            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "name": "Gaze of Two Minds",
             "url": "/api/features/eldritch-invocation-gaze-of-two-minds"
           },
           {
             "index": "eldritch-invocation-mask-of-many-faces",
-            "name": "Eldritch Invocation: Mask of Many Faces",
+            "name": "Mask of Many Faces",
             "url": "/api/features/eldritch-invocation-mask-of-many-faces"
           },
           {
             "index": "eldritch-invocation-misty-visions",
-            "name": "Eldritch Invocation: Misty Visions",
+            "name": "Misty Visions",
             "url": "/api/features/eldritch-invocation-misty-visions"
           },
           {
             "index": "eldritch-invocation-repelling-blast",
-            "name": "Eldritch Invocation: Repelling Blast",
+            "name": "Repelling Blast",
             "url": "/api/features/eldritch-invocation-repelling-blast"
           },
           {
             "index": "eldritch-invocation-thief-of-five-fates",
-            "name": "Eldritch Invocation: Thief of Five Fates",
+            "name": "Thief of Five Fates",
             "url": "/api/features/eldritch-invocation-thief-of-five-fates"
           },
           {
             "index": "eldritch-invocation-voice-of-the-chain-master",
-            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "name": "Voice of the Chain Master",
             "url": "/api/features/eldritch-invocation-voice-of-the-chain-master"
           }
         ]
@@ -7999,82 +8007,82 @@
         "from": [
           {
             "index": "eldritch-invocation-agonizing-blast",
-            "name": "Eldritch Invocation: Agonizing Blast",
+            "name": "Agonizing Blast",
             "url": "/api/features/eldritch-invocation-agonizing-blast"
           },
           {
             "index": "eldritch-invocation-armor-of-shadows",
-            "name": "Eldritch Invocation: Armor of Shadows",
+            "name": "Armor of Shadows",
             "url": "/api/features/eldritch-invocation-armor-of-shadows"
           },
           {
             "index": "eldritch-invocation-beast-speech",
-            "name": "Eldritch Invocation: Beast Speech",
+            "name": "Beast Speech",
             "url": "/api/features/eldritch-invocation-beast-speech"
           },
           {
             "index": "eldritch-invocation-beguiling-influence",
-            "name": "Eldritch Invocation: Beguiling Influence",
+            "name": "Beguiling Influence",
             "url": "/api/features/eldritch-invocation-beguiling-influence"
           },
           {
             "index": "eldritch-invocation-book-of-ancient-secrets",
-            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "name": "Book of Ancient Secrets",
             "url": "/api/features/eldritch-invocation-book-of-ancient-secrets"
           },
           {
             "index": "eldritch-invocation-devils-sight",
-            "name": "Eldritch Invocation: Devil's Sight",
+            "name": "Devil's Sight",
             "url": "/api/features/eldritch-invocation-devils-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-sight",
-            "name": "Eldritch Invocation: Eldritch Sight",
+            "name": "Eldritch Sight",
             "url": "/api/features/eldritch-invocation-eldritch-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-spear",
-            "name": "Eldritch Invocation: Eldritch Spear",
+            "name": "Eldritch Spear",
             "url": "/api/features/eldritch-invocation-eldritch-spear"
           },
           {
             "index": "eldritch-invocation-eyes-of-the-rune-keeper",
-            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "name": "Eyes of the Rune Keeper",
             "url": "/api/features/eldritch-invocation-eyes-of-the-rune-keeper"
           },
           {
             "index": "eldritch-invocation-fiendish-vigor",
-            "name": "Eldritch Invocation: Fiendish Vigor",
+            "name": "Fiendish Vigor",
             "url": "/api/features/eldritch-invocation-fiendish-vigor"
           },
           {
             "index": "eldritch-invocation-gaze-of-two-minds",
-            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "name": "Gaze of Two Minds",
             "url": "/api/features/eldritch-invocation-gaze-of-two-minds"
           },
           {
             "index": "eldritch-invocation-mask-of-many-faces",
-            "name": "Eldritch Invocation: Mask of Many Faces",
+            "name": "Mask of Many Faces",
             "url": "/api/features/eldritch-invocation-mask-of-many-faces"
           },
           {
             "index": "eldritch-invocation-misty-visions",
-            "name": "Eldritch Invocation: Misty Visions",
+            "name": "Misty Visions",
             "url": "/api/features/eldritch-invocation-misty-visions"
           },
           {
             "index": "eldritch-invocation-repelling-blast",
-            "name": "Eldritch Invocation: Repelling Blast",
+            "name": "Repelling Blast",
             "url": "/api/features/eldritch-invocation-repelling-blast"
           },
           {
             "index": "eldritch-invocation-thief-of-five-fates",
-            "name": "Eldritch Invocation: Thief of Five Fates",
+            "name": "Thief of Five Fates",
             "url": "/api/features/eldritch-invocation-thief-of-five-fates"
           },
           {
             "index": "eldritch-invocation-voice-of-the-chain-master",
-            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "name": "Voice of the Chain Master",
             "url": "/api/features/eldritch-invocation-voice-of-the-chain-master"
           }
         ]
@@ -8135,82 +8143,82 @@
         "from": [
           {
             "index": "eldritch-invocation-agonizing-blast",
-            "name": "Eldritch Invocation: Agonizing Blast",
+            "name": "Agonizing Blast",
             "url": "/api/features/eldritch-invocation-agonizing-blast"
           },
           {
             "index": "eldritch-invocation-armor-of-shadows",
-            "name": "Eldritch Invocation: Armor of Shadows",
+            "name": "Armor of Shadows",
             "url": "/api/features/eldritch-invocation-armor-of-shadows"
           },
           {
             "index": "eldritch-invocation-beast-speech",
-            "name": "Eldritch Invocation: Beast Speech",
+            "name": "Beast Speech",
             "url": "/api/features/eldritch-invocation-beast-speech"
           },
           {
             "index": "eldritch-invocation-beguiling-influence",
-            "name": "Eldritch Invocation: Beguiling Influence",
+            "name": "Beguiling Influence",
             "url": "/api/features/eldritch-invocation-beguiling-influence"
           },
           {
             "index": "eldritch-invocation-book-of-ancient-secrets",
-            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "name": "Book of Ancient Secrets",
             "url": "/api/features/eldritch-invocation-book-of-ancient-secrets"
           },
           {
             "index": "eldritch-invocation-devils-sight",
-            "name": "Eldritch Invocation: Devil's Sight",
+            "name": "Devil's Sight",
             "url": "/api/features/eldritch-invocation-devils-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-sight",
-            "name": "Eldritch Invocation: Eldritch Sight",
+            "name": "Eldritch Sight",
             "url": "/api/features/eldritch-invocation-eldritch-sight"
           },
           {
             "index": "eldritch-invocation-eldritch-spear",
-            "name": "Eldritch Invocation: Eldritch Spear",
+            "name": "Eldritch Spear",
             "url": "/api/features/eldritch-invocation-eldritch-spear"
           },
           {
             "index": "eldritch-invocation-eyes-of-the-rune-keeper",
-            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "name": "Eyes of the Rune Keeper",
             "url": "/api/features/eldritch-invocation-eyes-of-the-rune-keeper"
           },
           {
             "index": "eldritch-invocation-fiendish-vigor",
-            "name": "Eldritch Invocation: Fiendish Vigor",
+            "name": "Fiendish Vigor",
             "url": "/api/features/eldritch-invocation-fiendish-vigor"
           },
           {
             "index": "eldritch-invocation-gaze-of-two-minds",
-            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "name": "Gaze of Two Minds",
             "url": "/api/features/eldritch-invocation-gaze-of-two-minds"
           },
           {
             "index": "eldritch-invocation-mask-of-many-faces",
-            "name": "Eldritch Invocation: Mask of Many Faces",
+            "name": "Mask of Many Faces",
             "url": "/api/features/eldritch-invocation-mask-of-many-faces"
           },
           {
             "index": "eldritch-invocation-misty-visions",
-            "name": "Eldritch Invocation: Misty Visions",
+            "name": "Misty Visions",
             "url": "/api/features/eldritch-invocation-misty-visions"
           },
           {
             "index": "eldritch-invocation-repelling-blast",
-            "name": "Eldritch Invocation: Repelling Blast",
+            "name": "Repelling Blast",
             "url": "/api/features/eldritch-invocation-repelling-blast"
           },
           {
             "index": "eldritch-invocation-thief-of-five-fates",
-            "name": "Eldritch Invocation: Thief of Five Fates",
+            "name": "Thief of Five Fates",
             "url": "/api/features/eldritch-invocation-thief-of-five-fates"
           },
           {
             "index": "eldritch-invocation-voice-of-the-chain-master",
-            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "name": "Voice of the Chain Master",
             "url": "/api/features/eldritch-invocation-voice-of-the-chain-master"
           }
         ]

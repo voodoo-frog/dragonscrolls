@@ -4,6 +4,7 @@
     "name": "Dragonborn",
     "speed": 30,
     "brief": "Dragonborn look very much like dragons standing erect in humanoid form, though they lack wings or a tail.",
+    "ability_score_desc": "Your Strength score increases by 2, and your Charisma score increases by 1.",
     "ability_bonuses": [
       {
         "ability_score": {
@@ -65,6 +66,7 @@
     "name": "Dwarf",
     "speed": 25,
     "brief": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal.",
+    "ability_score_desc": "Your Constitution score increases by 2.",
     "ability_bonuses": [
       {
         "ability_score": {
@@ -176,6 +178,7 @@
     "name": "Elf",
     "speed": 30,
     "brief": "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it.",
+    "ability_score_desc": "Your Dexterity score increases by 2.",
     "ability_bonuses": [
       {
         "ability_score": {
@@ -192,9 +195,9 @@
     "size_description": "Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium.",
     "starting_proficiencies": [
       {
-        "index": "skill-perception",
-        "name": "Skill: Perception",
-        "url": "/api/proficiencies/skill-perception"
+        "index": "perception",
+        "name": "Perception",
+        "url": "/api/proficiencies/perception"
       }
     ],
     "languages": [
@@ -246,6 +249,7 @@
     "name": "Gnome",
     "speed": 25,
     "brief": "A gnome's energy and enthusiasm for living shines through every inch of his or her tiny body.",
+    "ability_score_desc": "Your Intelligence score increases by 2.",
     "ability_bonuses": [
       {
         "ability_score": {
@@ -300,6 +304,7 @@
     "name": "Half-Elf",
     "speed": 30,
     "brief": "Half-elves combine what some say are the best qualities of their elf and human parents.",
+    "ability_score_desc": "Your Charisma score increases by 2, and two other ability scores of your choice increase by 1.",
     "ability_bonuses": [
       {
         "ability_score": {
@@ -366,94 +371,94 @@
       "type": "proficiencies",
       "from": [
         {
-          "index": "skill-acrobatics",
-          "name": "Skill: Acrobatics",
-          "url": "/api/proficiencies/skill-acrobatics"
+          "index": "acrobatics",
+          "name": "Acrobatics",
+          "url": "/api/proficiencies/acrobatics"
         },
         {
-          "index": "skill-animal-handling",
-          "name": "Skill: Animal Handling",
-          "url": "/api/proficiencies/skill-animal-handling"
+          "index": "animal-handling",
+          "name": "Animal Handling",
+          "url": "/api/proficiencies/animal-handling"
         },
         {
-          "index": "skill-arcana",
-          "name": "Skill: Arcana",
-          "url": "/api/proficiencies/skill-arcana"
+          "index": "arcana",
+          "name": "Arcana",
+          "url": "/api/proficiencies/arcana"
         },
         {
-          "index": "skill-athletics",
-          "name": "Skill: Athletics",
-          "url": "/api/proficiencies/skill-athletics"
+          "index": "athletics",
+          "name": "Athletics",
+          "url": "/api/proficiencies/athletics"
         },
         {
-          "index": "skill-deception",
-          "name": "Skill: Deception",
-          "url": "/api/proficiencies/skill-deception"
+          "index": "deception",
+          "name": "Deception",
+          "url": "/api/proficiencies/deception"
         },
         {
-          "index": "skill-history",
-          "name": "Skill: History",
-          "url": "/api/proficiencies/skill-history"
+          "index": "history",
+          "name": "History",
+          "url": "/api/proficiencies/history"
         },
         {
-          "index": "skill-insight",
-          "name": "Skill: Insight",
-          "url": "/api/proficiencies/skill-insight"
+          "index": "insight",
+          "name": "Insight",
+          "url": "/api/proficiencies/insight"
         },
         {
-          "index": "skill-intimidation",
-          "name": "Skill: Intimidation",
-          "url": "/api/proficiencies/skill-intimidation"
+          "index": "intimidation",
+          "name": "Intimidation",
+          "url": "/api/proficiencies/intimidation"
         },
         {
-          "index": "skill-investigation",
-          "name": "Skill: Investigation",
-          "url": "/api/proficiencies/skill-investigation"
+          "index": "investigation",
+          "name": "Investigation",
+          "url": "/api/proficiencies/investigation"
         },
         {
-          "index": "skill-medicine",
-          "name": "Skill: Medicine",
-          "url": "/api/proficiencies/skill-medicine"
+          "index": "medicine",
+          "name": "Medicine",
+          "url": "/api/proficiencies/medicine"
         },
         {
-          "index": "skill-nature",
-          "name": "Skill: Nature",
-          "url": "/api/proficiencies/skill-nature"
+          "index": "nature",
+          "name": "Nature",
+          "url": "/api/proficiencies/nature"
         },
         {
-          "index": "skill-perception",
-          "name": "Skill: Perception",
-          "url": "/api/proficiencies/skill-perception"
+          "index": "perception",
+          "name": "Perception",
+          "url": "/api/proficiencies/perception"
         },
         {
-          "index": "skill-performance",
-          "name": "Skill: Performance",
-          "url": "/api/proficiencies/skill-performance"
+          "index": "performance",
+          "name": "Performance",
+          "url": "/api/proficiencies/performance"
         },
         {
-          "index": "skill-persuasion",
-          "name": "Skill: Persuasion",
-          "url": "/api/proficiencies/skill-persuasion"
+          "index": "persuasion",
+          "name": "Persuasion",
+          "url": "/api/proficiencies/persuasion"
         },
         {
-          "index": "skill-religion",
-          "name": "Skill: Religion",
-          "url": "/api/proficiencies/skill-religion"
+          "index": "religion",
+          "name": "Religion",
+          "url": "/api/proficiencies/religion"
         },
         {
-          "index": "skill-sleight-of-hand",
-          "name": "Skill: Sleight of Hand",
-          "url": "/api/proficiencies/skill-sleight-of-hand"
+          "index": "sleight-of-hand",
+          "name": "Sleight of Hand",
+          "url": "/api/proficiencies/sleight-of-hand"
         },
         {
-          "index": "skill-stealth",
-          "name": "Skill: Stealth",
-          "url": "/api/proficiencies/skill-stealth"
+          "index": "stealth",
+          "name": "Stealth",
+          "url": "/api/proficiencies/stealth"
         },
         {
-          "index": "skill-survival",
-          "name": "Skill: Survival",
-          "url": "/api/proficiencies/skill-survival"
+          "index": "survival",
+          "name": "Survival",
+          "url": "/api/proficiencies/survival"
         }
       ]
     },
@@ -558,9 +563,9 @@
         "url": "/api/traits/fey-ancestry"
       },
       {
-        "index": "skill-versatility",
+        "index": "versatility",
         "name": "Skill Versatility",
-        "url": "/api/traits/skill-versatility"
+        "url": "/api/traits/versatility"
       }
     ],
     "subraces": [],
@@ -571,6 +576,7 @@
     "name": "Halfling",
     "speed": 25,
     "brief": "The diminutive halflings survive in a world full of larger creatures by avoiding notice or, barring that, avoiding offense.",
+    "ability_score_desc": "Your Dexterity score increases by 2.",
     "ability_bonuses": [
       {
         "ability_score": {
@@ -630,6 +636,7 @@
     "name": "Half-Orc",
     "speed": 30,
     "brief": "Some half-orcs rise to become proud leaders of the orc communities. Some venture into the world to prove their worth. Many of these become adventurers, achieving greatness for their mighty deeds.",
+    "ability_score_desc": "Your Strength score increases by 2, and your Constitution score increases by 1.",
     "ability_bonuses": [
       {
         "ability_score": {
@@ -654,9 +661,9 @@
     "size_description": "Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium.",
     "starting_proficiencies": [
       {
-        "index": "skill-intimidation",
-        "name": "Skill: Intimidation",
-        "url": "/api/proficiencies/skill-intimidation"
+        "index": "intimidation",
+        "name": "Intimidation",
+        "url": "/api/proficiencies/intimidation"
       }
     ],
     "languages": [
@@ -697,6 +704,7 @@
     "name": "Human",
     "speed": 30,
     "brief": "Humans are the most adaptable and ambitious people among the common races. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.",
+    "ability_score_desc": "Your ability scores each increase by 1.",
     "ability_bonuses": [
       {
         "ability_score": {
@@ -850,6 +858,7 @@
     "name": "Tiefling",
     "speed": 30,
     "brief": "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling.",
+    "ability_score_desc": "Your Charisma score increases by 2, and your Intelligence score increases by 1.",
     "ability_bonuses": [
       {
         "ability_score": {
