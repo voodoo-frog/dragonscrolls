@@ -27,6 +27,8 @@ import AbilityScore from "~/models/ability_score";
 import Background from "~/models/background";
 import Class from "~/models/class";
 import Equipment from "~/models/equipment";
+import Feat from "~/models/feat";
+import Feature from "~/models/feature";
 import Language from "~/models/language";
 import Race from "~/models/race";
 import Skill from "~/models/skill";
@@ -59,6 +61,14 @@ export const loader = async () => {
   // Equipment
   const equipResults = await Equipment.find({});
   const equipment = sorter(equipResults);
+
+  // Feat
+  const featResults = await Feat.find({});
+  const feats = sorter(featResults);
+
+  // Feature
+  const featureResults = await Feature.find({});
+  const features = sorter(featureResults);
 
   // Languages
   const languageResults = await Language.find({});
@@ -93,6 +103,8 @@ export const loader = async () => {
     backgrounds,
     classes,
     equipment,
+    feats,
+    features,
     languages,
     races,
     skills,
@@ -118,6 +130,8 @@ export default function NewCharacter() {
     backgrounds,
     classes,
     equipment,
+    feats,
+    features,
     languages,
     races,
     skills,
@@ -140,6 +154,43 @@ export default function NewCharacter() {
       wis: 0,
       cha: 0,
     },
+    level: 1,
+    class: {
+      index: '',
+      subclass: '',
+      ability_score_improvements: {
+        '4th': {
+          option: '',
+          feat: '',
+          first: '',
+          second: ''
+        },
+        '8th': {
+          option: '',
+          feat: '',
+          first: '',
+          second: ''
+        },
+        '12th': {
+          option: '',
+          feat: '',
+          first: '',
+          second: ''
+        },
+        '16th': {
+          option: '',
+          feat: '',
+          first: '',
+          second: ''
+        },
+        '19th': {
+          option: '',
+          feat: '',
+          first: '',
+          second: ''
+        },
+      }
+    }
   });
 
   const handleNext = () => {
@@ -187,7 +238,7 @@ export default function NewCharacter() {
         </>
       ) : (
         <div className="lg:m-5">
-          <div className="flex h-full min-h-[400px] grow rounded bg-white p-5 lg:m-10">
+          <div className="flex h-full min-h-[400px] grow rounded bg-zinc-100 p-5 lg:m-10">
             {activeStep === 0 && (
               <CharacterNameRace
                 character={character}
@@ -208,6 +259,8 @@ export default function NewCharacter() {
                 setCharacter={setCharacter}
                 classes={classes}
                 subclasses={subclasses}
+                feats={feats}
+                features={features}
               />
             )}
             {activeStep === 2 && (
@@ -263,11 +316,11 @@ export default function NewCharacter() {
 
       <div className="flex grow lg:hidden">
         <MobileStepper
+          className="mt-5 grow rounded"
           variant="progress"
           steps={6}
           position="static"
           activeStep={activeStep}
-          sx={{ flexGrow: 1 }}
           nextButton={
             activeStep === 5 ? (
               <Button size="small" onClick={handleNext}>

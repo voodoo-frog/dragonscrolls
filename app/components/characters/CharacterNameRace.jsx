@@ -1,14 +1,9 @@
 import { useState } from "react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
+import CharacterNameRaceReview from "./race/CharacterNameRaceReview";
+import CharacterSelectRace from "./race/CharacterSelectRace";
 
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-import CharacterNameRaceLayout from "./CharacterNameRaceLayout";
-import CharacterSelectRace from "./CharacterSelectRace";
-
+import Default from "./race/Default";
 import Dwarf from "./race/Dwarf";
 import Dragonborn from "./race/Dragonborn";
 import HalfElf from "./race/HalfElf";
@@ -179,31 +174,14 @@ export default function CharacterNameRace({
       break;
     default:
       // half-orc, wood elf, lightfoot & mountain halfling, rock gnome, tiefling
-      raceDetails = traits
-        .filter((trait) =>
-          trait.races.some((r) => r.index === selectedRace.index)
-        )
-        .map((trait) => (
-          <Accordion
-            className="mb-3"
-            key={trait.name}
-            expanded={expanded === trait.name}
-            onChange={handleChangeExpanded(trait.name)}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls={`${trait.name}-content`}
-              id={`${trait.name}-header`}
-            >
-              <p>
-                <strong>{trait.name}</strong>
-              </p>
-            </AccordionSummary>
-            <AccordionDetails>
-              <p>{traits.find((t) => t.index === trait.index).desc}</p>
-            </AccordionDetails>
-          </Accordion>
-        ));
+      raceDetails = (
+        <Default
+          traits={traits}
+          selectedRace={selectedRace}
+          handleChangeExpanded={handleChangeExpanded}
+          expanded={expanded}
+        />
+      );
       break;
   }
 
@@ -242,7 +220,7 @@ export default function CharacterNameRace({
 
         {/* Race Selected - Summary */}
         {character.race && !changeRace && (
-          <CharacterNameRaceLayout
+          <CharacterNameRaceReview
             race={races.find((race) => race.index === character.race)}
             subrace={subraces.find(
               (subrace) => subrace.index === character.subrace
@@ -251,7 +229,7 @@ export default function CharacterNameRace({
             changeRace={() => setChangeRace(true)}
           >
             {raceDetails}
-          </CharacterNameRaceLayout>
+          </CharacterNameRaceReview>
         )}
 
         {/* Race Selected - Change Choice */}

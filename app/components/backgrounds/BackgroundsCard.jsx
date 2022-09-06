@@ -125,16 +125,14 @@ export default function BackgroundsCard({
         <p>
           <strong>Languages:</strong>{" "}
           {language_options.choose
-            ? `Choose ${
-                language_options.from.length === 16
-                  ? `any ${language_options.choose} language(s)`
-                  : `${
-                      language_options.choose
-                    } language from the following: ${language_options.from
-                      .map((lang) => lang.name)
-                      .join(", ")}`
-              }`
-            : "merp..."}
+            ? `Choose ${language_options.from.length === 16
+              ? `any ${language_options.choose} language(s)`
+              : `${language_options.choose
+              } language from the following: ${language_options.from
+                .map((lang) => lang.name)
+                .join(", ")}`
+            }`
+            : "merp..."} {/* MAKE SURE MERP DOES NOT SHOW!!!*/}
         </p>
         <p>
           <strong>Equipment:</strong> {starting_equipment_desc}

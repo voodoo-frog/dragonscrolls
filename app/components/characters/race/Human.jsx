@@ -43,11 +43,13 @@ export default function Human({
             label="Choose a Language"
             onChange={(e) => setExtraLanguage(e.target.value)}
           >
-            {languages.map((language) => (
-              <MenuItem key={language.index} value={language.index}>
-                {language.name}
-              </MenuItem>
-            ))}
+            {languages
+              .filter((language) => language.index !== "common")
+              .map((language) => (
+                <MenuItem key={language.index} value={language.index}>
+                  {language.name}
+                </MenuItem>
+              ))}
           </Select>
         </FormControl>
       </CharacterCreationLanguages>
