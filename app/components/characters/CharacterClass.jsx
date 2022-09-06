@@ -421,6 +421,43 @@ export default function CharacterClass({
             {classDetails}
           </ClassReview>
         )}
+
+        {/* Class Change */}
+        {character.class.index && changeClass && (
+          <>
+            <p className="text-lg">Current Class</p>
+            <div className="flex items-center">
+              <img
+                className="h-[80px] w-[80px] rounded-full"
+                name={character.class.index}
+                src={`/images/${character.class.index
+                  }-emblem-color.jpeg`}
+                alt={`${character.class.index} Avatar`}
+              />
+              <p className="ml-5 text-lg uppercase text-gray-500">
+                {classes.find((c) => c.index === character.class.index).name}
+              </p>
+
+              <button
+                className="ml-auto rounded bg-red-500 p-2 text-white hover:bg-red-600"
+                onClick={() => setChangeClass(false)}
+              >
+                Keep Class
+              </button>
+            </div>
+
+            <ClassSelect
+              changeClass={changeClass}
+              classes={classes.filter((c) => c.index !== character.class.index)}
+              features={features}
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+              selectedClass={selectedClass}
+              handleSelectClass={handleSelectClass}
+              handleSelection={handleSelection}
+            />
+          </>
+        )}
       </div>
     </div>
   );
