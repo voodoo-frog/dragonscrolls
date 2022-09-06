@@ -30,8 +30,8 @@ export default function CharacterCard({ race, subrace = [], traits }) {
 
   return (
     <div className="text-black">
-      <div className="justify-between-align-center flex">
-        <div>
+      <div className="justify-between-align-center flex w-full">
+        <div className="grow">
           <h4 className="text-2xl">{subrace.name || race.name}</h4>
           <p className="text-gray-500">
             {subrace.source_book || race.source_book}
@@ -88,31 +88,29 @@ export default function CharacterCard({ race, subrace = [], traits }) {
       </Accordion>
 
       {/* Racial Traits */}
-      {race.index !== "human" ? (
-        racialTraits.map((trait) => (
-          <Accordion
-            className="mb-3"
-            key={trait.name}
-            expanded={expanded === trait.name}
-            onChange={handleChangeExpanded(trait.name)}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls={`${trait.name}d-content`}
-              id={`${trait.name}d-header`}
+      {race.index !== "human"
+        ? racialTraits.map((trait) => (
+            <Accordion
+              className="mb-3"
+              key={trait.name}
+              expanded={expanded === trait.name}
+              onChange={handleChangeExpanded(trait.name)}
             >
-              <p>
-                <strong>{trait.name}</strong>
-              </p>
-            </AccordionSummary>
-            <AccordionDetails>
-              <p>{racialTraits.find((t) => t.index === trait.index).desc}</p>
-            </AccordionDetails>
-          </Accordion>
-        ))
-      ) : (
-        <></>
-      )}
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={`${trait.name}d-content`}
+                id={`${trait.name}d-header`}
+              >
+                <p>
+                  <strong>{trait.name}</strong>
+                </p>
+              </AccordionSummary>
+              <AccordionDetails>
+                <p>{racialTraits.find((t) => t.index === trait.index).desc}</p>
+              </AccordionDetails>
+            </Accordion>
+          ))
+        : null}
     </div>
   );
 }

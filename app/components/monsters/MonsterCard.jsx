@@ -87,12 +87,12 @@ export default function MonsterCard({
 
   const saving_throws = proficiencies
     .filter((prof) => prof.proficiency?.index.includes("saving-throw"))
-    .map((prof) => `${prof.proficiency.name.slice(14)} +${prof.value}`)
+    .map((prof) => `${prof.proficiency.name} +${prof.value}`)
     .join(", ");
 
   const skills = proficiencies
     .filter((prof) => prof.proficiency?.index.includes("skill"))
-    .map((prof) => `${prof.proficiency.name.slice(7)} +${prof.value}`)
+    .map((prof) => `${prof.proficiency.name} +${prof.value}`)
     .join(", ");
 
   return (

@@ -50,10 +50,8 @@ export default function Warlock() {
 
           if (req.type === "level") {
             res = `${req.level}th level`;
-          } else if (req.type === "feature") {
-            res = req.feature.slice(14).replace(/-/g, " ");
-          } else if (req.type === "Spell") {
-            res = req.spell.slice(12).replace(/-/g, " ");
+          } else {
+            res = req.name;
           }
 
           return res;
@@ -61,7 +59,7 @@ export default function Warlock() {
         .join(", ");
 
       return [
-        feature.name.slice(21),
+        feature.name,
         feature.level,
         prerequisites || "None",
         feature.desc.join("\n"),

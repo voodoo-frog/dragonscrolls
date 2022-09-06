@@ -21,7 +21,7 @@ const TraitSchema = new mongoose.Schema({
   source_book: {
     type: String,
     required: true,
-    default: "Basic Rules",
+    default: "Player's Handbook",
   },
 });
 

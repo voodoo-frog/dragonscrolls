@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CharacterNameRaceLayout({
+export default function CharacterNameRaceReview({
   race,
   subrace = [],
   traits,
@@ -24,15 +24,15 @@ export default function CharacterNameRaceLayout({
 
   return (
     <div className="text-black">
-      <div className="justify-between-align-center flex">
-        <div>
+      <div className="justify-between-align-center flex w-full">
+        <div className="grow">
           <h4 className="text-2xl">{subrace.name || race.name}</h4>
           <p className="text-gray-500">
             {subrace.source_book || race.source_book}
           </p>
           <p className="my-2">{race.brief}</p>
         </div>
-        <div className="ml-3 shrink-0 p-0">
+        <div className="ml-3 flex shrink-0 flex-col items-center justify-center p-0">
           <img
             className="h-[100px] w-[100px]"
             name={subrace.name || race.name}

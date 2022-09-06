@@ -23,6 +23,10 @@ const SubclassSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  flavor_name: {
+    type: String,
+    required: true,
+  },
   subclass_flavor: {
     type: String,
     required: true,
@@ -42,7 +46,7 @@ const SubclassSchema = new mongoose.Schema({
   source_book: {
     type: String,
     required: true,
-    default: "Basic Rules",
+    default: "Player's Handbook",
   },
 });
 

@@ -25,17 +25,16 @@ function ClassProficiencies({
   const skills =
     name === "Bard"
       ? "Choose any three"
-      : `Choose ${
-          proficiency_choices[0].choose
-        } from ${proficiency_choices[0].from
-          .map((skill) => skill.name.substring(7))
-          .join(", ")}`;
+      : `Choose ${proficiency_choices[0].choose
+      } from ${proficiency_choices[0].from
+        .map((skill) => skill.name)
+        .join(", ")}`;
 
   const throws = saving_throws.map((st) => st.name).join(", ");
 
   if (name === "Bard") tools = "Three musical instruments of your choice";
   if (name === "Monk")
-    tools = "One type of artisan’s tools or one musical instrument";
+    tools = "One type of artisan's tools or one musical instrument";
 
   return (
     <div id="proficiencies">

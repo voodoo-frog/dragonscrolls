@@ -125,7 +125,7 @@ export default function Sorcerer() {
           .sort((a, b) => a.name - b.name)
           .map((feature) => (
             <li key={feature.index}>
-              <span className="font-bold">{feature.name.slice(11)}:</span>{" "}
+              <span className="font-bold">{feature.name}:</span>{" "}
               {feature.desc.map((desc, index) => (
                 <span key={index}>{desc}</span>
               ))}

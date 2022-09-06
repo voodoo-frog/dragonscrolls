@@ -17,6 +17,10 @@ const RaceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  ability_score_desc: {
+    type: String,
+    required: true,
+  },
   ability_bonuses: Array,
   ability_bonus_options: {
     choose: Number,
@@ -60,7 +64,7 @@ const RaceSchema = new mongoose.Schema({
   source_book: {
     type: String,
     required: true,
-    default: "Basic Rules",
+    default: "Player's Handbook",
   },
 });
 

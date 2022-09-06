@@ -43,7 +43,7 @@ export default function CharacterSelectRace({
               id="scroll-dialog-title"
               className="flex items-center justify-between"
             >
-              <p>Choose A Race</p>
+              <p>Confirm Race</p>
               <IconButton
                 aria-label="close"
                 onClick={() => setModalOpen(false)}

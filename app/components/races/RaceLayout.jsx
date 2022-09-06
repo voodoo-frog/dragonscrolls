@@ -3,7 +3,7 @@ export default function RaceLayout({ race, children }) {
     index,
     name,
     age,
-    ability_bonuses,
+    ability_score_desc,
     alignment,
     brief,
     language_desc,
@@ -29,12 +29,7 @@ export default function RaceLayout({ race, children }) {
 
         <p className="pt-3">
           <span className="font-bold capitalize">Ability Score Increase: </span>
-          {/* TODO add ability_score_desc */}
-          {index === "human"
-            ? "Your ability scores each increase by 1."
-            : ability_bonuses
-                .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
-                .join(", ")}
+          {ability_score_desc}
         </p>
 
         <p className="pt-3">
