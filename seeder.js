@@ -163,11 +163,32 @@ const importData = async () => {
 // Delete data
 const deleteData = async () => {
   try {
-    models.forEach(async (model) => {
-      await model.deleteMany();
-    });
-
-    await User.deleteMany();
+    await AbilityScore.deleteMany()
+    await Alignment.deleteMany()
+    await Background.deleteMany()
+    await Class.deleteMany()
+    await Condition.deleteMany()
+    await DamageType.deleteMany()
+    await EquipmentCategory.deleteMany()
+    await Equipment.deleteMany()
+    await Feat.deleteMany()
+    await Feature.deleteMany()
+    await Language.deleteMany()
+    await Level.deleteMany()
+    await MagicItem.deleteMany()
+    await MagicSchool.deleteMany()
+    await Monster.deleteMany()
+    await Proficiency.deleteMany()
+    await Race.deleteMany()
+    await RuleSection.deleteMany()
+    await Rule.deleteMany()
+    await Skill.deleteMany()
+    await Spell.deleteMany()
+    await Subclass.deleteMany()
+    await Subrace.deleteMany()
+    await Trait.deleteMany()
+    await User.deleteMany()
+    await WeaponProperty.deleteMany()
 
     console.log("Data Destroyed...".red.inverse);
     process.exit();

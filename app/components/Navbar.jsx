@@ -73,7 +73,7 @@ export default function Navbar() {
               {pages.map((page) => (
                 <Link
                   to={
-                    page === "Basic Rules" ? "rules" : `/${page.toLowerCase()}`
+                    page === "Basic Rules" ? "/rules" : `/${page.toLowerCase()}`
                   }
                   key={page}
                   className="self-center rounded p-3 uppercase text-white hover:bg-gray-900/50 hover:text-red-500"
@@ -141,7 +141,7 @@ export default function Navbar() {
                     <Link
                       to={
                         setting === "Basic Rules"
-                          ? "rules"
+                          ? "/rules"
                           : `/${setting.toLowerCase()}`
                       }
                       key={setting}
@@ -200,7 +200,7 @@ export default function Navbar() {
                         <ListItemButton
                           href={
                             setting === "Basic Rules"
-                              ? "rules"
+                              ? "/rules"
                               : `/${setting.toLowerCase()}`
                           }
                         >
@@ -211,7 +211,7 @@ export default function Navbar() {
                   </>
                 ) : (
                   <ListItem disablePadding>
-                    <ListItemButton href="login">
+                    <ListItemButton href="/login">
                       <ListItemText primary="Login" />
                     </ListItemButton>
                   </ListItem>
@@ -223,7 +223,7 @@ export default function Navbar() {
                   <ListItem key={text} disablePadding>
                     <ListItemButton
                       href={
-                        text === "Basic Rules" ? "rules" : text.toLowerCase()
+                        text === "Basic Rules" ? "/rules" : `/${text.toLowerCase()}`
                       }
                     >
                       <ListItemText primary={text} />
