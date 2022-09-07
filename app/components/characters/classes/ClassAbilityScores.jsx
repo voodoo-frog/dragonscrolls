@@ -12,7 +12,7 @@ export default function ClassAbilityScores({
   return (
     <>
       <CharacterCreationClassAbilityScore
-        level='4th'
+        level="4th"
         feats={feats}
         character={character}
         setCharacter={setCharacter}
@@ -24,7 +24,7 @@ export default function ClassAbilityScores({
         <>
           <p>8th Level:</p>
           <CharacterCreationClassAbilityScore
-            level='8th'
+            level="8th"
             feats={feats}
             character={character}
             setCharacter={setCharacter}
@@ -38,7 +38,7 @@ export default function ClassAbilityScores({
         <>
           <p>12th Level:</p>
           <CharacterCreationClassAbilityScore
-            level='12th'
+            level="12th"
             feats={feats}
             character={character}
             setCharacter={setCharacter}
@@ -52,7 +52,7 @@ export default function ClassAbilityScores({
         <>
           <p>16th Level:</p>
           <CharacterCreationClassAbilityScore
-            level='16th'
+            level="16th"
             feats={feats}
             character={character}
             setCharacter={setCharacter}
@@ -66,7 +66,7 @@ export default function ClassAbilityScores({
         <>
           <p>19th Level:</p>
           <CharacterCreationClassAbilityScore
-            level='19th'
+            level="19th"
             feats={feats}
             character={character}
             setCharacter={setCharacter}

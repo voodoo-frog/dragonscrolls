@@ -5,7 +5,6 @@ import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 
@@ -52,13 +51,11 @@ export default function CharacterSelectRace({
               </IconButton>
             </DialogTitle>
             <DialogContent dividers={true}>
-              <DialogContentText id="scroll-dialog-description" tabIndex={-1}>
-                <CharacterCard
-                  race={selectedRace}
-                  subrace={selectedSubrace}
-                  traits={traits}
-                />
-              </DialogContentText>
+              <CharacterCard
+                race={selectedRace}
+                subrace={selectedSubrace}
+                traits={traits}
+              />
             </DialogContent>
             <DialogActions>
               <button
@@ -76,11 +73,10 @@ export default function CharacterSelectRace({
             </DialogActions>
           </Dialog>
           {races.map((race) => (
-            <>
+            <div key={race.index}>
               {race.subraces.length ? (
                 <>
                   <button
-                    key={race.index}
                     type="button"
                     className="
                       w-full
@@ -196,7 +192,7 @@ export default function CharacterSelectRace({
                   </div>
                 </button>
               )}
-            </>
+            </div>
           ))}
         </div>
       </div>

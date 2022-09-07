@@ -6,7 +6,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export default function CharacterCard({ race, subrace = [], traits }) {
+export default function CharacterCard({ race, subrace = {}, traits }) {
   const [expanded, setExpanded] = useState(false);
 
   const raceTraits = traits.filter((trait) =>
@@ -59,8 +59,8 @@ export default function CharacterCard({ race, subrace = [], traits }) {
         {race.index === "human"
           ? "Your ability scores each increase by 1."
           : race.ability_bonuses
-              .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
-              .join(", ")}
+            .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
+            .join(", ")}
         {subrace.ability_bonuses &&
           `, ${subrace.ability_bonuses
             .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
@@ -90,26 +90,26 @@ export default function CharacterCard({ race, subrace = [], traits }) {
       {/* Racial Traits */}
       {race.index !== "human"
         ? racialTraits.map((trait) => (
-            <Accordion
-              className="mb-3"
-              key={trait.name}
-              expanded={expanded === trait.name}
-              onChange={handleChangeExpanded(trait.name)}
+          <Accordion
+            className="mb-3"
+            key={trait.name}
+            expanded={expanded === trait.name}
+            onChange={handleChangeExpanded(trait.name)}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`${trait.name}d-content`}
+              id={`${trait.name}d-header`}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={`${trait.name}d-content`}
-                id={`${trait.name}d-header`}
-              >
-                <p>
-                  <strong>{trait.name}</strong>
-                </p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p>{racialTraits.find((t) => t.index === trait.index).desc}</p>
-              </AccordionDetails>
-            </Accordion>
-          ))
+              <p>
+                <strong>{trait.name}</strong>
+              </p>
+            </AccordionSummary>
+            <AccordionDetails>
+              <p>{racialTraits.find((t) => t.index === trait.index).desc}</p>
+            </AccordionDetails>
+          </Accordion>
+        ))
         : null}
     </div>
   );

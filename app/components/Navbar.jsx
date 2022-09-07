@@ -223,7 +223,9 @@ export default function Navbar() {
                   <ListItem key={text} disablePadding>
                     <ListItemButton
                       href={
-                        text === "Basic Rules" ? "/rules" : `/${text.toLowerCase()}`
+                        text === "Basic Rules"
+                          ? "/rules"
+                          : `/${text.toLowerCase()}`
                       }
                     >
                       <ListItemText primary={text} />

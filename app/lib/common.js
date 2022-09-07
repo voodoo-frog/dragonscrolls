@@ -296,13 +296,9 @@ export const classFeatures = (features, mainClass) => {
 };
 
 export const subclassFeatures = (features, subclass) => {
-  console.log('features', features)
-  console.log("subclass", subclass);
   let classFeatures = features.filter(
     (feature) => feature.subclass && feature.subclass.index === subclass
   );
-
-  console.log("subclassFeatures", classFeatures);
 
   classFeatures = createSet(sorter(classFeatures, "level", true));
 
@@ -336,7 +332,12 @@ export const CharacterCreationClassFeature = ({
             <strong>{name}</strong>
             <p className="text-sm text-gray-500">Level {level}</p>
           </div>
-          {error && error.error && <WarningAmberIcon className="h-full self-center" sx={{ color: "red" }} />}
+          {error && error.error && (
+            <WarningAmberIcon
+              className="h-full self-center"
+              sx={{ color: "red" }}
+            />
+          )}
         </div>
       </AccordionSummary>
       <AccordionDetails>
@@ -359,8 +360,9 @@ export const CharacterCreationClassAbilityScore = ({
   expandFeat,
   setExpandFeat,
 }) => {
-  return (<>
-  <FormControl fullWidth className="my-3">
+  return (
+    <>
+      <FormControl fullWidth className="my-3">
         <InputLabel
           className="my-3"
           id="ability-score-improvement-ability-select-label"
@@ -399,97 +401,97 @@ export const CharacterCreationClassAbilityScore = ({
 
       {character.class.ability_score_improvements[level].option ===
         "Ability Score Improvement" && (
-          <>
-            <FormControl fullWidth className="my-3">
-              <InputLabel
-                className="my-3"
-                id="ability-score-improvement-ability-select-label"
-              >
-                Choose an Ability Score
-              </InputLabel>
-              <Select
-                className="my-3"
-                labelId="ability-score-improvement-ability-select-label"
-                id="ability-score-improvement-ability-select"
-                name="first"
-                value={character.class.ability_score_improvements[level].first}
-                label="Choose an Ability Score"
-                onChange={(e) =>
-                  setCharacter({
-                    ...character,
-                    class: {
-                      ...character.class,
-                      ability_score_improvements: {
-                        ...character.class.ability_score_improvements,
-                        [level]: {
-                          ...character.class.ability_score_improvements[level],
-                          first: e.target.value,
-                        },
+        <>
+          <FormControl fullWidth className="my-3">
+            <InputLabel
+              className="my-3"
+              id="ability-score-improvement-ability-select-label"
+            >
+              Choose an Ability Score
+            </InputLabel>
+            <Select
+              className="my-3"
+              labelId="ability-score-improvement-ability-select-label"
+              id="ability-score-improvement-ability-select"
+              name="first"
+              value={character.class.ability_score_improvements[level].first}
+              label="Choose an Ability Score"
+              onChange={(e) =>
+                setCharacter({
+                  ...character,
+                  class: {
+                    ...character.class,
+                    ability_score_improvements: {
+                      ...character.class.ability_score_improvements,
+                      [level]: {
+                        ...character.class.ability_score_improvements[level],
+                        first: e.target.value,
                       },
                     },
-                  })
-                }
-              >
-                {[
-                  "Strength",
-                  "Dexterity",
-                  "Constitution",
-                  "Intelligence",
-                  "Wisdom",
-                  "Charisma",
-                ].map((ability) => (
-                  <MenuItem key={ability} value={ability}>
-                    {ability}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <FormControl fullWidth className="my-3">
-              <InputLabel
-                className="my-3"
-                id="ability-score-improvement-ability-select-label"
-              >
-                Choose an Ability Score
-              </InputLabel>
-              <Select
-                className="my-3"
-                labelId="ability-score-improvement-ability-select-label"
-                id="ability-score-improvement-ability-select"
-                name="second"
-                value={character.class.ability_score_improvements[level].second}
-                label="Choose an Ability Score"
-                onChange={(e) =>
-                  setCharacter({
-                    ...character,
-                    class: {
-                      ...character.class,
-                      ability_score_improvements: {
-                        ...character.class.ability_score_improvements,
-                        [level]: {
-                          ...character.class.ability_score_improvements[level],
-                          second: e.target.value,
-                        },
+                  },
+                })
+              }
+            >
+              {[
+                "Strength",
+                "Dexterity",
+                "Constitution",
+                "Intelligence",
+                "Wisdom",
+                "Charisma",
+              ].map((ability) => (
+                <MenuItem key={ability} value={ability}>
+                  {ability}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl fullWidth className="my-3">
+            <InputLabel
+              className="my-3"
+              id="ability-score-improvement-ability-select-label"
+            >
+              Choose an Ability Score
+            </InputLabel>
+            <Select
+              className="my-3"
+              labelId="ability-score-improvement-ability-select-label"
+              id="ability-score-improvement-ability-select"
+              name="second"
+              value={character.class.ability_score_improvements[level].second}
+              label="Choose an Ability Score"
+              onChange={(e) =>
+                setCharacter({
+                  ...character,
+                  class: {
+                    ...character.class,
+                    ability_score_improvements: {
+                      ...character.class.ability_score_improvements,
+                      [level]: {
+                        ...character.class.ability_score_improvements[level],
+                        second: e.target.value,
                       },
                     },
-                  })
-                }
-              >
-                {[
-                  "Strength",
-                  "Dexterity",
-                  "Constitution",
-                  "Intelligence",
-                  "Wisdom",
-                  "Charisma",
-                ].map((ability) => (
-                  <MenuItem key={ability} value={ability}>
-                    {ability}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </>
-        )}
+                  },
+                })
+              }
+            >
+              {[
+                "Strength",
+                "Dexterity",
+                "Constitution",
+                "Intelligence",
+                "Wisdom",
+                "Charisma",
+              ].map((ability) => (
+                <MenuItem key={ability} value={ability}>
+                  {ability}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </>
+      )}
 
       {character.class.ability_score_improvements[level].option === "Feat" && (
         <FormControl fullWidth className="my-3">
@@ -531,33 +533,38 @@ export const CharacterCreationClassAbilityScore = ({
         </FormControl>
       )}
 
-      {character.class.ability_score_improvements[level].feat && character.class.ability_score_improvements[level].feat !== "" && (
-        <Accordion
-          elevation={0}
-          className="my-3"
-          expanded={expandFeat}
-          onChange={() => setExpandFeat(!expandFeat)}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="expand-feat-content"
-            id="expand-feat-header"
+      {character.class.ability_score_improvements[level].feat &&
+        character.class.ability_score_improvements[level].feat !== "" && (
+          <Accordion
+            elevation={0}
+            className="my-3"
+            expanded={expandFeat}
+            onChange={() => setExpandFeat(!expandFeat)}
           >
-            <p>
-              <strong>Feat Details</strong>
-            </p>
-          </AccordionSummary>
-          <AccordionDetails>
-            {feats
-              .find((feat) => feat.index === character.class.ability_score_improvements[level].feat)
-              .desc.map((desc, index) => (
-                <p key={index} className="mb-3">
-                  {desc}
-                </p>
-              ))}
-          </AccordionDetails>
-        </Accordion>
-      )}
-  </>)
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="expand-feat-content"
+              id="expand-feat-header"
+            >
+              <p>
+                <strong>Feat Details</strong>
+              </p>
+            </AccordionSummary>
+            <AccordionDetails>
+              {feats
+                .find(
+                  (feat) =>
+                    feat.index ===
+                    character.class.ability_score_improvements[level].feat
+                )
+                .desc.map((desc, index) => (
+                  <p key={index} className="mb-3">
+                    {desc}
+                  </p>
+                ))}
+            </AccordionDetails>
+          </Accordion>
+        )}
+    </>
+  );
 };
-

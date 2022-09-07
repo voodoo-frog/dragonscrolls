@@ -1207,7 +1207,7 @@
     "url": "/api/traits/tinker"
   },
   {
-    "index": "versatility",
+    "index": "skill-versatility",
     "races": [
       {
         "index": "half-elf",
@@ -1315,7 +1315,7 @@
         }
       ]
     },
-    "url": "/api/traits/versatility"
+    "url": "/api/traits/skill-versatility"
   },
   {
     "index": "menacing",

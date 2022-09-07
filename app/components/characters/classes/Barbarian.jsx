@@ -15,11 +15,6 @@ export default function Barbarian({
   handleChangeExpanded,
 }) {
   const { level } = character;
-  console.log("character", character);
-  // console.log("mainClass", mainClass);
-  // console.log("subclasses", subclasses);
-  // console.log("features", features);
-  // console.log("subclassFeatures", subclassFeatures);
 
   const [featureList, setFeatureList] = useState([]);
 
@@ -33,16 +28,14 @@ export default function Barbarian({
 
   const errors = [
     {
-      name: 'Ability Score Improvement',
+      name: "Ability Score Improvement",
       error: !asiComplete,
     },
     {
-      name: 'Primal Path',
+      name: "Primal Path",
       error: !character.class.subclass,
     },
   ];
-
-  console.log('featureList', featureList);
 
   return (
     <>
@@ -94,13 +87,11 @@ export default function Barbarian({
                       class: {
                         ...character.class,
                         subclass: e.target.value,
-                      }
+                      },
                     })
                   }
                 >
-                  <option value=''>
-                    Choose a Path
-                  </option>
+                  <option value="">Choose a Path</option>
                   {subclasses.map((subclass) => (
                     <option key={subclass.index} value={subclass.index}>
                       {subclass.name}

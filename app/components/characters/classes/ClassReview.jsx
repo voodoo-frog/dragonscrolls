@@ -6,8 +6,28 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export default function ClassReview({ character, setCharacter, mainClass, subclass = {}, changeClass, features, expanded, handleChangeExpanded, children }) {
-  const { name, index, desc, hit_die, brief, proficiencies, proficiency_choices, saving_throws, source_book } = mainClass;
+export default function ClassReview({
+  character,
+  setCharacter,
+  mainClass,
+  subclass = {},
+  changeClass,
+  features,
+  expanded,
+  handleChangeExpanded,
+  children,
+}) {
+  const {
+    name,
+    index,
+    desc,
+    hit_die,
+    brief,
+    proficiencies,
+    proficiency_choices,
+    saving_throws,
+    source_book,
+  } = mainClass;
 
   const armors =
     proficiencies
@@ -27,15 +47,14 @@ export default function ClassReview({ character, setCharacter, mainClass, subcla
       .map((res) => res.name)
       .join(", ") || "None";
 
-  const profChoices = proficiency_choices[0].from
-    .map((skill) => skill.name);
+  const profChoices = proficiency_choices[0].from.map((skill) => skill.name);
 
   const skills =
     name === "Bard"
       ? "Choose any three"
-      : `Choose ${proficiency_choices[0].choose
-      } from ${profChoices
-        .join(", ")}`;
+      : `Choose ${proficiency_choices[0].choose} from ${profChoices.join(
+        ", "
+      )}`;
 
   const throws = saving_throws.map((st) => st.name).join(", ");
 
@@ -43,14 +62,13 @@ export default function ClassReview({ character, setCharacter, mainClass, subcla
   if (name === "Monk")
     tools = "One type of artisan's tools or one musical instrument";
 
-  console.log('class', mainClass);
-  // const subclassFlavor = subclass.full_name || '';
-  console.log('subclass', subclass);
   return (
     <div className="text-black">
       <div className="justify-between-align-center flex w-full">
         <div className="grow">
-          <h4 className="text-2xl">{name} {subclass.name && `(${subclass.flavor_name})`}</h4>
+          <h4 className="text-2xl">
+            {name} {subclass.name && `(${subclass.flavor_name})`}
+          </h4>
           <p className="text-gray-500">{subclass.source_book || source_book}</p>
           <p className="my-2">{brief}</p>
         </div>
@@ -73,7 +91,9 @@ export default function ClassReview({ character, setCharacter, mainClass, subcla
 
       <div class="flex justify-start">
         <div class="mb-3 xl:w-96">
-          <label htmlFor="level" className="font-bold">Level:</label>
+          <label htmlFor="level" className="font-bold">
+            Level:
+          </label>
           <select
             id="level"
             class="
@@ -110,8 +130,8 @@ export default function ClassReview({ character, setCharacter, mainClass, subcla
 
       <Accordion
         className="mb-3"
-        expanded={expanded === 'hit-points'}
-        onChange={handleChangeExpanded('hit-points')}
+        expanded={expanded === "hit-points"}
+        onChange={handleChangeExpanded("hit-points")}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -126,16 +146,25 @@ export default function ClassReview({ character, setCharacter, mainClass, subcla
           </div>
         </AccordionSummary>
         <AccordionDetails>
-          <p><strong>Hit Points:</strong> 1d{hit_die} per {index} level</p>
-          <p><strong>Hit Points at 1st Level:</strong> {hit_die} + Constitution modifier</p>
-          <p><strong>Hit Points at Higher Levels:</strong> 1d{hit_die} (or {(hit_die / 2) + 1}) + your Constitution modifier per {index} level after 1st</p>
+          <p>
+            <strong>Hit Points:</strong> 1d{hit_die} per {index} level
+          </p>
+          <p>
+            <strong>Hit Points at 1st Level:</strong> {hit_die} + Constitution
+            modifier
+          </p>
+          <p>
+            <strong>Hit Points at Higher Levels:</strong> 1d{hit_die} (or{" "}
+            {hit_die / 2 + 1}) + your Constitution modifier per {index} level
+            after 1st
+          </p>
         </AccordionDetails>
       </Accordion>
 
       <Accordion
         className="mb-3"
-        expanded={expanded === 'proficiencies'}
-        onChange={handleChangeExpanded('proficiencies')}
+        expanded={expanded === "proficiencies"}
+        onChange={handleChangeExpanded("proficiencies")}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -150,11 +179,21 @@ export default function ClassReview({ character, setCharacter, mainClass, subcla
           </div>
         </AccordionSummary>
         <AccordionDetails>
-          <p><strong>Armor:</strong> {armors}</p>
-          <p><strong>Weapons:</strong> {weapons}</p>
-          <p><strong>Tools:</strong> {tools}</p>
-          <p><strong>Saving Throws:</strong> {throws}</p>
-          <p><strong>Skills:</strong> {skills}</p>
+          <p>
+            <strong>Armor:</strong> {armors}
+          </p>
+          <p>
+            <strong>Weapons:</strong> {weapons}
+          </p>
+          <p>
+            <strong>Tools:</strong> {tools}
+          </p>
+          <p>
+            <strong>Saving Throws:</strong> {throws}
+          </p>
+          <p>
+            <strong>Skills:</strong> {skills}
+          </p>
         </AccordionDetails>
       </Accordion>
 

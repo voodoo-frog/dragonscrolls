@@ -17,7 +17,7 @@ import Sorcerer from "./classes/Sorcerer";
 import Warlock from "./classes/Warlock";
 import Wizard from "./classes/Wizard";
 
-import { classFeatures, subclassFeatures } from "~/lib/common";
+import { classFeatures, subclassFeatures, sorter } from "~/lib/common";
 
 export default function CharacterClass({
   character,
@@ -33,62 +33,53 @@ export default function CharacterClass({
   const [expanded, setExpanded] = useState(false);
   const [changeClass, setChangeClass] = useState(false);
 
-  const { class: { ability_score_improvements }, level } = character;
+  const {
+    class: { ability_score_improvements },
+    level,
+  } = character;
 
   const lvl4ASIComplete = Boolean(
-    level >= 4
-    && (
-      ability_score_improvements['4th'].option
-      && (
-        ability_score_improvements['4th'].feat
-        || (ability_score_improvements['4th'].first && ability_score_improvements['4th'].second)
-      )
-    )
+    level >= 4 &&
+      ability_score_improvements["4th"].option &&
+      (ability_score_improvements["4th"].feat ||
+        (ability_score_improvements["4th"].first &&
+          ability_score_improvements["4th"].second))
   );
 
   const lvl8ASIComplete = Boolean(
-    level >= 8
-    && (
-      ability_score_improvements['8th'].option
-      && (
-        ability_score_improvements['8th'].feat
-        || (ability_score_improvements['8th'].first && ability_score_improvements['8th'].second)
-      )
-    )
-    && lvl4ASIComplete
+    level >= 8 &&
+      ability_score_improvements["8th"].option &&
+      (ability_score_improvements["8th"].feat ||
+        (ability_score_improvements["8th"].first &&
+          ability_score_improvements["8th"].second)) &&
+      lvl4ASIComplete
   );
 
   const lvl12ASIComplete = Boolean(
-    level >= 12
-    && (
-      ability_score_improvements['12th'].option
-      && (
-        ability_score_improvements['12th'].feat
-        || (ability_score_improvements['12th'].first && ability_score_improvements['12th'].second)
-      )
-    ) && lvl8ASIComplete
+    level >= 12 &&
+      ability_score_improvements["12th"].option &&
+      (ability_score_improvements["12th"].feat ||
+        (ability_score_improvements["12th"].first &&
+          ability_score_improvements["12th"].second)) &&
+      lvl8ASIComplete
   );
 
   const lvl16ASIComplete = Boolean(
-    level >= 16
-    && (
-      ability_score_improvements['16th'].option
-      && (
-        ability_score_improvements['16th'].feat
-        || (ability_score_improvements['16th'].first && ability_score_improvements['16th'].second)
-      )
-    ) && lvl12ASIComplete
+    level >= 16 &&
+      ability_score_improvements["16th"].option &&
+      (ability_score_improvements["16th"].feat ||
+        (ability_score_improvements["16th"].first &&
+          ability_score_improvements["16th"].second)) &&
+      lvl12ASIComplete
   );
 
   const lvl19ASIComplete = Boolean(
-    level >= 19
-    && (
-      ability_score_improvements['19th'].option
-      && (
-        ability_score_improvements['19th'].feat
-        || (ability_score_improvements['19th'].first && ability_score_improvements['19th'].second)
-      )
-    ) && lvl16ASIComplete
+    level >= 19 &&
+      ability_score_improvements["19th"].option &&
+      (ability_score_improvements["19th"].feat ||
+        (ability_score_improvements["19th"].first &&
+          ability_score_improvements["19th"].second)) &&
+      lvl16ASIComplete
   );
 
   let asiComplete = false;
@@ -160,7 +151,10 @@ export default function CharacterClass({
 
   const fullFeatures = [...classFeatures(features, character.class.index)];
 
-  if (character.class.subclass) fullFeatures.push(...subclassFeatures(features, character.class.subclass));
+  if (character.class.subclass)
+    fullFeatures.push(...subclassFeatures(features, character.class.subclass));
+
+  sorter(fullFeatures, "level", true);
 
   let classDetails;
   switch (character.class.index) {
@@ -413,7 +407,9 @@ export default function CharacterClass({
             character={character}
             setCharacter={setCharacter}
             mainClass={classes.find((c) => c.index === character.class.index)}
-            subclass={subclasses.find((subclass) => subclass.index === character.class.subclass)}
+            subclass={subclasses.find(
+              (subclass) => subclass.index === character.class.subclass
+            )}
             changeClass={() => setChangeClass(true)}
             expanded={expanded}
             handleChangeExpanded={handleChangeExpanded}
@@ -430,8 +426,7 @@ export default function CharacterClass({
               <img
                 className="h-[80px] w-[80px] rounded-full"
                 name={character.class.index}
-                src={`/images/${character.class.index
-                  }-emblem-color.jpeg`}
+                src={`/images/${character.class.index}-emblem-color.jpeg`}
                 alt={`${character.class.index} Avatar`}
               />
               <p className="ml-5 text-lg uppercase text-gray-500">

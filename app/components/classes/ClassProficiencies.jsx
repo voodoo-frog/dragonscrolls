@@ -25,10 +25,11 @@ function ClassProficiencies({
   const skills =
     name === "Bard"
       ? "Choose any three"
-      : `Choose ${proficiency_choices[0].choose
-      } from ${proficiency_choices[0].from
-        .map((skill) => skill.name)
-        .join(", ")}`;
+      : `Choose ${
+          proficiency_choices[0].choose
+        } from ${proficiency_choices[0].from
+          .map((skill) => skill.name)
+          .join(", ")}`;
 
   const throws = saving_throws.map((st) => st.name).join(", ");
 

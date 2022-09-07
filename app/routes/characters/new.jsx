@@ -156,41 +156,41 @@ export default function NewCharacter() {
     },
     level: 1,
     class: {
-      index: '',
-      subclass: '',
+      index: "",
+      subclass: "",
       ability_score_improvements: {
-        '4th': {
-          option: '',
-          feat: '',
-          first: '',
-          second: ''
+        "4th": {
+          option: "",
+          feat: "",
+          first: "",
+          second: "",
         },
-        '8th': {
-          option: '',
-          feat: '',
-          first: '',
-          second: ''
+        "8th": {
+          option: "",
+          feat: "",
+          first: "",
+          second: "",
         },
-        '12th': {
-          option: '',
-          feat: '',
-          first: '',
-          second: ''
+        "12th": {
+          option: "",
+          feat: "",
+          first: "",
+          second: "",
         },
-        '16th': {
-          option: '',
-          feat: '',
-          first: '',
-          second: ''
+        "16th": {
+          option: "",
+          feat: "",
+          first: "",
+          second: "",
         },
-        '19th': {
-          option: '',
-          feat: '',
-          first: '',
-          second: ''
+        "19th": {
+          option: "",
+          feat: "",
+          first: "",
+          second: "",
         },
-      }
-    }
+      },
+    },
   });
 
   const handleNext = () => {
