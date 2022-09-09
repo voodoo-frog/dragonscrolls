@@ -2218,34 +2218,34 @@
         "type": "feature",
         "from": [
           {
-            "index": "fighter-fighting-style-archery",
-            "name": "Fighting Style: Archery",
-            "url": "/api/features/fighter-fighting-style-archery"
+            "index": "fighting-style-archery",
+            "name": "Archery",
+            "url": "/api/features/fighting-style-archery"
           },
           {
-            "index": "fighter-fighting-style-defense",
-            "name": "Fighting Style: Defense",
-            "url": "/api/features/fighter-fighting-style-defense"
+            "index": "fighting-style-defense",
+            "name": "Defense",
+            "url": "/api/features/fighting-style-defense"
           },
           {
-            "index": "fighter-fighting-style-dueling",
-            "name": "Fighting Style: Dueling",
-            "url": "/api/features/fighter-fighting-style-dueling"
+            "index": "fighting-style-dueling",
+            "name": "Dueling",
+            "url": "/api/features/fighting-style-dueling"
           },
           {
-            "index": "fighter-fighting-style-great-weapon-fighting",
-            "name": "Fighting Style: Great Weapon Fighting",
-            "url": "/api/features/fighter-fighting-style-great-weapon-fighting"
+            "index": "fighting-style-great-weapon-fighting",
+            "name": "Great Weapon Fighting",
+            "url": "/api/features/fighting-style-great-weapon-fighting"
           },
           {
-            "index": "fighter-fighting-style-protection",
-            "name": "Fighting Style: Protection",
-            "url": "/api/features/fighter-fighting-style-protection"
+            "index": "fighting-style-protection",
+            "name": "Protection",
+            "url": "/api/features/fighting-style-protection"
           },
           {
-            "index": "fighter-fighting-style-two-weapon-fighting",
-            "name": "Fighting Style: Two-Weapon Fighting",
-            "url": "/api/features/fighter-fighting-style-two-weapon-fighting"
+            "index": "fighting-style-two-weapon-fighting",
+            "name": "Two-Weapon Fighting",
+            "url": "/api/features/fighting-style-two-weapon-fighting"
           }
         ]
       }
@@ -2253,13 +2253,13 @@
     "url": "/api/features/fighter-fighting-style"
   },
   {
-    "index": "fighter-fighting-style-archery",
+    "index": "fighting-style-archery",
     "class": {
       "index": "fighter",
       "name": "Fighter",
       "url": "/api/classes/fighter"
     },
-    "name": "Fighting Style: Archery",
+    "name": "Archery",
     "level": 1,
     "prerequisites": [],
     "desc": [
@@ -2270,16 +2270,16 @@
       "name": "Fighting Style",
       "url": "/api/features/fighter-fighting-style"
     },
-    "url": "/api/features/fighter-fighting-style-archery"
+    "url": "/api/features/fighting-style-archery"
   },
   {
-    "index": "fighter-fighting-style-defense",
+    "index": "fighting-style-defense",
     "class": {
       "index": "fighter",
       "name": "Fighter",
       "url": "/api/classes/fighter"
     },
-    "name": "Fighting Style: Defense",
+    "name": "Defense",
     "level": 1,
     "prerequisites": [],
     "desc": ["While you are wearing armor, you gain a +1 bonus to AC."],
@@ -2288,16 +2288,16 @@
       "name": "Fighting Style",
       "url": "/api/features/fighter-fighting-style"
     },
-    "url": "/api/features/fighter-fighting-style-defense"
+    "url": "/api/features/fighting-style-defense"
   },
   {
-    "index": "fighter-fighting-style-dueling",
+    "index": "fighting-style-dueling",
     "class": {
       "index": "fighter",
       "name": "Fighter",
       "url": "/api/classes/fighter"
     },
-    "name": "Fighting Style: Dueling",
+    "name": "Dueling",
     "level": 1,
     "prerequisites": [],
     "desc": [
@@ -2308,16 +2308,16 @@
       "name": "Fighting Style",
       "url": "/api/features/fighter-fighting-style"
     },
-    "url": "/api/features/fighter-fighting-style-dueling"
+    "url": "/api/features/fighting-style-dueling"
   },
   {
-    "index": "fighter-fighting-style-great-weapon-fighting",
+    "index": "fighting-style-great-weapon-fighting",
     "class": {
       "index": "fighter",
       "name": "Fighter",
       "url": "/api/classes/fighter"
     },
-    "name": "Fighting Style: Great Weapon Fighting",
+    "name": "Great Weapon Fighting",
     "level": 1,
     "prerequisites": [],
     "desc": [
@@ -2328,16 +2328,16 @@
       "name": "Fighting Style",
       "url": "/api/features/fighter-fighting-style"
     },
-    "url": "/api/features/fighter-fighting-style-great-weapon-fighting"
+    "url": "/api/features/fighting-style-great-weapon-fighting"
   },
   {
-    "index": "fighter-fighting-style-protection",
+    "index": "fighting-style-protection",
     "class": {
       "index": "fighter",
       "name": "Fighter",
       "url": "/api/classes/fighter"
     },
-    "name": "Fighting Style: Protection",
+    "name": "Protection",
     "level": 1,
     "prerequisites": [],
     "desc": [
@@ -2348,16 +2348,16 @@
       "name": "Fighting Style",
       "url": "/api/features/fighter-fighting-style"
     },
-    "url": "/api/features/fighter-fighting-style-protection"
+    "url": "/api/features/fighting-style-protection"
   },
   {
-    "index": "fighter-fighting-style-two-weapon-fighting",
+    "index": "fighting-style-two-weapon-fighting",
     "class": {
       "index": "fighter",
       "name": "Fighter",
       "url": "/api/classes/fighter"
     },
-    "name": "Fighting Style: Two-Weapon Fighting",
+    "name": "Two-Weapon Fighting",
     "level": 1,
     "prerequisites": [],
     "desc": [
@@ -2368,7 +2368,7 @@
       "name": "Fighting Style",
       "url": "/api/features/fighter-fighting-style"
     },
-    "url": "/api/features/fighter-fighting-style-two-weapon-fighting"
+    "url": "/api/features/fighting-style-two-weapon-fighting"
   },
   {
     "index": "second-wind",
@@ -2556,34 +2556,34 @@
         "type": "feature",
         "from": [
           {
-            "index": "fighter-fighting-style-archery",
-            "name": "Fighting Style: Archery",
-            "url": "/api/features/fighter-fighting-style-archery"
+            "index": "fighting-style-archery",
+            "name": "Archery",
+            "url": "/api/features/fighting-style-archery"
           },
           {
-            "index": "fighter-fighting-style-defense",
-            "name": "Fighting Style: Defense",
-            "url": "/api/features/fighter-fighting-style-defense"
+            "index": "fighting-style-defense",
+            "name": "Defense",
+            "url": "/api/features/fighting-style-defense"
           },
           {
-            "index": "fighter-fighting-style-dueling",
-            "name": "Fighting Style: Dueling",
-            "url": "/api/features/fighter-fighting-style-dueling"
+            "index": "fighting-style-dueling",
+            "name": "Dueling",
+            "url": "/api/features/fighting-style-dueling"
           },
           {
-            "index": "fighter-fighting-style-great-weapon-fighting",
-            "name": "Fighting Style: Great Weapon Fighting",
-            "url": "/api/features/fighter-fighting-style-great-weapon-fighting"
+            "index": "fighting-style-great-weapon-fighting",
+            "name": "Great Weapon Fighting",
+            "url": "/api/features/fighting-style-great-weapon-fighting"
           },
           {
-            "index": "fighter-fighting-style-protection",
-            "name": "Fighting Style: Protection",
-            "url": "/api/features/fighter-fighting-style-protection"
+            "index": "fighting-style-protection",
+            "name": "Protection",
+            "url": "/api/features/fighting-style-protection"
           },
           {
-            "index": "fighter-fighting-style-two-weapon-fighting",
-            "name": "Fighting Style: Two-Weapon Fighting",
-            "url": "/api/features/fighter-fighting-style-two-weapon-fighting"
+            "index": "fighting-style-two-weapon-fighting",
+            "name": "Two-Weapon Fighting",
+            "url": "/api/features/fighting-style-two-weapon-fighting"
           }
         ]
       }
@@ -3324,22 +3324,22 @@
         "from": [
           {
             "index": "fighting-style-defense",
-            "name": "Fighting Style: Defense",
+            "name": "Defense",
             "url": "/api/features/fighting-style-defense"
           },
           {
             "index": "fighting-style-dueling",
-            "name": "Fighting Style: Dueling",
+            "name": "Dueling",
             "url": "/api/features/fighting-style-dueling"
           },
           {
             "index": "fighting-style-great-weapon-fighting",
-            "name": "Fighting Style: Great Weapon Fighting",
+            "name": "Great Weapon Fighting",
             "url": "/api/features/fighting-style-great-weapon-fighting"
           },
           {
             "index": "fighting-style-protection",
-            "name": "Fighting Style: Protection",
+            "name": "Protection",
             "url": "/api/features/fighting-style-protection"
           }
         ]
@@ -3354,7 +3354,7 @@
       "name": "Paladin",
       "url": "/api/classes/paladin"
     },
-    "name": "Fighting Style: Defense",
+    "name": "Defense",
     "level": 2,
     "prerequisites": [],
     "desc": ["While you are wearing armor, you gain a +1 bonus to AC."],
@@ -3372,7 +3372,7 @@
       "name": "Paladin",
       "url": "/api/classes/paladin"
     },
-    "name": "Fighting Style: Dueling",
+    "name": "Dueling",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -3392,7 +3392,7 @@
       "name": "Paladin",
       "url": "/api/classes/paladin"
     },
-    "name": "Fighting Style: Great Weapon Fighting",
+    "name": "Great Weapon Fighting",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -3412,7 +3412,7 @@
       "name": "Paladin",
       "url": "/api/classes/paladin"
     },
-    "name": "Fighting Style: Protection",
+    "name": "Protection",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -3853,24 +3853,24 @@
         "type": "feature",
         "from": [
           {
-            "index": "ranger-fighting-style-archery",
-            "name": "Fighting Style: Archery",
-            "url": "/api/features/ranger-fighting-style-archery"
+            "index": "fighting-style-archery",
+            "name": "Archery",
+            "url": "/api/features/fighting-style-archery"
           },
           {
-            "index": "ranger-fighting-style-defense",
-            "name": "Fighting Style: Defense",
-            "url": "/api/features/ranger-fighting-style-defense"
+            "index": "fighting-style-defense",
+            "name": "Defense",
+            "url": "/api/features/fighting-style-defense"
           },
           {
-            "index": "ranger-fighting-style-dueling",
-            "name": "Fighting Style: Dueling",
-            "url": "/api/features/ranger-fighting-style-dueling"
+            "index": "fighting-style-dueling",
+            "name": "Dueling",
+            "url": "/api/features/fighting-style-dueling"
           },
           {
-            "index": "ranger-fighting-style-two-weapon-fighting",
-            "name": "Fighting Style: Two-Weapon Fighting",
-            "url": "/api/features/ranger-fighting-style-two-weapon-fighting"
+            "index": "fighting-style-two-weapon-fighting",
+            "name": "Two-Weapon Fighting",
+            "url": "/api/features/fighting-style-two-weapon-fighting"
           }
         ]
       }
@@ -3878,13 +3878,13 @@
     "url": "/api/features/ranger-fighting-style"
   },
   {
-    "index": "ranger-fighting-style-archery",
+    "index": "fighting-style-archery",
     "class": {
       "index": "ranger",
       "name": "Ranger",
       "url": "/api/classes/ranger"
     },
-    "name": "Fighting Style: Archery",
+    "name": "Archery",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -3895,16 +3895,16 @@
       "name": "Fighting Style",
       "url": "/api/features/ranger-fighting-style"
     },
-    "url": "/api/features/ranger-fighting-style-archery"
+    "url": "/api/features/fighting-style-archery"
   },
   {
-    "index": "ranger-fighting-style-defense",
+    "index": "fighting-style-defense",
     "class": {
       "index": "ranger",
       "name": "Ranger",
       "url": "/api/classes/ranger"
     },
-    "name": "Fighting Style: Defense",
+    "name": "Defense",
     "level": 2,
     "prerequisites": [],
     "desc": ["While you are wearing armor, you gain a +1 bonus to AC."],
@@ -3913,16 +3913,16 @@
       "name": "Fighting Style",
       "url": "/api/features/ranger-fighting-style"
     },
-    "url": "/api/features/ranger-fighting-style-defense"
+    "url": "/api/features/fighting-style-defense"
   },
   {
-    "index": "ranger-fighting-style-dueling",
+    "index": "fighting-style-dueling",
     "class": {
       "index": "ranger",
       "name": "Ranger",
       "url": "/api/classes/ranger"
     },
-    "name": "Fighting Style: Dueling",
+    "name": "Dueling",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -3933,16 +3933,16 @@
       "name": "Fighting Style",
       "url": "/api/features/ranger-fighting-style"
     },
-    "url": "/api/features/ranger-fighting-style-dueling"
+    "url": "/api/features/fighting-style-dueling"
   },
   {
-    "index": "ranger-fighting-style-two-weapon-fighting",
+    "index": "fighting-style-two-weapon-fighting",
     "class": {
       "index": "ranger",
       "name": "Ranger",
       "url": "/api/classes/ranger"
     },
-    "name": "Fighting Style: Two-Weapon Fighting",
+    "name": "Two-Weapon Fighting",
     "level": 2,
     "prerequisites": [],
     "desc": [
@@ -3953,7 +3953,7 @@
       "name": "Fighting Style",
       "url": "/api/features/ranger-fighting-style"
     },
-    "url": "/api/features/ranger-fighting-style-two-weapon-fighting"
+    "url": "/api/features/fighting-style-two-weapon-fighting"
   },
   {
     "index": "spellcasting-ranger",
@@ -4014,19 +4014,19 @@
         "type": "feature",
         "from": [
           {
-            "index": "hunters-prey-colossus-slayer",
-            "name": "Hunter's Prey: Colossus Slayer",
-            "url": "/api/features/hunters-prey-colossus-slayer"
+            "index": "colossus-slayer",
+            "name": "Colossus Slayer",
+            "url": "/api/features/colossus-slayer"
           },
           {
-            "index": "hunters-prey-giant-killer",
-            "name": "Hunter's Prey: Giant Killer",
-            "url": "/api/features/hunters-prey-giant-killer"
+            "index": "giant-killer",
+            "name": "Giant Killer",
+            "url": "/api/features/giant-killer"
           },
           {
-            "index": "hunters-prey-horde-breaker",
-            "name": "Hunter's Prey: Horde Breaker",
-            "url": "/api/features/hunters-prey-horde-breaker"
+            "index": "horde-breaker",
+            "name": "Horde Breaker",
+            "url": "/api/features/horde-breaker"
           }
         ]
       }
@@ -4034,7 +4034,7 @@
     "url": "/api/features/hunters-prey"
   },
   {
-    "index": "hunters-prey-colossus-slayer",
+    "index": "colossus-slayer",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4045,7 +4045,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Hunter's Prey: Colossus Slayer",
+    "name": "Colossus Slayer",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -4056,10 +4056,10 @@
       "name": "Hunter's Prey",
       "url": "/api/features/hunters-prey"
     },
-    "url": "/api/features/hunters-prey-colossus-slayer"
+    "url": "/api/features/colossus-slayer"
   },
   {
-    "index": "hunters-prey-giant-killer",
+    "index": "giant-killer",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4070,7 +4070,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Hunter's Prey: Giant Killer",
+    "name": "Giant Killer",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -4081,10 +4081,10 @@
       "name": "Hunter's Prey",
       "url": "/api/features/hunters-prey"
     },
-    "url": "/api/features/hunters-prey-giant-killer"
+    "url": "/api/features/giant-killer"
   },
   {
-    "index": "hunters-prey-horde-breaker",
+    "index": "horde-breaker",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4095,7 +4095,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Hunter's Prey: Horde Breaker",
+    "name": "Horde Breaker",
     "level": 3,
     "prerequisites": [],
     "desc": [
@@ -4106,7 +4106,7 @@
       "name": "Hunter's Prey",
       "url": "/api/features/hunters-prey"
     },
-    "url": "/api/features/hunters-prey-horde-breaker"
+    "url": "/api/features/horde-breaker"
   },
   {
     "index": "primeval-awareness",
@@ -4222,19 +4222,19 @@
         "type": "feature",
         "from": [
           {
-            "index": "defensive-tactics-escape-the-horde",
-            "name": "Defensive Tactics: Escape the Horde",
-            "url": "/api/features/defensive-tactics-escape-the-horde"
+            "index": "escape-the-horde",
+            "name": "Escape the Horde",
+            "url": "/api/features/escape-the-horde"
           },
           {
-            "index": "defensive-tactics-multiattack-defense",
-            "name": "Defensive Tactics: Multiattack Defense",
-            "url": "/api/features/defensive-tactics-multiattack-defense"
+            "index": "multiattack-defense",
+            "name": "Multiattack Defense",
+            "url": "/api/features/multiattack-defense"
           },
           {
-            "index": "defensive-tactics-steel-will",
-            "name": "Defensive Tactics: Steel Will",
-            "url": "/api/features/defensive-tactics-steel-will"
+            "index": "steel-will",
+            "name": "Steel Will",
+            "url": "/api/features/steel-will"
           }
         ]
       }
@@ -4242,7 +4242,7 @@
     "url": "/api/features/defensive-tactics"
   },
   {
-    "index": "defensive-tactics-escape-the-horde",
+    "index": "escape-the-horde",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4253,7 +4253,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Defensive Tactics: Escape the Horde",
+    "name": "Escape the Horde",
     "level": 7,
     "prerequisites": [],
     "desc": ["Opportunity attacks against you are made with disadvantage."],
@@ -4262,10 +4262,10 @@
       "name": "Defensive Tactics",
       "url": "/api/features/defensive-tactics"
     },
-    "url": "/api/features/defensive-tactics-escape-the-horde"
+    "url": "/api/features/escape-the-horde"
   },
   {
-    "index": "defensive-tactics-multiattack-defense",
+    "index": "multiattack-defense",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4276,7 +4276,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Defensive Tactics: Multiattack Defense",
+    "name": "Multiattack Defense",
     "level": 7,
     "prerequisites": [],
     "desc": [
@@ -4287,10 +4287,10 @@
       "name": "Defensive Tactics",
       "url": "/api/features/defensive-tactics"
     },
-    "url": "/api/features/defensive-tactics-multiattack-defense"
+    "url": "/api/features/multiattack-defense"
   },
   {
-    "index": "defensive-tactics-steel-will",
+    "index": "steel-will",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4301,7 +4301,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Defensive Tactics: Steel Will",
+    "name": "Steel Will",
     "level": 7,
     "prerequisites": [],
     "desc": ["You have advantage on saving throws against being frightened."],
@@ -4310,7 +4310,7 @@
       "name": "Defensive Tactics",
       "url": "/api/features/defensive-tactics"
     },
-    "url": "/api/features/defensive-tactics-steel-will"
+    "url": "/api/features/steel-will"
   },
   {
     "index": "ranger-ability-score-improvement-2",
@@ -4408,14 +4408,14 @@
         "type": "feature",
         "from": [
           {
-            "index": "multiattack-volley",
-            "name": "Multiattack: Volley",
-            "url": "/api/features/multiattack-volley"
+            "index": "volley",
+            "name": "Volley",
+            "url": "/api/features/volley"
           },
           {
-            "index": "multiattack-whirlwind-attack",
-            "name": "Multiattack: Whirlwind Attack",
-            "url": "/api/features/multiattack-whirlwind-attack"
+            "index": "whirlwind-attack",
+            "name": "Whirlwind Attack",
+            "url": "/api/features/whirlwind-attack"
           }
         ]
       }
@@ -4423,7 +4423,7 @@
     "url": "/api/features/multiattack"
   },
   {
-    "index": "multiattack-volley",
+    "index": "volley",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4434,7 +4434,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Multiattack: Volley",
+    "name": "Volley",
     "level": 11,
     "prerequisites": [],
     "desc": [
@@ -4445,10 +4445,10 @@
       "name": "Multiattack",
       "url": "/api/features/multiattack"
     },
-    "url": "/api/features/multiattack-volley"
+    "url": "/api/features/volley"
   },
   {
-    "index": "multiattack-whirlwind-attack",
+    "index": "whirlwind-attack",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4459,7 +4459,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Multiattack: Whirlwind Attack",
+    "name": "Whirlwind Attack",
     "level": 11,
     "prerequisites": [],
     "desc": [
@@ -4470,7 +4470,7 @@
       "name": "Multiattack",
       "url": "/api/features/multiattack"
     },
-    "url": "/api/features/multiattack-whirlwind-attack"
+    "url": "/api/features/whirlwind-attack"
   },
   {
     "index": "ranger-ability-score-improvement-3",
@@ -4548,19 +4548,19 @@
         "type": "feature",
         "from": [
           {
-            "index": "superior-hunters-defense-evasion",
-            "name": "Superior Hunter's Defense: Evasion",
-            "url": "/api/features/superior-hunters-defense-evasion"
+            "index": "evasion",
+            "name": "Evasion",
+            "url": "/api/features/evasion"
           },
           {
-            "index": "superior-hunters-defense-stand-against-the-tide",
-            "name": "Superior Hunter's Defense: Stand Against the Tide",
-            "url": "/api/features/superior-hunters-defense-stand-against-the-tide"
+            "index": "stand-against-the-tide",
+            "name": "Stand Against the Tide",
+            "url": "/api/features/stand-against-the-tide"
           },
           {
-            "index": "superior-hunters-defense-uncanny-dodge",
-            "name": "Superior Hunter's Defense: Uncanny Dodge",
-            "url": "/api/features/superior-hunters-defense-uncanny-dodge"
+            "index": "uncanny-dodge",
+            "name": "Uncanny Dodge",
+            "url": "/api/features/uncanny-dodge"
           }
         ]
       }
@@ -4568,7 +4568,7 @@
     "url": "/api/features/superior-hunters-defense"
   },
   {
-    "index": "superior-hunters-defense-evasion",
+    "index": "evasion",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4579,7 +4579,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Superior Hunter's Defense: Evasion",
+    "name": "Evasion",
     "level": 15,
     "prerequisites": [],
     "desc": [
@@ -4590,10 +4590,10 @@
       "name": "Superior Hunter's Defense",
       "url": "/api/features/superior-hunters-defense"
     },
-    "url": "/api/features/superior-hunters-defense-evasion"
+    "url": "/api/features/evasion"
   },
   {
-    "index": "superior-hunters-defense-stand-against-the-tide",
+    "index": "stand-against-the-tide",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4604,7 +4604,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Superior Hunter's Defense: Stand Against the Tide",
+    "name": "Stand Against the Tide",
     "level": 15,
     "prerequisites": [],
     "desc": [
@@ -4615,10 +4615,10 @@
       "name": "Superior Hunter's Defense",
       "url": "/api/features/superior-hunters-defense"
     },
-    "url": "/api/features/superior-hunters-defense-stand-against-the-tide"
+    "url": "/api/features/stand-against-the-tide"
   },
   {
-    "index": "superior-hunters-defense-uncanny-dodge",
+    "index": "uncanny-dodge",
     "class": {
       "index": "ranger",
       "name": "Ranger",
@@ -4629,7 +4629,7 @@
       "name": "Hunter",
       "url": "/api/subclasses/hunter"
     },
-    "name": "Superior Hunter's Defense: Uncanny Dodge",
+    "name": "Uncanny Dodge",
     "level": 15,
     "prerequisites": [],
     "desc": [
@@ -4640,7 +4640,7 @@
       "name": "Superior Hunter's Defense",
       "url": "/api/features/superior-hunters-defense"
     },
-    "url": "/api/features/superior-hunters-defense-uncanny-dodge"
+    "url": "/api/features/uncanny-dodge"
   },
   {
     "index": "ranger-ability-score-improvement-4",

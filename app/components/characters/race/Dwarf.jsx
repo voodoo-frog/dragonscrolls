@@ -1,15 +1,9 @@
-import { useState } from "react";
-
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-
 import {
   CharacterCreationAbilityScore,
   CharacterCreationFeature,
   CharacterCreationLanguages,
-} from "~/lib/common";
+} from "~/lib/character_creator";
+import { select } from "~/lib/common";
 
 export default function Dwarf({
   character,
@@ -20,17 +14,21 @@ export default function Dwarf({
   expanded,
   handleChangeExpanded,
 }) {
-  const [toolProficiency, setToolProficiency] = useState("");
+  const { details } = character.race;
+
+  const tools = ["Smith's Tools", "Brewer's Supplies", "Mason's Tools"];
 
   const handleChangeToolProficiency = (e) => {
     const { value } = e.target;
-    setToolProficiency(value);
 
     setCharacter({
       ...character,
-      raceDetails: {
-        ...character.raceDetails,
-        toolProficiency: value,
+      race: {
+        ...character.race,
+        details: {
+          ...details,
+          tool_proficiencies: [value],
+        },
       },
     });
   };
@@ -86,25 +84,17 @@ export default function Dwarf({
         name="Tool Proficiency"
         index="tool-proficiency"
         expanded={expanded}
-        error={toolProficiency === ""}
+        error={!details.tool_proficiencies?.[0]}
         handleChangeExpanded={handleChangeExpanded}
       >
-        <FormControl fullWidth>
-          <InputLabel id="tool-proficiency-label">
-            Choose an Artisan's Tool
-          </InputLabel>
-          <Select
-            labelId="tool-proficiency-label"
-            id="tool-proficiency"
-            value={toolProficiency}
-            label="Choose an Artisan's Tool"
-            onChange={handleChangeToolProficiency}
-          >
-            <MenuItem value="smiths-tools">Smith's Tools</MenuItem>
-            <MenuItem value="brewers-supplies">Brewer's Supplies</MenuItem>
-            <MenuItem value="masons-tools">Mason's Tools</MenuItem>
-          </Select>
-        </FormControl>
+        {select(
+          "Artisan's Tool",
+          "artisan-tool",
+          details.tool_proficiencies?.[0] ||
+          "",
+          tools,
+          handleChangeToolProficiency
+        )}
       </CharacterCreationFeature>
 
       {traits

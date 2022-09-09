@@ -1583,6 +1583,7 @@
       {
         "index": "herbalism-kit",
         "name": "Herbalism Kit",
+        "category": "tool",
         "url": "/api/proficiencies/herbalism-kit"
       }
     ],

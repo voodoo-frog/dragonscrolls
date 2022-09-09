@@ -1,16 +1,9 @@
-import { useState } from "react";
-
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-
 import {
   CharacterCreationAbilityScore,
   CharacterCreationFeature,
   CharacterCreationLanguages,
-  table,
-} from "~/lib/common";
+} from "~/lib/character_creator";
+import { select, table } from "~/lib/common";
 
 export default function Dragonborn({
   character,
@@ -20,18 +13,37 @@ export default function Dragonborn({
   handleChangeExpanded,
   traits,
 }) {
-  const [draconicAncestry, setDraconicAncestry] = useState("");
+  const { details } = character.race;
+
+  const ancestry =
+    details.bonus_features?.find((bf) =>
+      Object.keys(bf).find((key) => key === "draconic_ancestry")
+    );
+
+  const dragon_types = [
+    { index: 'black', name: 'Black' },
+    { index: 'blue', name: 'Blue' },
+    { index: 'brass', name: 'Brass' },
+    { index: 'bronze', name: 'Bronze' },
+    { index: 'copper', name: 'Copper' },
+    { index: 'gold', name: 'Gold' },
+    { index: 'green', name: 'Green' },
+    { index: 'red', name: 'Red' },
+    { index: 'silver', name: 'Silver' },
+    { index: 'white', name: 'White' }
+  ];
 
   const handleChangeDraconicAncestry = (e) => {
     const { value } = e.target;
 
-    setDraconicAncestry(value);
-
     setCharacter({
       ...character,
-      raceDetails: {
-        ...character.raceDetails,
-        draconicAncestry: value,
+      race: {
+        ...character.race,
+        details: {
+          ...details,
+          bonus_features: [{ draconic_ancestry: value }],
+        },
       },
     });
   };
@@ -50,6 +62,7 @@ export default function Dragonborn({
     ["Silver", "Cold", "15 ft. cone (Dex. save)"],
     ["White", "Cold", "15 ft. cone (Dex. save)"],
   ];
+
   return (
     <>
       <CharacterCreationAbilityScore
@@ -69,34 +82,19 @@ export default function Dragonborn({
         name="Draconic Ancestry"
         index="draconic-ancestry"
         expanded={expanded}
-        error={draconicAncestry === ""}
+        error={!ancestry?.draconic_ancestry}
         handleChangeExpanded={handleChangeExpanded}
       >
         {table(undefined, headers, rows, true)}
 
-        <FormControl fullWidth className="my-3">
-          <InputLabel id="draconic-ancestry-select-label">
-            Choose an Option
-          </InputLabel>
-          <Select
-            labelId="draconic-ancestry-select-label"
-            id="draconic-ancestry-select"
-            value={draconicAncestry}
-            label="Choose an Option"
-            onChange={handleChangeDraconicAncestry}
-          >
-            <MenuItem value="black">Black</MenuItem>
-            <MenuItem value="blue">Blue</MenuItem>
-            <MenuItem value="brass">Brass</MenuItem>
-            <MenuItem value="bronze">Bronze</MenuItem>
-            <MenuItem value="copper">Copper</MenuItem>
-            <MenuItem value="gold">Gold</MenuItem>
-            <MenuItem value="green">Green</MenuItem>
-            <MenuItem value="red">Red</MenuItem>
-            <MenuItem value="silver">Silver</MenuItem>
-            <MenuItem value="white">White</MenuItem>
-          </Select>
-        </FormControl>
+        {select(
+          "Option",
+          "draconic-ancestry-option",
+          ancestry?.draconic_ancestry ||
+          "",
+          dragon_types,
+          handleChangeDraconicAncestry
+        )}
       </CharacterCreationFeature>
 
       <CharacterCreationFeature

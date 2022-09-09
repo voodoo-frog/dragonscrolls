@@ -85,21 +85,25 @@
       {
         "index": "battleaxes",
         "name": "Battleaxes",
+        "type": "weapon",
         "url": "/api/proficiencies/battleaxes"
       },
       {
         "index": "handaxes",
         "name": "Handaxes",
+        "type": "weapon",
         "url": "/api/proficiencies/handaxes"
       },
       {
         "index": "light-hammers",
         "name": "Light hammers",
+        "type": "weapon",
         "url": "/api/proficiencies/light-hammers"
       },
       {
         "index": "warhammers",
         "name": "Warhammers",
+        "type": "weapon",
         "url": "/api/proficiencies/warhammers"
       }
     ],
@@ -197,6 +201,7 @@
       {
         "index": "perception",
         "name": "Perception",
+        "type": "skill",
         "url": "/api/proficiencies/perception"
       }
     ],
@@ -663,6 +668,7 @@
       {
         "index": "intimidation",
         "name": "Intimidation",
+        "type": "skill",
         "url": "/api/proficiencies/intimidation"
       }
     ],

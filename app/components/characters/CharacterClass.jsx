@@ -40,46 +40,46 @@ export default function CharacterClass({
 
   const lvl4ASIComplete = Boolean(
     level >= 4 &&
-      ability_score_improvements["4th"].option &&
-      (ability_score_improvements["4th"].feat ||
-        (ability_score_improvements["4th"].first &&
-          ability_score_improvements["4th"].second))
+    ability_score_improvements["4th"].option &&
+    (ability_score_improvements["4th"].feat ||
+      (ability_score_improvements["4th"].first &&
+        ability_score_improvements["4th"].second))
   );
 
   const lvl8ASIComplete = Boolean(
     level >= 8 &&
-      ability_score_improvements["8th"].option &&
-      (ability_score_improvements["8th"].feat ||
-        (ability_score_improvements["8th"].first &&
-          ability_score_improvements["8th"].second)) &&
-      lvl4ASIComplete
+    ability_score_improvements["8th"].option &&
+    (ability_score_improvements["8th"].feat ||
+      (ability_score_improvements["8th"].first &&
+        ability_score_improvements["8th"].second)) &&
+    lvl4ASIComplete
   );
 
   const lvl12ASIComplete = Boolean(
     level >= 12 &&
-      ability_score_improvements["12th"].option &&
-      (ability_score_improvements["12th"].feat ||
-        (ability_score_improvements["12th"].first &&
-          ability_score_improvements["12th"].second)) &&
-      lvl8ASIComplete
+    ability_score_improvements["12th"].option &&
+    (ability_score_improvements["12th"].feat ||
+      (ability_score_improvements["12th"].first &&
+        ability_score_improvements["12th"].second)) &&
+    lvl8ASIComplete
   );
 
   const lvl16ASIComplete = Boolean(
     level >= 16 &&
-      ability_score_improvements["16th"].option &&
-      (ability_score_improvements["16th"].feat ||
-        (ability_score_improvements["16th"].first &&
-          ability_score_improvements["16th"].second)) &&
-      lvl12ASIComplete
+    ability_score_improvements["16th"].option &&
+    (ability_score_improvements["16th"].feat ||
+      (ability_score_improvements["16th"].first &&
+        ability_score_improvements["16th"].second)) &&
+    lvl12ASIComplete
   );
 
   const lvl19ASIComplete = Boolean(
     level >= 19 &&
-      ability_score_improvements["19th"].option &&
-      (ability_score_improvements["19th"].feat ||
-        (ability_score_improvements["19th"].first &&
-          ability_score_improvements["19th"].second)) &&
-      lvl16ASIComplete
+    ability_score_improvements["19th"].option &&
+    (ability_score_improvements["19th"].feat ||
+      (ability_score_improvements["19th"].first &&
+        ability_score_improvements["19th"].second)) &&
+    lvl16ASIComplete
   );
 
   let asiComplete = false;
@@ -107,38 +107,57 @@ export default function CharacterClass({
     const classSelection = {
       ...character,
       class: {
-        ...character.class,
         index: selectedClass.index,
         subclass: selectedSubclass.index || null,
+        ability_score_improvements: {
+          "4th": {
+            option: "",
+            feat: "",
+            first: "",
+            second: "",
+          },
+          "8th": {
+            option: "",
+            feat: "",
+            first: "",
+            second: "",
+          },
+          "12th": {
+            option: "",
+            feat: "",
+            first: "",
+            second: "",
+          },
+          "16th": {
+            option: "",
+            feat: "",
+            first: "",
+            second: "",
+          },
+          "19th": {
+            option: "",
+            feat: "",
+            first: "",
+            second: "",
+          },
+        },
+        proficiencies: {
+          armor: selectedClass.proficiencies
+            .filter((prof) => prof.category === "armor")
+            .map((prof) => prof.index),
+          weapons: selectedClass.proficiencies
+            .filter((prof) => prof.category === "weapon")
+            .map((prof) => prof.index),
+          tools: selectedClass.proficiencies
+            .filter((prof) => prof.category === "tool")
+            .map((prof) => prof.index),
+          skills: [],
+          instruments: [],
+          artisans_tools: [],
+        },
       },
+      equipment: selectedClass.starting_equipment,
     };
-
-    // Ability Score Modifiers
-    // for (const score in character.ability_scores) {
-    //   let value = 0;
-
-    //   if (selectedClass.ability_bonuses) {
-    //     const bonus = selectedClass.ability_bonuses.find(
-    //       (bonus) => bonus.ability_score.index === score
-    //     );
-
-    //     if (bonus) {
-    //       value += bonus.bonus;
-    //     }
-    //   }
-
-    //   if (selectedSubclass.ability_bonuses) {
-    //     const bonus = selectedSubclass.ability_bonuses.find(
-    //       (bonus) => bonus.ability_score.index === score
-    //     );
-
-    //     if (bonus) {
-    //       value += bonus.bonus;
-    //     }
-    //   }
-
-    //   classSelection.ability_scores[score] = value;
-    // }
 
     await setCharacter(classSelection);
     setModalOpen(false);
@@ -180,7 +199,6 @@ export default function CharacterClass({
         <Barbarian
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
@@ -197,13 +215,12 @@ export default function CharacterClass({
         <Bard
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />

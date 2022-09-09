@@ -29,14 +29,13 @@ export default function HunterRanger() {
 
   return (
     <SubclassLayout data={{ subclass }}>
-      {list(features, "Hunter's Prey", "hunters-prey", 14, false)}
-      {list(features, "Defensive Tactics", "defensive-tactics", 19, false)}
-      {list(features, "Multiattack", "multiattack", 13, false)}
+      {list(features, "Hunter's Prey", "hunters-prey", false)}
+      {list(features, "Defensive Tactics", "defensive-tactics", false)}
+      {list(features, "Multiattack", "multiattack", false)}
       {list(
         features,
         "Superior Hunter's Defense",
         "superior-hunters-defense",
-        27,
         false
       )}
     </SubclassLayout>

@@ -1,15 +1,9 @@
-import { useState } from "react";
-
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-
 import {
+  CharacterCreationAbilityScore,
   CharacterCreationFeature,
   CharacterCreationLanguages,
-  CharacterCreationAbilityScore,
-} from "~/lib/common";
+} from "~/lib/character_creator";
+import { select } from "~/lib/common";
 
 export default function HalfElf({
   character,
@@ -22,126 +16,131 @@ export default function HalfElf({
   skills,
   traits,
 }) {
-  const [chosenAbilityScores, setChosenAbilityScores] = useState({
-    first: "",
-    second: "",
-  });
-  const [chosenSkills, setChosenSkills] = useState({
-    first: "",
-    second: "",
-  });
-  const [extraLanguage, setExtraLanguage] = useState("");
+  const { details } = character.race;
 
   const handleChangeAbilityScore = (e) => {
-    const { name, value } = e.target;
-    setChosenAbilityScores({
-      ...chosenAbilityScores,
-      [name]: value,
-    });
+    const { value, name } = e.target;
+    const { details } = character.race;
+
+    let new_scores = details.bonus_ability_scores || [];
+
+    if (name === "first") {
+      new_scores[0] = value;
+    } else {
+      new_scores[1] = value;
+    }
+
+    setCharacter((character) => ({
+      ...character,
+      race: {
+        ...character.race,
+        details: {
+          ...details,
+          bonus_ability_scores: [...new_scores],
+        },
+      },
+    }));
+  };
+
+  const handleChangeLanguage = (e) => {
+    const { value } = e.target;
+
+    const old_lang = details.bonus_languages?.[0] || '';
+
+    if (old_lang) {
+      character.languages.splice(character.languages.indexOf(old_lang), 1);
+    }
 
     setCharacter({
       ...character,
-      raceDetails: {
-        ...character.raceDetails,
-        abilityScores: {
-          ...character.raceDetails.abilityScores,
-          [name]: value,
+      languages: [...character.languages, value],
+      race: {
+        ...character.race,
+        details: {
+          ...details,
+          bonus_languages: [value],
         },
       },
     });
+  };
+
+  const handleChangeSkill = (e) => {
+    const { value, name } = e.target;
+    const { details } = character.race;
+
+    let new_skills = details.bonus_skills || [];
+
+    if (name === "first") {
+      new_skills[0] = value;
+    } else {
+      new_skills[1] = value;
+    }
+
+    setCharacter((character) => ({
+      ...character,
+      race: {
+        ...character.race,
+        details: {
+          ...details,
+          bonus_skills: [...new_skills],
+        },
+      },
+    }));
   };
 
   return (
     <>
       <CharacterCreationAbilityScore
         race={race}
-        error={
-          chosenAbilityScores.first === "" || chosenAbilityScores.second === ""
-        }
+        error={!details.bonus_ability_scores?.[0] || !details.bonus_ability_scores?.[1]}
         expanded={expanded}
         handleChangeExpanded={handleChangeExpanded}
       >
-        <FormControl fullWidth className="my-3">
-          <InputLabel className="my-3" id="ability-score-1-select-label">
-            Choose an Ability Score
-          </InputLabel>
-          <Select
-            className="my-3"
-            labelId="ability-score-1-select-label"
-            id="ability-score-1-select"
-            name="first"
-            value={chosenAbilityScores.first}
-            label="Choose an Ability Score"
-            onChange={handleChangeAbilityScore}
-          >
-            {abilityScores
-              .filter((score) => score.index !== "cha")
-              .map((score) => (
-                <MenuItem key={score.index} value={score.index}>
-                  {score.full_name}
-                </MenuItem>
-              ))
-              .filter(
-                (score) => score.props.value !== chosenAbilityScores.second
-              )}
-          </Select>
-        </FormControl>
+        {select(
+          "Ability Score",
+          "first",
+          details.bonus_ability_scores?.[0] ||
+          "",
+          abilityScores.filter(
+            (score) =>
+              score.index !== "cha" &&
+              score.index !== details.bonus_ability_scores?.[1]
+          ),
+          handleChangeAbilityScore
+        )}
 
-        <FormControl fullWidth className="my-3">
-          <InputLabel id="ability-score-2-select-label">
-            Choose an Ability Score
-          </InputLabel>
-          <Select
-            labelId="ability-score-2-select-label"
-            id="ability-score-2-select"
-            name="second"
-            value={chosenAbilityScores.second}
-            label="Choose an Ability Score"
-            onChange={handleChangeAbilityScore}
-          >
-            {abilityScores
-              .filter((score) => score.index !== "cha")
-              .map((score) => (
-                <MenuItem key={score.index} value={score.index}>
-                  {score.full_name}
-                </MenuItem>
-              ))
-              .filter(
-                (score) => score.props.value !== chosenAbilityScores.first
-              )}
-          </Select>
-        </FormControl>
+        {select(
+          "Ability Score",
+          "second",
+          details.bonus_ability_scores?.[1] ||
+          "",
+          abilityScores.filter(
+            (score) =>
+              score.index !== "cha" &&
+              score.index !== details.bonus_ability_scores?.[0]
+          ),
+          handleChangeAbilityScore
+        )}
       </CharacterCreationAbilityScore>
 
       <CharacterCreationLanguages
         race={race}
-        error={extraLanguage === ""}
+        error={!details.bonus_languages?.[0]}
         expanded={expanded}
         handleChangeExpanded={handleChangeExpanded}
       >
-        <FormControl fullWidth>
-          <InputLabel id="extra-language-select-label">
-            Choose a Language
-          </InputLabel>
-          <Select
-            labelId="extra-language-select-label"
-            id="extra-language-select"
-            value={extraLanguage}
-            label="Choose a Language"
-            onChange={(e) => setExtraLanguage(e.target.value)}
-          >
-            {languages
-              .filter(
-                (language) =>
-                  language.index !== "common" && language.index !== "elvish"
-              )
-              .map((language) => (
-                <MenuItem key={language.index} value={language.index}>
-                  {language.name}
-                </MenuItem>
-              ))}
-          </Select>
-        </FormControl>
+        {select(
+          "Language",
+          "language",
+          details.bonus_languages?.[0] ||
+          "",
+          languages
+            .filter(
+              (language) =>
+                language.index !== "common" && language.index !== "elvish"
+            ),
+          handleChangeLanguage
+        )}
       </CharacterCreationLanguages>
 
       <CharacterCreationFeature
@@ -164,58 +163,33 @@ export default function HalfElf({
         traits={traits}
         name="Skill Versatility"
         index="skill-versatility"
-        error={chosenSkills.first === "" || chosenSkills.second === ""}
+        error={!details.bonus_skills?.[0] || !details.bonus_skills?.[1]}
         expanded={expanded}
         handleChangeExpanded={handleChangeExpanded}
       >
-        <FormControl fullWidth className="my-3">
-          <InputLabel className="my-3" id="skill-versatility-select-label">
-            Choose a Skill
-          </InputLabel>
-          <Select
-            className="my-3"
-            labelId="skill-versatility-select-label"
-            id="skill-versatility-select"
-            name="first"
-            value={chosenSkills.first}
-            label="Choose a Skill"
-            onChange={(e) =>
-              setChosenSkills({ ...chosenSkills, first: e.target.value })
-            }
-          >
-            {skills
-              .map((skill) => (
-                <MenuItem key={skill.index} value={skill.index}>
-                  {skill.name}
-                </MenuItem>
-              ))
-              .filter((skill) => skill.props.value !== chosenSkills.second)}
-          </Select>
-        </FormControl>
+        {select(
+          "Skill",
+          "first",
+          details.bonus_skills?.[0] ||
+          "",
+          skills.filter(
+            (skill) =>
+              skill.index !== details.bonus_skills?.[1]
+          ),
+          handleChangeSkill
+        )}
 
-        <FormControl fullWidth className="my-3">
-          <InputLabel id="skill-versatility-select-label">
-            Choose a Skill
-          </InputLabel>
-          <Select
-            labelId="skill-versatility-select-label"
-            id="skill-versatility-select"
-            name="second"
-            value={chosenSkills.second}
-            label="Choose a Skill"
-            onChange={(e) =>
-              setChosenSkills({ ...chosenSkills, second: e.target.value })
-            }
-          >
-            {skills
-              .map((skill) => (
-                <MenuItem key={skill.index} value={skill.index}>
-                  {skill.name}
-                </MenuItem>
-              ))
-              .filter((skill) => skill.props.value !== chosenSkills.first)}
-          </Select>
-        </FormControl>
+        {select(
+          "Skill",
+          "second",
+          details.bonus_skills?.[1] ||
+          "",
+          skills.filter(
+            (skill) =>
+              skill.index !== details.bonus_skills?.[0]
+          ),
+          handleChangeSkill
+        )}
       </CharacterCreationFeature>
     </>
   );

@@ -14,6 +14,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import CharacterAbilities from "~/components/characters/CharacterAbilities";
+import CharacterBackground from "~/components/characters/CharacterBackground";
 import CharacterClass from "~/components/characters/CharacterClass";
 import CharacterDescription from "~/components/characters/CharacterDescription";
 import CharacterEquipment from "~/components/characters/CharacterEquipment";
@@ -24,6 +25,7 @@ import { sorter } from "~/lib/common";
 import dbConnect from "~/lib/dbConnect";
 
 import AbilityScore from "~/models/ability_score";
+import Alignment from "~/models/alignment";
 import Background from "~/models/background";
 import Class from "~/models/class";
 import Equipment from "~/models/equipment";
@@ -49,6 +51,10 @@ export const loader = async () => {
   // Ability Score
   const acResults = await AbilityScore.find({});
   const abilityScores = sorter(acResults);
+
+  // Ability Score
+  const alignmentResults = await Alignment.find({});
+  const alignments = sorter(alignmentResults);
 
   // Backgrounds
   const bgResults = await Background.find({});
@@ -100,6 +106,7 @@ export const loader = async () => {
 
   return {
     abilityScores,
+    alignments,
     backgrounds,
     classes,
     equipment,
@@ -117,6 +124,7 @@ export const loader = async () => {
 
 const steps = [
   "Name & Race",
+  "Background",
   "Class",
   "Abilities",
   "Description",
@@ -127,6 +135,7 @@ const steps = [
 export default function NewCharacter() {
   const {
     abilityScores,
+    alignments,
     backgrounds,
     classes,
     equipment,
@@ -143,8 +152,6 @@ export default function NewCharacter() {
 
   const [activeStep, setActiveStep] = useState(0);
   const [character, setCharacter] = useState({
-    race: "",
-    subrace: "",
     languages: [],
     ability_scores: {
       str: 0,
@@ -155,6 +162,14 @@ export default function NewCharacter() {
       cha: 0,
     },
     level: 1,
+    race: {
+      index: "",
+      subrace: "",
+      size: "Medium",
+      starting_proficiencies: [],
+      traits: [],
+      details: {},
+    },
     class: {
       index: "",
       subclass: "",
@@ -190,7 +205,16 @@ export default function NewCharacter() {
           second: "",
         },
       },
+      class_features: {},
     },
+    background: {
+      index: "",
+      details: {},
+    },
+    personality_traits: [],
+    ideal: "",
+    bond: "",
+    flaw: "",
   });
 
   const handleNext = () => {
@@ -204,6 +228,8 @@ export default function NewCharacter() {
   const handleReset = () => {
     setActiveStep(0);
   };
+
+  console.log("character", character);
 
   return (
     <div className="m-5">
@@ -254,6 +280,16 @@ export default function NewCharacter() {
               />
             )}
             {activeStep === 1 && (
+              <CharacterBackground
+                character={character}
+                setCharacter={setCharacter}
+                alignments={alignments}
+                backgrounds={backgrounds}
+                equipment={equipment}
+                languages={languages}
+              />
+            )}
+            {activeStep === 2 && (
               <CharacterClass
                 character={character}
                 setCharacter={setCharacter}
@@ -263,28 +299,30 @@ export default function NewCharacter() {
                 features={features}
               />
             )}
-            {activeStep === 2 && (
+            {activeStep === 3 && (
               <CharacterAbilities
                 character={character}
                 setCharacter={setCharacter}
               />
             )}
-            {activeStep === 3 && (
+            {activeStep === 4 && (
               <CharacterDescription
                 character={character}
                 setCharacter={setCharacter}
+                alignments={alignments}
                 backgrounds={backgrounds}
+                equipment={equipment}
                 languages={languages}
               />
             )}
-            {activeStep === 4 && (
+            {activeStep === 5 && (
               <CharacterEquipment
                 character={character}
                 setCharacter={setCharacter}
                 equipment={equipment}
               />
             )}
-            {activeStep === 5 && (
+            {activeStep === 6 && (
               <CharacterReview
                 character={character}
                 setCharacter={setCharacter}

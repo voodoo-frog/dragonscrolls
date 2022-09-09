@@ -1,22 +1,40 @@
-import { useState } from "react";
-
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-
 import {
   CharacterCreationAbilityScore,
   CharacterCreationLanguages,
-} from "~/lib/common";
+} from "~/lib/character_creator";
+import { select } from "~/lib/common";
 
 export default function Human({
+  character,
+  setCharacter,
   race,
   expanded,
   handleChangeExpanded,
   languages,
 }) {
-  const [extraLanguage, setExtraLanguage] = useState("");
+  const { details } = character.race;
+
+  const handleChangeLanguage = (e) => {
+    const { value } = e.target;
+
+    const old_lang = details.bonus_languages?.[0] || '';
+
+    if (old_lang) {
+      character.languages.splice(character.languages.indexOf(old_lang), 1);
+    }
+
+    setCharacter({
+      ...character,
+      languages: [...character.languages, value],
+      race: {
+        ...character.race,
+        details: {
+          ...details,
+          bonus_languages: [value],
+        },
+      },
+    });
+  };
 
   return (
     <>
@@ -28,30 +46,22 @@ export default function Human({
 
       <CharacterCreationLanguages
         race={race}
+        error={!details.bonus_languages?.[0]}
         expanded={expanded}
-        error={extraLanguage === ""}
         handleChangeExpanded={handleChangeExpanded}
       >
-        <FormControl fullWidth>
-          <InputLabel id="skill-versatility-select-label">
-            Choose a Language
-          </InputLabel>
-          <Select
-            labelId="skill-versatility-select-label"
-            id="skill-versatility-select"
-            value={extraLanguage}
-            label="Choose a Language"
-            onChange={(e) => setExtraLanguage(e.target.value)}
-          >
-            {languages
-              .filter((language) => language.index !== "common")
-              .map((language) => (
-                <MenuItem key={language.index} value={language.index}>
-                  {language.name}
-                </MenuItem>
-              ))}
-          </Select>
-        </FormControl>
+        {select(
+          "Language",
+          "language",
+          details.bonus_languages?.[0] ||
+          "",
+          languages
+            .filter(
+              (language) =>
+                language.index !== "common"
+            ),
+          handleChangeLanguage
+        )}
       </CharacterCreationLanguages>
     </>
   );

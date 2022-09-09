@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -12,11 +12,20 @@ export default function ClassReview({
   mainClass,
   subclass = {},
   changeClass,
-  features,
   expanded,
   handleChangeExpanded,
   children,
 }) {
+  const [selectedSkills, setSelectedSkills] = useState({});
+
+  const handleSkillSelection = (e, opt) => {
+    const { value } = e.target;
+    setSelectedSkills((skills) => ({
+      ...skills,
+      [opt]: value,
+    }));
+  };
+
   const {
     name,
     index,
@@ -47,14 +56,73 @@ export default function ClassReview({
       .map((res) => res.name)
       .join(", ") || "None";
 
-  const profChoices = proficiency_choices[0].from.map((skill) => skill.name);
+  let choices = proficiency_choices.find((pc) => pc.type === "skills");
+  const profChoices = choices.from.map((skill) => skill.name);
 
   const skills =
     name === "Bard"
       ? "Choose any three"
-      : `Choose ${proficiency_choices[0].choose} from ${profChoices.join(
-        ", "
-      )}`;
+      : `Choose ${choices.choose} from ${profChoices.join(", ")}`;
+
+  let skillChoices = choices.from.map((skill) => {
+    const bgSkillsList = character.background.skill_proficiencies;
+    const raceSkillsList = character.race.starting_proficiencies
+      .filter((prof) => prof.type === "skill")
+      .map((skill) => skill.index);
+
+    if (character.race.details.bonus_skills) {
+      raceSkillsList.push(
+        ...Object.values(character.race.details.bonus_skills)
+      );
+    }
+    if (bgSkillsList && bgSkillsList.includes(skill.index))
+      return `${skill.name} (background)`;
+    if (raceSkillsList && raceSkillsList.includes(skill.index))
+      return `${skill.name} (race)`;
+
+    return skill.name;
+  });
+
+  const skillSelection = [];
+  for (let i = 0; i < choices.choose; i++) {
+    const idx = i + 1;
+    const opt = `option${idx}`;
+    skillSelection.push(
+      <div className="mt-3 flex justify-start">
+        <div className="mb-3 xl:w-96">
+          <select
+            className="
+              form-select m-0
+              block
+              w-96
+              appearance-none
+              rounded
+              border
+              border-solid
+              border-gray-300
+              bg-white bg-clip-padding bg-no-repeat
+              px-3 py-1.5 text-base
+              font-normal
+              text-gray-700
+              transition
+              ease-in-out
+              focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
+            "
+            aria-label="Default select example"
+            value={selectedSkills[opt]}
+            onChange={(e) => handleSkillSelection(e, opt)}
+          >
+            <option value="">Choose a Skill</option>
+            {skillChoices.filter().map((skill) => (
+              <option key={skill} value={skill}>
+                {skill}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+    );
+  }
 
   const throws = saving_throws.map((st) => st.name).join(", ");
 
@@ -69,7 +137,9 @@ export default function ClassReview({
           <h4 className="text-2xl">
             {name} {subclass.name && `(${subclass.flavor_name})`}
           </h4>
-          <p className="text-gray-500">{subclass.source_book || source_book}</p>
+          <p className="mb-3 text-sm italic text-gray-500">
+            Source: {subclass.source_book || source_book}
+          </p>
           <p className="my-2">{brief}</p>
         </div>
         <div className="ml-3 flex shrink-0 flex-col items-center justify-center p-0">
@@ -89,14 +159,14 @@ export default function ClassReview({
       </div>
       <p className="my-2">{desc}</p>
 
-      <div class="flex justify-start">
-        <div class="mb-3 xl:w-96">
+      <div className="flex justify-start">
+        <div className="mb-3 xl:w-96">
           <label htmlFor="level" className="font-bold">
             Level:
           </label>
           <select
             id="level"
-            class="
+            className="
               form-select m-0
               block
               w-[70px]
@@ -194,6 +264,8 @@ export default function ClassReview({
           <p>
             <strong>Skills:</strong> {skills}
           </p>
+
+          {skillSelection}
         </AccordionDetails>
       </Accordion>
 

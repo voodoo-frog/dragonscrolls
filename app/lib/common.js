@@ -1,23 +1,13 @@
 import { Link } from "@remix-run/react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
 import Pagination from "@mui/material/Pagination";
 import Paper from "@mui/material/Paper";
-import Select from "@mui/material/Select";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 export const sorter = (arr, category = "name", numeric = false) => {
   return arr.sort((a, b) => {
@@ -81,7 +71,7 @@ export const feature = (features, title, idx) => (
   </>
 );
 
-export const list = (features, title, idx, sliceNum = 16, fullDesc = true) => (
+export const list = (features, title, idx, fullDesc = true) => (
   <>
     <h5 className="mt-3 text-2xl font-bold capitalize">{title}</h5>
 
@@ -103,7 +93,7 @@ export const list = (features, title, idx, sliceNum = 16, fullDesc = true) => (
         })
         .map((feature) => (
           <li key={feature.index}>
-            <span className="font-bold">{feature.name.slice(sliceNum)}:</span>{" "}
+            <span className="font-bold">{feature.name}:</span>{" "}
             {feature.desc.map((desc, index) => (
               <span key={index}>{desc}</span>
             ))}
@@ -174,6 +164,57 @@ export const table = (title, headers, rows, small = false) => (
   </TableContainer>
 );
 
+export const select = (label, name, value, options, onChange) => {
+  let title = "Choose a";
+
+  const vowels = ["a", "e", "i", "o", "u"];
+
+  if (vowels.includes(label.charAt(0).toLowerCase())) {
+    title = "Choose an";
+  }
+
+  title += ` ${label}`;
+
+  return (
+    <div className="mt-3 flex justify-start">
+      <div className="mb-3 xl:w-96">
+        <select
+          className="
+          form-select m-0
+          block
+          w-96
+          appearance-none
+          truncate
+          rounded
+          border
+          border-solid
+          border-gray-300
+          bg-white bg-clip-padding bg-no-repeat
+          px-3 py-1.5 pr-8
+          text-base
+          font-normal
+          text-gray-700
+          transition
+          ease-in-out
+          focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
+        "
+          aria-label={`${name} select`}
+          name={name}
+          value={value}
+          onChange={onChange}
+        >
+          <option value="">{title}</option>
+          {options.map((opt) => (
+            <option key={opt.index || opt} value={opt.index || opt}>
+              {opt.name || opt}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+};
+
 export const pagination = (array, page, onChange) => (
   <div className="flex justify-center py-5">
     <Pagination
@@ -188,101 +229,6 @@ export const pagination = (array, page, onChange) => (
       onChange={onChange}
     />
   </div>
-);
-
-export const CharacterCreationFeature = ({
-  traits,
-  name,
-  index,
-  expanded,
-  handleChangeExpanded,
-  error = false,
-  children,
-}) => (
-  <Accordion
-    className="mb-3"
-    expanded={expanded === name}
-    onChange={handleChangeExpanded(name)}
-  >
-    <AccordionSummary
-      expandIcon={<ExpandMoreIcon />}
-      aria-controls={`${index}-content`}
-      id={`${index}-header`}
-    >
-      <p className="flex w-full justify-between">
-        <strong>{name}</strong>
-        {error && <WarningAmberIcon sx={{ color: "red" }} />}
-      </p>
-    </AccordionSummary>
-    <AccordionDetails>
-      {traits
-        .find((t) => t.index === index)
-        .desc.map((trait) => (
-          <p key={trait} className="mb-3">
-            {trait}
-          </p>
-        ))}
-      {children}
-    </AccordionDetails>
-  </Accordion>
-);
-
-export const CharacterCreationLanguages = ({
-  race,
-  expanded,
-  handleChangeExpanded,
-  error = false,
-  children,
-}) => (
-  <Accordion
-    className="mb-3"
-    expanded={expanded === "language"}
-    onChange={handleChangeExpanded("language")}
-  >
-    <AccordionSummary
-      expandIcon={<ExpandMoreIcon />}
-      aria-controls={`${race.index}-language-content`}
-      id={`${race.index}-language-header`}
-    >
-      <p className="flex w-full justify-between">
-        <strong>Languages</strong>
-        {error && <WarningAmberIcon sx={{ color: "red" }} />}
-      </p>
-    </AccordionSummary>
-    <AccordionDetails>
-      <p className="mb-3">{race.language_desc}</p>
-      {children}
-    </AccordionDetails>
-  </Accordion>
-);
-
-export const CharacterCreationAbilityScore = ({
-  race,
-  expanded,
-  handleChangeExpanded,
-  error = false,
-  children,
-}) => (
-  <Accordion
-    className="mb-3"
-    expanded={expanded === "ability-score"}
-    onChange={handleChangeExpanded("ability-score")}
-  >
-    <AccordionSummary
-      expandIcon={<ExpandMoreIcon />}
-      aria-controls={`${race.index}-ability-score-content`}
-      id={`${race.index}-ability-score-header`}
-    >
-      <p className="flex w-full justify-between">
-        <strong>Ability Score Increase</strong>
-        {error && <WarningAmberIcon sx={{ color: "red" }} />}
-      </p>
-    </AccordionSummary>
-    <AccordionDetails>
-      <p className="mb-3">{race.ability_score_desc}</p>
-      {children}
-    </AccordionDetails>
-  </Accordion>
 );
 
 export const classFeatures = (features, mainClass) => {
@@ -305,266 +251,103 @@ export const subclassFeatures = (features, subclass) => {
   return classFeatures;
 };
 
-export const CharacterCreationClassFeature = ({
-  features,
-  index,
-  expanded,
-  handleChangeExpanded,
-  error,
-  children,
-}) => {
-  const feature = features.find((feature) => feature.index === index);
-  const { name, level, desc } = feature;
+export const alphabetizeNum = (number) => {
+  const num = number.toString();
+  let numLength = num.length;
+  let word = "";
 
-  return (
-    <Accordion
-      className="mb-3"
-      expanded={expanded === name}
-      onChange={handleChangeExpanded(name)}
-    >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls={`${index}-content`}
-        id={`${index}-header`}
-      >
-        <div className="flex w-full justify-between">
-          <div>
-            <strong>{name}</strong>
-            <p className="text-sm text-gray-500">Level {level}</p>
-          </div>
-          {error && error.error && (
-            <WarningAmberIcon
-              className="h-full self-center"
-              sx={{ color: "red" }}
-            />
-          )}
-        </div>
-      </AccordionSummary>
-      <AccordionDetails>
-        {desc.map((item) => (
-          <p key={item} className="mb-3">
-            {item}
-          </p>
-        ))}
-        {children}
-      </AccordionDetails>
-    </Accordion>
-  );
-};
+  if (numLength === 0 || numLength > 4) {
+    return;
+  }
 
-export const CharacterCreationClassAbilityScore = ({
-  level,
-  character,
-  setCharacter,
-  feats,
-  expandFeat,
-  setExpandFeat,
-}) => {
-  return (
-    <>
-      <FormControl fullWidth className="my-3">
-        <InputLabel
-          className="my-3"
-          id="ability-score-improvement-ability-select-label"
-        >
-          Choose an Option
-        </InputLabel>
-        <Select
-          className="my-3"
-          labelId="ability-score-improvement-ability-option-select-label"
-          id="ability-score-improvement-ability-option-select"
-          name="first option"
-          value={character.class.ability_score_improvements[level].option}
-          label="Choose an Option"
-          onChange={(e) =>
-            setCharacter({
-              ...character,
-              class: {
-                ...character.class,
-                ability_score_improvements: {
-                  ...character.class.ability_score_improvements,
-                  [level]: {
-                    option: e.target.value,
-                  },
-                },
-              },
-            })
-          }
-        >
-          {["Ability Score Improvement", "Feat"].map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+  const single_digits = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+  ];
 
-      {character.class.ability_score_improvements[level].option ===
-        "Ability Score Improvement" && (
-        <>
-          <FormControl fullWidth className="my-3">
-            <InputLabel
-              className="my-3"
-              id="ability-score-improvement-ability-select-label"
-            >
-              Choose an Ability Score
-            </InputLabel>
-            <Select
-              className="my-3"
-              labelId="ability-score-improvement-ability-select-label"
-              id="ability-score-improvement-ability-select"
-              name="first"
-              value={character.class.ability_score_improvements[level].first}
-              label="Choose an Ability Score"
-              onChange={(e) =>
-                setCharacter({
-                  ...character,
-                  class: {
-                    ...character.class,
-                    ability_score_improvements: {
-                      ...character.class.ability_score_improvements,
-                      [level]: {
-                        ...character.class.ability_score_improvements[level],
-                        first: e.target.value,
-                      },
-                    },
-                  },
-                })
-              }
-            >
-              {[
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma",
-              ].map((ability) => (
-                <MenuItem key={ability} value={ability}>
-                  {ability}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <FormControl fullWidth className="my-3">
-            <InputLabel
-              className="my-3"
-              id="ability-score-improvement-ability-select-label"
-            >
-              Choose an Ability Score
-            </InputLabel>
-            <Select
-              className="my-3"
-              labelId="ability-score-improvement-ability-select-label"
-              id="ability-score-improvement-ability-select"
-              name="second"
-              value={character.class.ability_score_improvements[level].second}
-              label="Choose an Ability Score"
-              onChange={(e) =>
-                setCharacter({
-                  ...character,
-                  class: {
-                    ...character.class,
-                    ability_score_improvements: {
-                      ...character.class.ability_score_improvements,
-                      [level]: {
-                        ...character.class.ability_score_improvements[level],
-                        second: e.target.value,
-                      },
-                    },
-                  },
-                })
-              }
-            >
-              {[
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma",
-              ].map((ability) => (
-                <MenuItem key={ability} value={ability}>
-                  {ability}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </>
-      )}
+  const two_digits = [
+    "",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+  ];
 
-      {character.class.ability_score_improvements[level].option === "Feat" && (
-        <FormControl fullWidth className="my-3">
-          <InputLabel
-            className="my-3"
-            id="ability-score-improvement-feat-select-label"
-          >
-            Choose a Feat
-          </InputLabel>
-          <Select
-            className="my-3"
-            labelId="ability-score-improvement-feat-select-label"
-            id="ability-score-improvement-feat-select"
-            name="feat"
-            value={character.class.ability_score_improvements[level].feat}
-            label="Choose a Feat"
-            onChange={(e) =>
-              setCharacter({
-                ...character,
-                class: {
-                  ...character.class,
-                  ability_score_improvements: {
-                    ...character.class.ability_score_improvements,
-                    [level]: {
-                      ...character.class.ability_score_improvements[level],
-                      feat: e.target.value,
-                    },
-                  },
-                },
-              })
-            }
-          >
-            {feats.map((feat) => (
-              <MenuItem key={feat.index} value={feat.index}>
-                {feat.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      )}
+  const tens_multiple = [
+    "",
+    "",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+  ];
 
-      {character.class.ability_score_improvements[level].feat &&
-        character.class.ability_score_improvements[level].feat !== "" && (
-          <Accordion
-            elevation={0}
-            className="my-3"
-            expanded={expandFeat}
-            onChange={() => setExpandFeat(!expandFeat)}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="expand-feat-content"
-              id="expand-feat-header"
-            >
-              <p>
-                <strong>Feat Details</strong>
-              </p>
-            </AccordionSummary>
-            <AccordionDetails>
-              {feats
-                .find(
-                  (feat) =>
-                    feat.index ===
-                    character.class.ability_score_improvements[level].feat
-                )
-                .desc.map((desc, index) => (
-                  <p key={index} className="mb-3">
-                    {desc}
-                  </p>
-                ))}
-            </AccordionDetails>
-          </Accordion>
-        )}
-    </>
-  );
+  const tens_power = ["hundred", "thousand"];
+
+  if (numLength == 1) {
+    return single_digits[num.charCodeAt(0) - 48];
+  }
+
+  let x = 0;
+  while (x < num.length) {
+    // Code path for first 2 digits
+    if (numLength >= 3) {
+      if (num.charCodeAt(x) - 48 !== 0) {
+        word += `${single_digits[num.charCodeAt(x) - 48]} ${
+          tens_power[numLength - 3]
+        } `;
+      }
+      numLength -= 1;
+    } else {
+      // 10 - 19
+      if (num.charCodeAt(x) - 48 === 1) {
+        let sum = num.charCodeAt(x) - 48 + num.charCodeAt(x + 1) - 48;
+        word += `${two_digits[sum]}`;
+        return word;
+      }
+
+      // 20
+      else if (
+        num.charCodeAt(x) - 48 === 2 &&
+        num.charCodeAt(x + 1) - 48 === 0
+      ) {
+        word = "twenty";
+        return word;
+      }
+
+      // 21 - 99
+      else {
+        let i = num.charCodeAt(x) - 48;
+        if (i > 0) {
+          word += `${tens_multiple[i]} `;
+        } else {
+          word += "";
+        }
+        let j = num.charCodeAt(x + 1) - 48;
+        if (j > 0) {
+          return (word += `${single_digits[j]}`);
+        }
+        return word;
+      }
+    }
+    x += 1;
+  }
 };

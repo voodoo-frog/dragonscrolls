@@ -28,6 +28,8 @@ export default function CharacterNameRace({
   const [expanded, setExpanded] = useState(false);
   const [changeRace, setChangeRace] = useState(false);
 
+  const { race, ability_scores, name } = character;
+
   let raceDetails;
 
   const handleSelection = (race, subrace = "") => {
@@ -45,13 +47,29 @@ export default function CharacterNameRace({
   const handleSelectRace = async () => {
     const newCharacter = {
       ...character,
-      race: selectedRace.index,
-      subrace: selectedSubrace.index || null,
+      race: {
+        index: selectedRace.index,
+        subrace: selectedSubrace.index || null,
+        size: selectedRace.size,
+        starting_proficiencies: selectedRace.starting_proficiencies,
+        traits: selectedRace.traits.map((trait) => trait.index),
+        details: {
+          starting_ability_scores: {},
+        },
+      },
       languages: [],
+      ability_scores: {
+        str: 0,
+        dex: 0,
+        con: 0,
+        int: 0,
+        wis: 0,
+        cha: 0,
+      },
     };
 
     // Ability Score Modifiers
-    for (const score in character.ability_scores) {
+    for (const score in ability_scores) {
       let value = 0;
 
       if (selectedRace.ability_bonuses) {
@@ -72,6 +90,9 @@ export default function CharacterNameRace({
         if (bonus) {
           value += bonus.bonus;
         }
+      }
+      if (value > 0) {
+        newCharacter.race.details.starting_ability_scores[score] = value;
       }
 
       newCharacter.ability_scores[score] = value;
@@ -100,13 +121,13 @@ export default function CharacterNameRace({
     setExpanded(newExpanded ? panel : false);
   };
 
-  switch (character.race) {
+  switch (race.index) {
     case "dragonborn":
       raceDetails = (
         <Dragonborn
           character={character}
           setCharacter={setCharacter}
-          race={races.find((race) => race.index === character.race)}
+          race={races.find((r) => r.index === race.index)}
           traits={traits}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
@@ -118,10 +139,8 @@ export default function CharacterNameRace({
         <Dwarf
           character={character}
           setCharacter={setCharacter}
-          race={races.find((race) => race.index === character.race)}
-          subrace={subraces.find(
-            (subrace) => subrace.index === character.subrace
-          )}
+          race={races.find((r) => r.index === race.index)}
+          subrace={subraces.find((subrace) => subrace.index === race.subrace)}
           traits={traits}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
@@ -133,10 +152,8 @@ export default function CharacterNameRace({
         <Elf
           character={character}
           setCharacter={setCharacter}
-          race={races.find((race) => race.index === character.race)}
-          subrace={subraces.find(
-            (subrace) => subrace.index === character.subrace
-          )}
+          race={races.find((r) => r.index === race.index)}
+          subrace={subraces.find((subrace) => subrace.index === race.subrace)}
           languages={languages}
           spells={spells}
           traits={traits}
@@ -150,7 +167,7 @@ export default function CharacterNameRace({
         <HalfElf
           character={character}
           setCharacter={setCharacter}
-          race={races.find((race) => race.index === character.race)}
+          race={races.find((r) => r.index === race.index)}
           abilityScores={abilityScores}
           languages={languages}
           skills={skills}
@@ -165,7 +182,7 @@ export default function CharacterNameRace({
         <Human
           character={character}
           setCharacter={setCharacter}
-          race={races.find((race) => race.index === character.race)}
+          race={races.find((r) => r.index === race.index)}
           languages={languages}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
@@ -193,7 +210,7 @@ export default function CharacterNameRace({
           className="form-control m-0 mb-5 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
           id="floatingInput"
           placeholder="Conan the Barbarian"
-          value={character.name}
+          value={name}
           onChange={(e) => setCharacter({ ...character, name: e.target.value })}
         />
         <label htmlFor="floatingInput" className="text-gray-700">
@@ -201,7 +218,7 @@ export default function CharacterNameRace({
         </label>
 
         {/* No Race Selected */}
-        {!character.race && (
+        {!race.index && (
           <CharacterSelectRace
             changeRace={changeRace}
             races={races}
@@ -219,12 +236,10 @@ export default function CharacterNameRace({
         )}
 
         {/* Race Selected - Summary */}
-        {character.race && !changeRace && (
+        {race.index && !changeRace && (
           <CharacterNameRaceReview
-            race={races.find((race) => race.index === character.race)}
-            subrace={subraces.find(
-              (subrace) => subrace.index === character.subrace
-            )}
+            race={races.find((r) => r.index === race.index)}
+            subrace={subraces.find((subrace) => subrace.index === race.subrace)}
             traits={traits}
             changeRace={() => setChangeRace(true)}
           >
@@ -233,24 +248,21 @@ export default function CharacterNameRace({
         )}
 
         {/* Race Selected - Change Choice */}
-        {character.race && changeRace && (
+        {race.index && changeRace && (
           <>
             <p className="text-lg">Current Race</p>
             <div className="flex items-center">
               <img
                 className="h-[80px] w-[80px] rounded-full"
-                name={character.subrace || character.race}
-                src={`/images/${
-                  character.subrace || character.race
-                }-avatar.jpeg`}
-                alt={`${character.subrace || character.race} Avatar`}
+                name={race.subrace || race.index}
+                src={`/images/${race.subrace || race.index}-avatar.jpeg`}
+                alt={`${race.subrace || race.index} Avatar`}
               />
               <p className="ml-5 text-lg uppercase text-gray-500">
-                {character.subrace
-                  ? subraces.find(
-                      (subrace) => subrace.index === character.subrace
-                    ).name
-                  : races.find((race) => race.index === character.race).name}
+                {race.subrace
+                  ? subraces.find((subrace) => subrace.index === race.subrace)
+                      .name
+                  : races.find((r) => r.index === race.index).name}
               </p>
 
               <button
@@ -264,15 +276,11 @@ export default function CharacterNameRace({
             <CharacterSelectRace
               changeRace={changeRace}
               races={
-                character.subrace
-                  ? races
-                  : races.filter((race) => race.index !== character.race)
+                race.subrace ? races : races.filter((r) => r.index !== race)
               }
               subraces={
-                character.subrace
-                  ? subraces.filter(
-                      (subrace) => subrace.index !== character.subrace
-                    )
+                race.subrace
+                  ? subraces.filter((subrace) => subrace.index !== race.subrace)
                   : subraces
               }
               modalOpen={modalOpen}

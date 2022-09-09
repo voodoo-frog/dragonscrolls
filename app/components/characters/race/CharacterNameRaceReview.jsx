@@ -27,8 +27,8 @@ export default function CharacterNameRaceReview({
       <div className="justify-between-align-center flex w-full">
         <div className="grow">
           <h4 className="text-2xl">{subrace.name || race.name}</h4>
-          <p className="text-gray-500">
-            {subrace.source_book || race.source_book}
+          <p className="mb-3 text-sm italic text-gray-500">
+            Source: {subrace.source_book || race.source_book}
           </p>
           <p className="my-2">{race.brief}</p>
         </div>

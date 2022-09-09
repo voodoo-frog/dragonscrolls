@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { CharacterCreationClassAbilityScore } from "~/lib/common";
+import { CharacterCreationClassAbilityScore } from "~/lib/character_creator";
 
 export default function ClassAbilityScores({
   character,

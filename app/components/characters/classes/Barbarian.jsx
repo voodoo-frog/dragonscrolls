@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { CharacterCreationClassFeature } from "~/lib/common";
+import { CharacterCreationClassFeature } from "~/lib/character_creator";
 import ClassAbilityScores from "./ClassAbilityScores";
 
 export default function Barbarian({
   character,
   setCharacter,
-  mainClass,
   subclasses,
   feats,
   features,
@@ -59,10 +58,12 @@ export default function Barbarian({
             )}
             {feature.name === "Primal Path" && (
               <>
-                <label htmlFor="primalPath">Primal Path:</label>
+                <label htmlFor="primalPath" className="font-bold">
+                  Primal Path:
+                </label>
                 <select
                   id="primalPath"
-                  class="
+                  className="
                     form-select m-0
                     block
                     w-full
