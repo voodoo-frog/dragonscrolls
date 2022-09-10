@@ -176,13 +176,13 @@ export const select = (label, name, value, options, onChange) => {
   title += ` ${label}`;
 
   return (
-    <div className="mt-3 flex justify-start">
-      <div className="mb-3 xl:w-96">
+    <div className="mt-3 flex justify-start w-full">
+      <div className="mb-3 w-full">
         <select
           className="
           form-select m-0
           block
-          w-96
+          w-full
           appearance-none
           truncate
           rounded

@@ -46,13 +46,23 @@ export default function CharacterClass({
         ability_score_improvements["4th"].second))
   );
 
+  const lvl6ASIComplete = Boolean(
+    level >= 6 &&
+    character.class.index !== 'fighter' ||
+    (ability_score_improvements["6th"]?.option &&
+      (ability_score_improvements["6th"]?.feat ||
+        (ability_score_improvements["6th"]?.first &&
+          ability_score_improvements["6th"]?.second))) &&
+    lvl4ASIComplete
+  );
+
   const lvl8ASIComplete = Boolean(
     level >= 8 &&
     ability_score_improvements["8th"].option &&
     (ability_score_improvements["8th"].feat ||
       (ability_score_improvements["8th"].first &&
         ability_score_improvements["8th"].second)) &&
-    lvl4ASIComplete
+    lvl6ASIComplete
   );
 
   const lvl12ASIComplete = Boolean(
@@ -64,13 +74,23 @@ export default function CharacterClass({
     lvl8ASIComplete
   );
 
+  const lvl14ASIComplete = Boolean(
+    level >= 14 &&
+    character.class.index !== 'fighter' ||
+    (ability_score_improvements["14th"]?.option &&
+      (ability_score_improvements["14th"]?.feat ||
+        (ability_score_improvements["14th"]?.first &&
+          ability_score_improvements["14th"]?.second))) &&
+    lvl12ASIComplete
+  );
+
   const lvl16ASIComplete = Boolean(
     level >= 16 &&
     ability_score_improvements["16th"].option &&
     (ability_score_improvements["16th"].feat ||
       (ability_score_improvements["16th"].first &&
         ability_score_improvements["16th"].second)) &&
-    lvl12ASIComplete
+    lvl14ASIComplete
   );
 
   const lvl19ASIComplete = Boolean(
@@ -88,10 +108,14 @@ export default function CharacterClass({
     asiComplete = lvl19ASIComplete;
   } else if (level >= 16) {
     asiComplete = lvl16ASIComplete;
+  } else if (level >= 14) {
+    asiComplete = lvl14ASIComplete;
   } else if (level >= 12) {
     asiComplete = lvl12ASIComplete;
   } else if (level >= 8) {
     asiComplete = lvl8ASIComplete;
+  } else if (level >= 6) {
+    asiComplete = lvl6ASIComplete;
   } else if (level >= 4) {
     asiComplete = lvl4ASIComplete;
   }
@@ -267,13 +291,12 @@ export default function CharacterClass({
         <Fighter
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />

@@ -171,17 +171,17 @@ export const CharacterCreationClassAbilityScore = ({
       {select(
         "Option",
         "option",
-        character.class.ability_score_improvements[level].option,
+        character.class.ability_score_improvements[level]?.option,
         ["Ability Score Improvement", "Feat"],
         handleChangeOption,
       )}
 
-      {character.class.ability_score_improvements[level].option === "Ability Score Improvement" && (
+      {character.class.ability_score_improvements[level]?.option === "Ability Score Improvement" && (
         <>
           {select(
             "Ability Score",
             "first",
-            character.class.ability_score_improvements[level].first,
+            character.class.ability_score_improvements[level]?.first,
             ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
             handleChangeAbilityScore,
           )}
@@ -189,27 +189,27 @@ export const CharacterCreationClassAbilityScore = ({
           {select(
             "Ability Score",
             "second",
-            character.class.ability_score_improvements[level].second,
+            character.class.ability_score_improvements[level]?.second,
             ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
             handleChangeAbilityScore,
           )}
         </>
       )}
 
-      {character.class.ability_score_improvements[level].option === "Feat" && (
+      {character.class.ability_score_improvements[level]?.option === "Feat" && (
         <>
         {select(
           "Feat",
           "feat",
-          character.class.ability_score_improvements[level].feat,
+          character.class.ability_score_improvements[level]?.feat,
           feats,
           handleChangeFeat,
         )}
         </>
       )}
 
-      {character.class.ability_score_improvements[level].feat &&
-        character.class.ability_score_improvements[level].feat !== "" && (
+      {character.class.ability_score_improvements[level]?.feat &&
+        character.class.ability_score_improvements[level]?.feat !== "" && (
           <Accordion
             elevation={0}
             className="my-3"
@@ -230,7 +230,7 @@ export const CharacterCreationClassAbilityScore = ({
                 .find(
                   (feat) =>
                     feat.index ===
-                    character.class.ability_score_improvements[level].feat
+                    character.class.ability_score_improvements[level]?.feat
                 )
                 .desc.map((desc, index) => (
                   <p key={index} className="mb-3">
@@ -385,13 +385,13 @@ export const CharacterCreationSelect = ({
   title += ` ${label}`;
 
   return (
-  <div className="mt-3 flex justify-start">
-    <div className="mb-3 xl:w-96">
+  <div className="mt-3 flex justify-start w-full">
+    <div className="mb-3 w-full">
       <select
         className="
           form-select m-0
           block
-          w-96
+          w-full
           appearance-none
           rounded
           border

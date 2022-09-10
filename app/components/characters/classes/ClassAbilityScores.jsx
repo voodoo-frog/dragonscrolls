@@ -20,6 +20,20 @@ export default function ClassAbilityScores({
         setExpandFeat={setExpandFeat}
       />
 
+      {character.class.index === 'fighter' && level >= 6 && (
+        <>
+          <p>6th Level:</p>
+          <CharacterCreationClassAbilityScore
+            level="6th"
+            feats={feats}
+            character={character}
+            setCharacter={setCharacter}
+            expandFeat={expandFeat}
+            setExpandFeat={setExpandFeat}
+          />
+        </>
+      )}
+
       {level >= 8 && (
         <>
           <p>8th Level:</p>
@@ -39,6 +53,20 @@ export default function ClassAbilityScores({
           <p>12th Level:</p>
           <CharacterCreationClassAbilityScore
             level="12th"
+            feats={feats}
+            character={character}
+            setCharacter={setCharacter}
+            expandFeat={expandFeat}
+            setExpandFeat={setExpandFeat}
+          />
+        </>
+      )}
+
+      {character.class.index === 'fighter' && level >= 14 && (
+        <>
+          <p>14th Level:</p>
+          <CharacterCreationClassAbilityScore
+            level="14th"
             feats={feats}
             character={character}
             setCharacter={setCharacter}
