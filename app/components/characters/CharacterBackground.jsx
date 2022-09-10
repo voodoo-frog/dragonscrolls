@@ -8,13 +8,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 import { sorter, alphabetizeNum, select } from "~/lib/common";
-import { CharacterCreationBackgroundFeature } from "../../lib/character_creator";
+import { CharacterCreationBackgroundFeature, CharacterCreationSelect } from "../../lib/character_creator";
 
 export default function CharacterBackground({
   character,
   setCharacter,
   alignments,
-  equipment,
   backgrounds,
 }) {
   const [background, setBackground] = useState({});
@@ -39,9 +38,14 @@ export default function CharacterBackground({
   useEffect(() => {
     const { index } = character.background;
     if (index) {
-      setBackground(
-        backgrounds.find((background) => background.index === index)
+      const bg = backgrounds.find((background) => background.index === index);
+      setBackground(bg);
+
+      const bgSkills = bg.starting_proficiencies.filter(
+        (bg) => bg.type === "skill"
       );
+
+      setSkills(bgSkills);
     }
   }, [backgrounds, character.background]);
 
@@ -191,38 +195,12 @@ export default function CharacterBackground({
       });
 
       languageOptions.push(
-        <div className="mt-3 flex justify-start">
-          <div className="mb-3 xl:w-96">
-            <select
-              className="
-              form-select m-0
-              block
-              w-96
-              appearance-none
-              rounded
-              border
-              border-solid
-              border-gray-300
-              bg-white bg-clip-padding bg-no-repeat
-              px-3 py-1.5 text-base
-              font-normal
-              text-gray-700
-              transition
-              ease-in-out
-              focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
-            "
-              aria-label="Default select example"
-              value={
-                character.background.bonus_languages?.[opt] ||
-                ""
-              }
-              onChange={(e) => handleSelectLanguages(e, opt)}
-            >
-              <option value="">Choose a Language</option>
-              {options}
-            </select>
-          </div>
-        </div>
+        CharacterCreationSelect({
+          label: 'Language',
+          value: character.background.bonus_languages?.[opt] || "",
+          onChange: (e) => handleSelectLanguages(e, opt),
+          options,
+        })
       );
     }
   }

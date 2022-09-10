@@ -9,6 +9,8 @@ import Select from "@mui/material/Select";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
+import { select } from './common';
+
 export const CharacterCreationAbilityScore = ({
   race,
   expanded,
@@ -112,177 +114,98 @@ export const CharacterCreationClassAbilityScore = ({
   expandFeat,
   setExpandFeat,
 }) => {
+
+  const handleChangeOption = (e) => {
+    const { value } = e.target;
+
+    setCharacter({
+      ...character,
+      class: {
+        ...character.class,
+        ability_score_improvements: {
+          ...character.class.ability_score_improvements,
+          [level]: {
+            option: value,
+          },
+        },
+      },
+    })
+  }
+
+  const handleChangeAbilityScore = (e) => {
+    const { name, value } = e.target;
+    setCharacter({
+      ...character,
+      class: {
+        ...character.class,
+        ability_score_improvements: {
+          ...character.class.ability_score_improvements,
+          [level]: {
+            ...character.class.ability_score_improvements[level],
+            [name]: value,
+          },
+        },
+      },
+    })
+  };
+
+  const handleChangeFeat = (e) => {
+    const { value } = e.target;
+
+    setCharacter({
+      ...character,
+      class: {
+        ...character.class,
+        ability_score_improvements: {
+          ...character.class.ability_score_improvements,
+          [level]: {
+            ...character.class.ability_score_improvements[level],
+            feat: value,
+          },
+        },
+      },
+    })
+  };
   return (
     <>
-      <FormControl fullWidth className="my-3">
-        <InputLabel
-          className="my-3"
-          id="ability-score-improvement-ability-select-label"
-        >
-          Choose an Option
-        </InputLabel>
-        <Select
-          className="my-3"
-          labelId="ability-score-improvement-ability-option-select-label"
-          id="ability-score-improvement-ability-option-select"
-          name="first option"
-          value={character.class.ability_score_improvements[level].option}
-          label="Choose an Option"
-          onChange={(e) =>
-            setCharacter({
-              ...character,
-              class: {
-                ...character.class,
-                ability_score_improvements: {
-                  ...character.class.ability_score_improvements,
-                  [level]: {
-                    option: e.target.value,
-                  },
-                },
-              },
-            })
-          }
-        >
-          {["Ability Score Improvement", "Feat"].map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      {select(
+        "Option",
+        "option",
+        character.class.ability_score_improvements[level].option,
+        ["Ability Score Improvement", "Feat"],
+        handleChangeOption,
+      )}
 
-      {character.class.ability_score_improvements[level].option ===
-        "Ability Score Improvement" && (
+      {character.class.ability_score_improvements[level].option === "Ability Score Improvement" && (
         <>
-          <FormControl fullWidth className="my-3">
-            <InputLabel
-              className="my-3"
-              id="ability-score-improvement-ability-select-label"
-            >
-              Choose an Ability Score
-            </InputLabel>
-            <Select
-              className="my-3"
-              labelId="ability-score-improvement-ability-select-label"
-              id="ability-score-improvement-ability-select"
-              name="first"
-              value={character.class.ability_score_improvements[level].first}
-              label="Choose an Ability Score"
-              onChange={(e) =>
-                setCharacter({
-                  ...character,
-                  class: {
-                    ...character.class,
-                    ability_score_improvements: {
-                      ...character.class.ability_score_improvements,
-                      [level]: {
-                        ...character.class.ability_score_improvements[level],
-                        first: e.target.value,
-                      },
-                    },
-                  },
-                })
-              }
-            >
-              {[
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma",
-              ].map((ability) => (
-                <MenuItem key={ability} value={ability}>
-                  {ability}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <FormControl fullWidth className="my-3">
-            <InputLabel
-              className="my-3"
-              id="ability-score-improvement-ability-select-label"
-            >
-              Choose an Ability Score
-            </InputLabel>
-            <Select
-              className="my-3"
-              labelId="ability-score-improvement-ability-select-label"
-              id="ability-score-improvement-ability-select"
-              name="second"
-              value={character.class.ability_score_improvements[level].second}
-              label="Choose an Ability Score"
-              onChange={(e) =>
-                setCharacter({
-                  ...character,
-                  class: {
-                    ...character.class,
-                    ability_score_improvements: {
-                      ...character.class.ability_score_improvements,
-                      [level]: {
-                        ...character.class.ability_score_improvements[level],
-                        second: e.target.value,
-                      },
-                    },
-                  },
-                })
-              }
-            >
-              {[
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma",
-              ].map((ability) => (
-                <MenuItem key={ability} value={ability}>
-                  {ability}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          {select(
+            "Ability Score",
+            "first",
+            character.class.ability_score_improvements[level].first,
+            ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+            handleChangeAbilityScore,
+          )}
+
+          {select(
+            "Ability Score",
+            "second",
+            character.class.ability_score_improvements[level].second,
+            ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+            handleChangeAbilityScore,
+          )}
         </>
       )}
 
       {character.class.ability_score_improvements[level].option === "Feat" && (
-        <FormControl fullWidth className="my-3">
-          <InputLabel
-            className="my-3"
-            id="ability-score-improvement-feat-select-label"
-          >
-            Choose a Feat
-          </InputLabel>
-          <Select
-            className="my-3"
-            labelId="ability-score-improvement-feat-select-label"
-            id="ability-score-improvement-feat-select"
-            name="feat"
-            value={character.class.ability_score_improvements[level].feat}
-            label="Choose a Feat"
-            onChange={(e) =>
-              setCharacter({
-                ...character,
-                class: {
-                  ...character.class,
-                  ability_score_improvements: {
-                    ...character.class.ability_score_improvements,
-                    [level]: {
-                      ...character.class.ability_score_improvements[level],
-                      feat: e.target.value,
-                    },
-                  },
-                },
-              })
-            }
-          >
-            {feats.map((feat) => (
-              <MenuItem key={feat.index} value={feat.index}>
-                {feat.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <>
+        {select(
+          "Feat",
+          "feat",
+          character.class.ability_score_improvements[level].feat,
+          feats,
+          handleChangeFeat,
+        )}
+        </>
       )}
 
       {character.class.ability_score_improvements[level].feat &&
@@ -343,16 +266,13 @@ export const CharacterCreationClassFeature = ({
         aria-controls={`${index}-content`}
         id={`${index}-header`}
       >
-        <div className="flex w-full justify-between">
+        <div className="flex w-full justify-between items-center">
           <div>
             <strong>{name}</strong>
             <p className="text-sm text-gray-500">Level {level}</p>
           </div>
           {error && error.error && (
-            <WarningAmberIcon
-              className="h-full self-center"
-              sx={{ color: "red" }}
-            />
+            <WarningAmberIcon sx={{ color: "red" }} />
           )}
         </div>
       </AccordionSummary>
@@ -445,5 +365,54 @@ export const CharacterCreationBackgroundFeature = ({
         {children}
       </AccordionDetails>
     </Accordion>
+  );
+};
+
+export const CharacterCreationSelect = ({
+  label,
+  value,
+  onChange,
+  options,
+}) => {
+  let title = "Choose a";
+
+  const vowels = ["a", "e", "i", "o", "u"];
+
+  if (vowels.includes(label.charAt(0).toLowerCase())) {
+    title = "Choose an";
+  }
+
+  title += ` ${label}`;
+
+  return (
+  <div className="mt-3 flex justify-start">
+    <div className="mb-3 xl:w-96">
+      <select
+        className="
+          form-select m-0
+          block
+          w-96
+          appearance-none
+          rounded
+          border
+          border-solid
+          border-gray-300
+          bg-white bg-clip-padding bg-no-repeat
+          px-3 py-1.5 text-base
+          font-normal
+          text-gray-700
+          transition
+          ease-in-out
+          focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
+        "
+        aria-label="Default select example"
+        value={value}
+        onChange={onChange}
+      >
+        <option value="">{title}</option>
+        {options}
+      </select>
+    </div>
+  </div>
   );
 };

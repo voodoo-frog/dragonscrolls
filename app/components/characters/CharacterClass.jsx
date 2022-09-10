@@ -155,6 +155,7 @@ export default function CharacterClass({
           instruments: [],
           artisans_tools: [],
         },
+        details: {}
       },
       equipment: selectedClass.starting_equipment,
     };

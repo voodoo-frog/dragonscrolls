@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+
+import { sorter, alphabetizeNum } from "~/lib/common";
+import { CharacterCreationSelect } from "../../../lib/character_creator";
 
 export default function ClassReview({
   character,
@@ -16,13 +20,25 @@ export default function ClassReview({
   handleChangeExpanded,
   children,
 }) {
-  const [selectedSkills, setSelectedSkills] = useState({});
+  const { details } = character.class;
 
-  const handleSkillSelection = (e, opt) => {
+  const handleSelectSkills = (e, opt) => {
     const { value } = e.target;
-    setSelectedSkills((skills) => ({
-      ...skills,
-      [opt]: value,
+    const { bonus_skills } = details;
+
+    setCharacter((character) => ({
+      ...character,
+      languages: [...character.languages, value],
+      class: {
+        ...character.class,
+        details: {
+          ...details,
+          bonus_skills: {
+            ...bonus_skills,
+            [opt]: value,
+          },
+        },
+      },
     }));
   };
 
@@ -56,72 +72,62 @@ export default function ClassReview({
       .map((res) => res.name)
       .join(", ") || "None";
 
-  let choices = proficiency_choices.find((pc) => pc.type === "skills");
-  const profChoices = choices.from.map((skill) => skill.name);
-
-  const skills =
-    name === "Bard"
-      ? "Choose any three"
-      : `Choose ${choices.choose} from ${profChoices.join(", ")}`;
-
-  let skillChoices = choices.from.map((skill) => {
-    const bgSkillsList = character.background.skill_proficiencies;
-    const raceSkillsList = character.race.starting_proficiencies
-      .filter((prof) => prof.type === "skill")
-      .map((skill) => skill.index);
-
-    if (character.race.details.bonus_skills) {
-      raceSkillsList.push(
-        ...Object.values(character.race.details.bonus_skills)
-      );
-    }
-    if (bgSkillsList && bgSkillsList.includes(skill.index))
-      return `${skill.name} (background)`;
-    if (raceSkillsList && raceSkillsList.includes(skill.index))
-      return `${skill.name} (race)`;
-
-    return skill.name;
-  });
+  const skill_choices = proficiency_choices.find((pc) => pc.type === "skills");
 
   const skillSelection = [];
-  for (let i = 0; i < choices.choose; i++) {
-    const idx = i + 1;
-    const opt = `option${idx}`;
-    skillSelection.push(
-      <div className="mt-3 flex justify-start">
-        <div className="mb-3 xl:w-96">
-          <select
-            className="
-              form-select m-0
-              block
-              w-96
-              appearance-none
-              rounded
-              border
-              border-solid
-              border-gray-300
-              bg-white bg-clip-padding bg-no-repeat
-              px-3 py-1.5 text-base
-              font-normal
-              text-gray-700
-              transition
-              ease-in-out
-              focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
-            "
-            aria-label="Default select example"
-            value={selectedSkills[opt]}
-            onChange={(e) => handleSkillSelection(e, opt)}
-          >
-            <option value="">Choose a Skill</option>
-            {skillChoices.filter().map((skill) => (
-              <option key={skill} value={skill}>
-                {skill}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-    );
+  if (skill_choices) {
+    const { choose, from } = skill_choices;
+    const { bonus_skills } = details;
+    for (let i = 0; i < choose; i++) {
+      const idx = i + 1;
+      const opt = `option${idx}`;
+
+      const remainingChosenOptions = Object.entries(bonus_skills || {})
+        .filter(([key, value]) => key !== opt && !value.includes("option"))
+        .map(([key, value]) => value);
+
+      const options = sorter(
+        from.filter((skill) => !remainingChosenOptions.includes(skill.index))
+      ).map((skill) => {
+        const { index, name } = skill;
+
+        let option;
+
+        if (character.race.details?.bonus_skills?.includes(index)) {
+          option = (
+            <option key={index} value={index} disabled>
+              {name} (race)
+            </option>
+          );
+        } else if (character.background.details?.bonus_skills?.includes(index)) {
+          option = (
+            <option key={index} value={index} disabled>
+              {name} (background)
+            </option>
+          );
+        } else {
+          option = (
+            <option key={index} value={index}>
+              {name}
+            </option>
+          );
+        }
+
+        return option;
+      });
+
+      skillSelection.push(
+        CharacterCreationSelect({
+          label: 'Skill',
+          value:
+            details.bonus_skills?.[opt] ||
+            ""
+          ,
+          onChange: (e) => handleSelectSkills(e, opt),
+          options,
+        })
+      );
+    }
   }
 
   const throws = saving_throws.map((st) => st.name).join(", ");
@@ -241,11 +247,12 @@ export default function ClassReview({
           aria-controls={`proficiencies-content`}
           id={`proficiencies-header`}
         >
-          <div className="flex w-full justify-between">
+          <div className="flex w-full justify-between items-center">
             <div>
               <strong>Proficiencies</strong>
               <p className="text-sm text-gray-500">Level 1</p>
             </div>
+            {(!details.bonus_skills || Object.keys(details.bonus_skills).length < skill_choices?.choose) && <WarningAmberIcon sx={{ color: "red" }} />}
           </div>
         </AccordionSummary>
         <AccordionDetails>
@@ -261,11 +268,13 @@ export default function ClassReview({
           <p>
             <strong>Saving Throws:</strong> {throws}
           </p>
-          <p>
-            <strong>Skills:</strong> {skills}
-          </p>
-
-          {skillSelection}
+          <div>
+            <strong>Skills:</strong>
+            <p>
+              {skill_choices?.from?.length === 18 ? `Choose any ${alphabetizeNum(skill_choices?.choose)} skills:` : `Choose ${alphabetizeNum(skill_choices?.choose)} skills from: ${skill_choices?.from.map(skill => skill.name).join(", ")}`}
+            </p>
+            {skillSelection}
+          </div>
         </AccordionDetails>
       </Accordion>
 

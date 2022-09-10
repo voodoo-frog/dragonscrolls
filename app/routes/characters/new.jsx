@@ -206,6 +206,7 @@ export default function NewCharacter() {
         },
       },
       class_features: {},
+      details: {},
     },
     background: {
       index: "",
@@ -270,12 +271,11 @@ export default function NewCharacter() {
                 character={character}
                 setCharacter={setCharacter}
                 abilityScores={abilityScores}
-                equipment={equipment}
                 languages={languages}
                 races={races}
                 skills={skills}
-                subraces={subraces}
                 spells={spells}
+                subraces={subraces}
                 traits={traits}
               />
             )}
@@ -285,8 +285,6 @@ export default function NewCharacter() {
                 setCharacter={setCharacter}
                 alignments={alignments}
                 backgrounds={backgrounds}
-                equipment={equipment}
-                languages={languages}
               />
             )}
             {activeStep === 2 && (
