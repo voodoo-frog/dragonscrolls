@@ -293,10 +293,11 @@ export default function NewCharacter() {
                 character={character}
                 setCharacter={setCharacter}
                 classes={classes}
-                subclasses={subclasses}
-                skills={skills}
                 feats={feats}
                 features={features}
+                skills={skills}
+                spells={spells}
+                subclasses={subclasses}
               />
             )}
             {activeStep === 3 && (

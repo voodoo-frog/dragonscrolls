@@ -46,7 +46,7 @@ export default function Elf({
   const handleChangeLanguage = (e) => {
     const { value } = e.target;
 
-    const old_lang = details.bonus_languages?.[0] || '';
+    const old_lang = details.bonus_languages?.[0] || "";
 
     if (old_lang) {
       character.languages.splice(character.languages.indexOf(old_lang), 1);
@@ -113,13 +113,11 @@ export default function Elf({
             {select(
               "Language",
               "language",
-              details.bonus_languages?.[0] ||
-              "",
-              languages
-                .filter(
-                  (language) =>
-                    language.index !== "common" && language.index !== "elvish"
-                ),
+              details.bonus_languages?.[0] || "",
+              languages.filter(
+                (language) =>
+                  language.index !== "common" && language.index !== "elvish"
+              ),
               handleChangeLanguage
             )}
           </CharacterCreationFeature>
@@ -135,8 +133,7 @@ export default function Elf({
             {select(
               "Cantrip",
               "cantrip",
-              details.bonus_spells?.[0] ||
-              "",
+              details.bonus_spells?.[0] || "",
               spells
                 .filter((spell) => spell.level === 0)
                 .filter((spell) =>

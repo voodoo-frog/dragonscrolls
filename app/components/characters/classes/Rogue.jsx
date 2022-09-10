@@ -16,7 +16,10 @@ export default function Rogue({
   expanded,
   handleChangeExpanded,
 }) {
-  const { level, class: { details, subclass } } = character;
+  const {
+    level,
+    class: { details, subclass },
+  } = character;
 
   const [featureList, setFeatureList] = useState([]);
 
@@ -52,7 +55,7 @@ export default function Rogue({
           expertise: {
             ...details.expertise,
             [name]: value,
-          }
+          },
         },
       },
     });
@@ -69,12 +72,18 @@ export default function Rogue({
     },
     {
       name: "Expertise",
-      error: !details.expertise?.first || !details.expertise?.second || (level >= 6 && (!details.expertise?.third || !details.expertise?.fourth))
+      error:
+        !details.expertise?.first ||
+        !details.expertise?.second ||
+        (level >= 6 &&
+          (!details.expertise?.third || !details.expertise?.fourth)),
     },
   ];
 
   const expertise_options = [
-    ...character.proficiencies.map((prof) => skills.find(skill => skill.index === prof).name),
+    ...character.proficiencies.map(
+      (prof) => skills.find((skill) => skill.index === prof).name
+    ),
     "Thieves' Tools",
   ];
 
@@ -101,10 +110,10 @@ export default function Rogue({
             <>
               {select(
                 "Roguish Archetype",
-                'roguish-archetype',
+                "roguish-archetype",
                 subclass,
                 subclasses,
-                handleSubclassChange,
+                handleSubclassChange
               )}
             </>
           )}
@@ -112,44 +121,62 @@ export default function Rogue({
             <>
               {select(
                 "Expertise",
-                'first',
-                details.expertise?.first || '',
-                expertise_options.filter((opt) => opt !== details.expertise?.second && opt !== details.expertise?.third && opt !== details.expertise?.fourth),
-                handleChangeExpertiseChoice,
+                "first",
+                details.expertise?.first || "",
+                expertise_options.filter(
+                  (opt) =>
+                    opt !== details.expertise?.second &&
+                    opt !== details.expertise?.third &&
+                    opt !== details.expertise?.fourth
+                ),
+                handleChangeExpertiseChoice
               )}
               {select(
                 "Expertise",
-                'second',
-                details.expertise?.second || '',
-                expertise_options.filter((opt) => opt !== details.expertise?.first && opt !== details.expertise?.third && opt !== details.expertise?.fourth),
-                handleChangeExpertiseChoice,
+                "second",
+                details.expertise?.second || "",
+                expertise_options.filter(
+                  (opt) =>
+                    opt !== details.expertise?.first &&
+                    opt !== details.expertise?.third &&
+                    opt !== details.expertise?.fourth
+                ),
+                handleChangeExpertiseChoice
               )}
 
-              {
-                character.level >= 6 && (
-                  <>
-                    <p>6th level</p>
-                    {select(
-                      "Expertise",
-                      'third',
-                      details.expertise?.third || '',
-                      expertise_options.filter((opt) => opt !== details.expertise?.first && opt !== details.expertise?.second && opt !== details.expertise?.fourth),
-                      handleChangeExpertiseChoice,
-                    )}
-                    {select(
-                      "Expertise",
-                      'fourth',
-                      details.expertise?.fourth || '',
-                      expertise_options.filter((opt) => opt !== details.expertise?.first && opt !== details.expertise?.second && opt !== details.expertise?.third),
-                      handleChangeExpertiseChoice,
-                    )}
-                  </>
-                )
-              }
+              {character.level >= 6 && (
+                <>
+                  <p className="font-bold">6th level:</p>
+                  {select(
+                    "Expertise",
+                    "third",
+                    details.expertise?.third || "",
+                    expertise_options.filter(
+                      (opt) =>
+                        opt !== details.expertise?.first &&
+                        opt !== details.expertise?.second &&
+                        opt !== details.expertise?.fourth
+                    ),
+                    handleChangeExpertiseChoice
+                  )}
+                  {select(
+                    "Expertise",
+                    "fourth",
+                    details.expertise?.fourth || "",
+                    expertise_options.filter(
+                      (opt) =>
+                        opt !== details.expertise?.first &&
+                        opt !== details.expertise?.second &&
+                        opt !== details.expertise?.third
+                    ),
+                    handleChangeExpertiseChoice
+                  )}
+                </>
+              )}
             </>
           )}
         </CharacterCreationClassFeature>
       ))}
     </>
   );
-};
+}

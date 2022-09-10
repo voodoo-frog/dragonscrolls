@@ -90,8 +90,7 @@ export default function Dwarf({
         {select(
           "Artisan's Tool",
           "artisan-tool",
-          details.tool_proficiencies?.[0] ||
-          "",
+          details.tool_proficiencies?.[0] || "",
           tools,
           handleChangeToolProficiency
         )}

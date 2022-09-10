@@ -176,7 +176,7 @@ export const select = (label, name, value, options, onChange) => {
   title += ` ${label}`;
 
   return (
-    <div className="mt-3 flex justify-start w-full">
+    <div className="mt-3 flex w-full justify-start">
       <div className="mb-3 w-full">
         <select
           className="
@@ -184,16 +184,16 @@ export const select = (label, name, value, options, onChange) => {
           block
           w-full
           appearance-none
-          capitalize
           truncate
           rounded
           border
           border-solid
           border-gray-300
-          bg-white bg-clip-padding bg-no-repeat
-          px-3 py-1.5 pr-8
-          text-base
+          bg-white
+          bg-clip-padding bg-no-repeat px-3
+          py-1.5 pr-8 text-base
           font-normal
+          capitalize
           text-gray-700
           transition
           ease-in-out

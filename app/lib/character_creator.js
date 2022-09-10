@@ -1,15 +1,11 @@
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
-import { select } from './common';
+import { select } from "./common";
 
 export const CharacterCreationAbilityScore = ({
   race,
@@ -114,7 +110,6 @@ export const CharacterCreationClassAbilityScore = ({
   expandFeat,
   setExpandFeat,
 }) => {
-
   const handleChangeOption = (e) => {
     const { value } = e.target;
 
@@ -129,8 +124,8 @@ export const CharacterCreationClassAbilityScore = ({
           },
         },
       },
-    })
-  }
+    });
+  };
 
   const handleChangeAbilityScore = (e) => {
     const { name, value } = e.target;
@@ -146,7 +141,7 @@ export const CharacterCreationClassAbilityScore = ({
           },
         },
       },
-    })
+    });
   };
 
   const handleChangeFeat = (e) => {
@@ -164,7 +159,7 @@ export const CharacterCreationClassAbilityScore = ({
           },
         },
       },
-    })
+    });
   };
   return (
     <>
@@ -173,38 +168,53 @@ export const CharacterCreationClassAbilityScore = ({
         "option",
         character.class.ability_score_improvements[level]?.option,
         ["Ability Score Improvement", "Feat"],
-        handleChangeOption,
+        handleChangeOption
       )}
 
-      {character.class.ability_score_improvements[level]?.option === "Ability Score Improvement" && (
+      {character.class.ability_score_improvements[level]?.option ===
+        "Ability Score Improvement" && (
         <>
           {select(
             "Ability Score",
             "first",
             character.class.ability_score_improvements[level]?.first,
-            ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
-            handleChangeAbilityScore,
+            [
+              "Strength",
+              "Dexterity",
+              "Constitution",
+              "Intelligence",
+              "Wisdom",
+              "Charisma",
+            ],
+            handleChangeAbilityScore
           )}
 
           {select(
             "Ability Score",
             "second",
             character.class.ability_score_improvements[level]?.second,
-            ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
-            handleChangeAbilityScore,
+            [
+              "Strength",
+              "Dexterity",
+              "Constitution",
+              "Intelligence",
+              "Wisdom",
+              "Charisma",
+            ],
+            handleChangeAbilityScore
           )}
         </>
       )}
 
       {character.class.ability_score_improvements[level]?.option === "Feat" && (
         <>
-        {select(
-          "Feat",
-          "feat",
-          character.class.ability_score_improvements[level]?.feat,
-          feats,
-          handleChangeFeat,
-        )}
+          {select(
+            "Feat",
+            "feat",
+            character.class.ability_score_improvements[level]?.feat,
+            feats,
+            handleChangeFeat
+          )}
         </>
       )}
 
@@ -266,14 +276,12 @@ export const CharacterCreationClassFeature = ({
         aria-controls={`${index}-content`}
         id={`${index}-header`}
       >
-        <div className="flex w-full justify-between items-center">
+        <div className="flex w-full items-center justify-between">
           <div>
             <strong>{name}</strong>
             <p className="text-sm text-gray-500">Level {level}</p>
           </div>
-          {error && error.error && (
-            <WarningAmberIcon sx={{ color: "red" }} />
-          )}
+          {error && error.error && <WarningAmberIcon sx={{ color: "red" }} />}
         </div>
       </AccordionSummary>
       <AccordionDetails>
@@ -385,10 +393,10 @@ export const CharacterCreationSelect = ({
   title += ` ${label}`;
 
   return (
-  <div className="mt-3 flex justify-start w-full">
-    <div className="mb-3 w-full">
-      <select
-        className="
+    <div className="mt-3 flex w-full justify-start">
+      <div className="mb-3 w-full">
+        <select
+          className="
           form-select m-0
           block
           w-full
@@ -405,14 +413,14 @@ export const CharacterCreationSelect = ({
           ease-in-out
           focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none
         "
-        aria-label="Default select example"
-        value={value}
-        onChange={onChange}
-      >
-        <option value="">{title}</option>
-        {options}
-      </select>
+          aria-label="Default select example"
+          value={value}
+          onChange={onChange}
+        >
+          <option value="">{title}</option>
+          {options}
+        </select>
+      </div>
     </div>
-  </div>
   );
 };

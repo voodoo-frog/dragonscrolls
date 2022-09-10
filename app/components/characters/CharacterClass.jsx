@@ -25,6 +25,7 @@ export default function CharacterClass({
   classes,
   subclasses,
   skills,
+  spells,
   feats,
   features,
 }) {
@@ -41,66 +42,64 @@ export default function CharacterClass({
 
   const lvl4ASIComplete = Boolean(
     level >= 4 &&
-    ability_score_improvements["4th"].option &&
-    (ability_score_improvements["4th"].feat ||
-      (ability_score_improvements["4th"].first &&
-        ability_score_improvements["4th"].second))
+      ability_score_improvements["4th"].option &&
+      (ability_score_improvements["4th"].feat ||
+        (ability_score_improvements["4th"].first &&
+          ability_score_improvements["4th"].second))
   );
 
   const lvl6ASIComplete = Boolean(
-    level >= 6 &&
-    character.class.index !== 'fighter' ||
-    (ability_score_improvements["6th"]?.option &&
-      (ability_score_improvements["6th"]?.feat ||
-        (ability_score_improvements["6th"]?.first &&
-          ability_score_improvements["6th"]?.second))) &&
-    lvl4ASIComplete
+    (level >= 6 && character.class.index !== "fighter") ||
+      (ability_score_improvements["6th"]?.option &&
+        (ability_score_improvements["6th"]?.feat ||
+          (ability_score_improvements["6th"]?.first &&
+            ability_score_improvements["6th"]?.second)) &&
+        lvl4ASIComplete)
   );
 
   const lvl8ASIComplete = Boolean(
     level >= 8 &&
-    ability_score_improvements["8th"].option &&
-    (ability_score_improvements["8th"].feat ||
-      (ability_score_improvements["8th"].first &&
-        ability_score_improvements["8th"].second)) &&
-    lvl6ASIComplete
+      ability_score_improvements["8th"].option &&
+      (ability_score_improvements["8th"].feat ||
+        (ability_score_improvements["8th"].first &&
+          ability_score_improvements["8th"].second)) &&
+      lvl6ASIComplete
   );
 
   const lvl12ASIComplete = Boolean(
     level >= 12 &&
-    ability_score_improvements["12th"].option &&
-    (ability_score_improvements["12th"].feat ||
-      (ability_score_improvements["12th"].first &&
-        ability_score_improvements["12th"].second)) &&
-    lvl8ASIComplete
+      ability_score_improvements["12th"].option &&
+      (ability_score_improvements["12th"].feat ||
+        (ability_score_improvements["12th"].first &&
+          ability_score_improvements["12th"].second)) &&
+      lvl8ASIComplete
   );
 
   const lvl14ASIComplete = Boolean(
-    level >= 14 &&
-    character.class.index !== 'fighter' ||
-    (ability_score_improvements["14th"]?.option &&
-      (ability_score_improvements["14th"]?.feat ||
-        (ability_score_improvements["14th"]?.first &&
-          ability_score_improvements["14th"]?.second))) &&
-    lvl12ASIComplete
+    (level >= 14 && character.class.index !== "fighter") ||
+      (ability_score_improvements["14th"]?.option &&
+        (ability_score_improvements["14th"]?.feat ||
+          (ability_score_improvements["14th"]?.first &&
+            ability_score_improvements["14th"]?.second)) &&
+        lvl12ASIComplete)
   );
 
   const lvl16ASIComplete = Boolean(
     level >= 16 &&
-    ability_score_improvements["16th"].option &&
-    (ability_score_improvements["16th"].feat ||
-      (ability_score_improvements["16th"].first &&
-        ability_score_improvements["16th"].second)) &&
-    lvl14ASIComplete
+      ability_score_improvements["16th"].option &&
+      (ability_score_improvements["16th"].feat ||
+        (ability_score_improvements["16th"].first &&
+          ability_score_improvements["16th"].second)) &&
+      lvl14ASIComplete
   );
 
   const lvl19ASIComplete = Boolean(
     level >= 19 &&
-    ability_score_improvements["19th"].option &&
-    (ability_score_improvements["19th"].feat ||
-      (ability_score_improvements["19th"].first &&
-        ability_score_improvements["19th"].second)) &&
-    lvl16ASIComplete
+      ability_score_improvements["19th"].option &&
+      (ability_score_improvements["19th"].feat ||
+        (ability_score_improvements["19th"].first &&
+          ability_score_improvements["19th"].second)) &&
+      lvl16ASIComplete
   );
 
   let asiComplete = false;
@@ -180,7 +179,7 @@ export default function CharacterClass({
           instruments: [],
           artisans_tools: [],
         },
-        details: {}
+        details: {},
       },
       equipment: selectedClass.starting_equipment,
     };
@@ -208,12 +207,13 @@ export default function CharacterClass({
         <Artificer
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -240,12 +240,14 @@ export default function CharacterClass({
         <Bard
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          skills={skills}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -256,12 +258,13 @@ export default function CharacterClass({
         <Cleric
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -272,12 +275,13 @@ export default function CharacterClass({
         <Druid
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -320,12 +324,13 @@ export default function CharacterClass({
         <Paladin
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -336,12 +341,13 @@ export default function CharacterClass({
         <Ranger
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -369,12 +375,13 @@ export default function CharacterClass({
         <Sorcerer
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -385,12 +392,13 @@ export default function CharacterClass({
         <Warlock
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -401,12 +409,13 @@ export default function CharacterClass({
         <Wizard
           character={character}
           setCharacter={setCharacter}
+          asiComplete={asiComplete}
+          feats={feats}
+          features={fullFeatures}
+          spells={spells}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
-          feats={feats}
-          asiComplete={asiComplete}
-          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -415,6 +424,16 @@ export default function CharacterClass({
     default:
       break;
   }
+
+  // TODO complete Artificer class
+  // TODO complete Bard class
+  // TODO complete Cleric class
+  // TODO complete Druid class
+  // TODO complete Paladin class
+  // TODO complete Ranger class
+  // TODO complete Sorcerer class
+  // TODO complete Warlock class
+  // TODO complete Wizard class
 
   return (
     <div className="align-center w-full">

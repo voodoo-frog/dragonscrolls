@@ -15,7 +15,10 @@ export default function Fighter({
   expanded,
   handleChangeExpanded,
 }) {
-  const { level, class: { subclass } } = character;
+  const {
+    level,
+    class: { subclass },
+  } = character;
 
   const [featureList, setFeatureList] = useState([]);
 
@@ -73,10 +76,10 @@ export default function Fighter({
             <>
               {select(
                 "Monastic Tradition",
-                'monastic-tradition',
+                "monastic-tradition",
                 subclass,
                 subclasses,
-                handleSubclassChange,
+                handleSubclassChange
               )}
             </>
           )}
@@ -84,4 +87,4 @@ export default function Fighter({
       ))}
     </>
   );
-};
+}

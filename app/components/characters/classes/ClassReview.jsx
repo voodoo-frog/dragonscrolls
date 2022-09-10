@@ -26,10 +26,13 @@ export default function ClassReview({
     const { value } = e.target;
     const { bonus_skills } = details;
 
-    let old_skill = bonus_skills?.[opt] || '';
+    let old_skill = bonus_skills?.[opt] || "";
 
     if (old_skill) {
-      character.proficiencies.splice(character.proficiencies.indexOf(old_skill), 1);
+      character.proficiencies.splice(
+        character.proficiencies.indexOf(old_skill),
+        1
+      );
     }
 
     setCharacter((character) => ({
@@ -105,7 +108,9 @@ export default function ClassReview({
               {name} (race)
             </option>
           );
-        } else if (character.background.details?.bonus_skills?.includes(index)) {
+        } else if (
+          character.background.details?.bonus_skills?.includes(index)
+        ) {
           option = (
             <option key={index} value={index} disabled>
               {name} (background)
@@ -124,11 +129,8 @@ export default function ClassReview({
 
       skillSelection.push(
         CharacterCreationSelect({
-          label: 'Skill',
-          value:
-            details.bonus_skills?.[opt] ||
-            ""
-          ,
+          label: "Skill",
+          value: details.bonus_skills?.[opt] || "",
           onChange: (e) => handleSelectSkills(e, opt),
           options,
         })
@@ -253,12 +255,16 @@ export default function ClassReview({
           aria-controls={`proficiencies-content`}
           id={`proficiencies-header`}
         >
-          <div className="flex w-full justify-between items-center">
+          <div className="flex w-full items-center justify-between">
             <div>
               <strong>Proficiencies</strong>
               <p className="text-sm text-gray-500">Level 1</p>
             </div>
-            {(!details.bonus_skills || Object.keys(details.bonus_skills).length < skill_choices?.choose) && <WarningAmberIcon sx={{ color: "red" }} />}
+            {(!details.bonus_skills ||
+              Object.keys(details.bonus_skills).length <
+                skill_choices?.choose) && (
+              <WarningAmberIcon sx={{ color: "red" }} />
+            )}
           </div>
         </AccordionSummary>
         <AccordionDetails>
@@ -277,7 +283,13 @@ export default function ClassReview({
           <div>
             <strong>Skills:</strong>
             <p>
-              {skill_choices?.from?.length === 18 ? `Choose any ${alphabetizeNum(skill_choices?.choose)} skills:` : `Choose ${alphabetizeNum(skill_choices?.choose)} skills from: ${skill_choices?.from.map(skill => skill.name).join(", ")}`}
+              {skill_choices?.from?.length === 18
+                ? `Choose any ${alphabetizeNum(skill_choices?.choose)} skills:`
+                : `Choose ${alphabetizeNum(
+                    skill_choices?.choose
+                  )} skills from: ${skill_choices?.from
+                    .map((skill) => skill.name)
+                    .join(", ")}`}
             </p>
             {skillSelection}
           </div>

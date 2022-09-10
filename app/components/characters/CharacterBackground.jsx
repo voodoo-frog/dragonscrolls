@@ -8,7 +8,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 import { sorter, alphabetizeNum, select } from "~/lib/common";
-import { CharacterCreationBackgroundFeature, CharacterCreationSelect } from "../../lib/character_creator";
+import {
+  CharacterCreationBackgroundFeature,
+  CharacterCreationSelect,
+} from "../../lib/character_creator";
 
 export default function CharacterBackground({
   character,
@@ -72,7 +75,10 @@ export default function CharacterBackground({
 
     if (old_skills) {
       old_skills = old_skills.forEach((skill) => {
-        character.proficiencies.splice(character.proficiencies.indexOf(skill), 1);
+        character.proficiencies.splice(
+          character.proficiencies.indexOf(skill),
+          1
+        );
       });
     }
 
@@ -147,11 +153,18 @@ export default function CharacterBackground({
     },
     {
       name: "Languages",
-      error: !character.background.bonus_languages || Object.keys(character.background.bonus_languages).length < background.language_options.choose,
+      error:
+        !character.background.bonus_languages ||
+        Object.keys(character.background.bonus_languages).length <
+          background.language_options.choose,
     },
     {
       name: "Suggested Characteristics",
-      error: !character.personality_traits.length > 0 || !character.ideal.length > 0 || !character.bond.length > 0 || !character.flaw.length > 0,
+      error:
+        !character.personality_traits.length > 0 ||
+        !character.ideal.length > 0 ||
+        !character.bond.length > 0 ||
+        !character.flaw.length > 0,
     },
   ];
 
@@ -163,7 +176,11 @@ export default function CharacterBackground({
     );
     if (duplicates?.length > 0) {
       duplicates.forEach((skill) => {
-        errors.find(err => err.name === 'Skills').error.push(`You have ${skill} as a race proficient skill. Go back and choose another skill if applicable.`);
+        errors
+          .find((err) => err.name === "Skills")
+          .error.push(
+            `You have ${skill} as a race proficient skill. Go back and choose another skill if applicable.`
+          );
       });
     }
   }
@@ -214,7 +231,7 @@ export default function CharacterBackground({
 
       languageOptions.push(
         CharacterCreationSelect({
-          label: 'Language',
+          label: "Language",
           value: character.background.bonus_languages?.[opt] || "",
           onChange: (e) => handleSelectLanguages(e, opt),
           options,
@@ -330,11 +347,13 @@ export default function CharacterBackground({
                     .map((bg) => bg.name)
                     .join(", ")}
                 </p>
-                {errors.find(err => err.name === 'Skills')?.error.map((text) => (
-                  <p key={text} className="italic text-red-500">
-                    {text}
-                  </p>
-                ))}
+                {errors
+                  .find((err) => err.name === "Skills")
+                  ?.error.map((text) => (
+                    <p key={text} className="italic text-red-500">
+                      {text}
+                    </p>
+                  ))}
 
                 <p>
                   <strong>Tool Proficiencies:</strong>{" "}
@@ -368,7 +387,8 @@ export default function CharacterBackground({
                   >
                     <p className="flex w-full justify-between">
                       <strong>Languages</strong>
-                      {errors.find(err => err.name === 'Languages')?.error && <WarningAmberIcon sx={{ color: "red" }} />}
+                      {errors.find((err) => err.name === "Languages")
+                        ?.error && <WarningAmberIcon sx={{ color: "red" }} />}
                     </p>
                   </AccordionSummary>
                   <AccordionDetails>
@@ -415,7 +435,9 @@ export default function CharacterBackground({
                 >
                   <p className="flex w-full justify-between">
                     <strong>Suggested Characteristics</strong>
-                    {errors.find(err => err.name === 'Suggested Characteristics')?.error && <WarningAmberIcon sx={{ color: "red" }} />}
+                    {errors.find(
+                      (err) => err.name === "Suggested Characteristics"
+                    )?.error && <WarningAmberIcon sx={{ color: "red" }} />}
                   </p>
                 </AccordionSummary>
                 <AccordionDetails>

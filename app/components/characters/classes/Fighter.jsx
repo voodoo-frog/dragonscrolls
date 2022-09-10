@@ -15,7 +15,10 @@ export default function Fighter({
   expanded,
   handleChangeExpanded,
 }) {
-  const { level, class: { details, subclass } } = character;
+  const {
+    level,
+    class: { details, subclass },
+  } = character;
 
   const [featureList, setFeatureList] = useState([]);
 
@@ -89,71 +92,77 @@ export default function Fighter({
   ];
 
   const fighting_styles = featureList.filter((feature) => {
-    return feature.index.includes('fighting-style-');
+    return feature.index.includes("fighting-style-");
   });
 
-  const headers = ['Name', 'Description'];
+  const headers = ["Name", "Description"];
   const rows = fighting_styles.map((feature) => [feature.name, feature.desc]);
 
   return (
     <>
-      {featureList.filter(feature => !feature.index.includes('fighting-style-')).map((feature) => (
-        <CharacterCreationClassFeature
-          key={feature.index}
-          features={features}
-          index={feature.index}
-          expanded={expanded}
-          error={errors.find((error) => error.name === feature.name)}
-          handleChangeExpanded={handleChangeExpanded}
-        >
-          {feature.name === "Ability Score Improvement" && (
-            <ClassAbilityScores
-              character={character}
-              setCharacter={setCharacter}
-              level={level}
-              feats={feats}
-            />
-          )}
-          {feature.name === "Martial Archetype" && (
-            <>
-              {select(
-                "Martial Archetype",
-                'martial-archetype',
-                subclass,
-                subclasses,
-                handleSubclassChange,
-              )}
-            </>
-          )}
-          {feature.name === "Fighting Style" && (
-            <>
-              {table('', headers, rows)}
+      {featureList
+        .filter((feature) => !feature.index.includes("fighting-style-"))
+        .map((feature) => (
+          <CharacterCreationClassFeature
+            key={feature.index}
+            features={features}
+            index={feature.index}
+            expanded={expanded}
+            error={errors.find((error) => error.name === feature.name)}
+            handleChangeExpanded={handleChangeExpanded}
+          >
+            {feature.name === "Ability Score Improvement" && (
+              <ClassAbilityScores
+                character={character}
+                setCharacter={setCharacter}
+                level={level}
+                feats={feats}
+              />
+            )}
+            {feature.name === "Martial Archetype" && (
+              <>
+                {select(
+                  "Martial Archetype",
+                  "martial-archetype",
+                  subclass,
+                  subclasses,
+                  handleSubclassChange
+                )}
+              </>
+            )}
+            {feature.name === "Fighting Style" && (
+              <>
+                {table("", headers, rows)}
 
-              {select(
-                "Fighting Style",
-                'fighting-style',
-                details.fighting_style || '',
-                fighting_styles.filter(style => style.index !== details.additional_fighting_style),
-                handleChangeFightingStyle,
-              )}
-            </>
-          )}
+                {select(
+                  "Fighting Style",
+                  "fighting-style",
+                  details.fighting_style || "",
+                  fighting_styles.filter(
+                    (style) => style.index !== details.additional_fighting_style
+                  ),
+                  handleChangeFightingStyle
+                )}
+              </>
+            )}
 
-          {feature.name === "Additional Fighting Style" && (
-            <>
-              {table('', headers, rows)}
+            {feature.name === "Additional Fighting Style" && (
+              <>
+                {table("", headers, rows)}
 
-              {select(
-                "Fighting Style",
-                'additional-fighting-style',
-                details.additional_fighting_style || '',
-                fighting_styles.filter(style => style.index !== details.fighting_style),
-                handleChangeAdditionalFightingStyle,
-              )}
-            </>
-          )}
-        </CharacterCreationClassFeature>
-      ))}
+                {select(
+                  "Fighting Style",
+                  "additional-fighting-style",
+                  details.additional_fighting_style || "",
+                  fighting_styles.filter(
+                    (style) => style.index !== details.fighting_style
+                  ),
+                  handleChangeAdditionalFightingStyle
+                )}
+              </>
+            )}
+          </CharacterCreationClassFeature>
+        ))}
     </>
   );
-};
+}

@@ -73,10 +73,10 @@ export default function Barbarian({
             <>
               {select(
                 "Primal Path",
-                'primal-path',
+                "primal-path",
                 character.class.subclass,
                 subclasses,
-                handleSubclassChange,
+                handleSubclassChange
               )}
             </>
           )}

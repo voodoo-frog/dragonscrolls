@@ -44,7 +44,7 @@ export default function HalfElf({
   const handleChangeLanguage = (e) => {
     const { value } = e.target;
 
-    const old_lang = details.bonus_languages?.[0] || '';
+    const old_lang = details.bonus_languages?.[0] || "";
 
     if (old_lang) {
       character.languages.splice(character.languages.indexOf(old_lang), 1);
@@ -66,7 +66,7 @@ export default function HalfElf({
   const handleChangeSkill = (e) => {
     const { value, name } = e.target;
 
-    let old_skill = '';
+    let old_skill = "";
 
     let new_skills = details.bonus_skills || [];
 
@@ -79,7 +79,10 @@ export default function HalfElf({
     }
 
     if (old_skill) {
-      character.proficiencies.splice(character.proficiencies.indexOf(old_skill), 1);
+      character.proficiencies.splice(
+        character.proficiencies.indexOf(old_skill),
+        1
+      );
     }
 
     setCharacter((character) => ({
@@ -91,10 +94,7 @@ export default function HalfElf({
           bonus_skills: [...new_skills],
         },
       },
-      proficiencies: [
-        ...character.proficiencies,
-        value
-      ]
+      proficiencies: [...character.proficiencies, value],
     }));
   };
 
@@ -102,15 +102,17 @@ export default function HalfElf({
     <>
       <CharacterCreationAbilityScore
         race={race}
-        error={!details.bonus_ability_scores?.[0] || !details.bonus_ability_scores?.[1]}
+        error={
+          !details.bonus_ability_scores?.[0] ||
+          !details.bonus_ability_scores?.[1]
+        }
         expanded={expanded}
         handleChangeExpanded={handleChangeExpanded}
       >
         {select(
           "Ability Score",
           "first",
-          details.bonus_ability_scores?.[0] ||
-          "",
+          details.bonus_ability_scores?.[0] || "",
           abilityScores.filter(
             (score) =>
               score.index !== "cha" &&
@@ -122,8 +124,7 @@ export default function HalfElf({
         {select(
           "Ability Score",
           "second",
-          details.bonus_ability_scores?.[1] ||
-          "",
+          details.bonus_ability_scores?.[1] || "",
           abilityScores.filter(
             (score) =>
               score.index !== "cha" &&
@@ -142,13 +143,11 @@ export default function HalfElf({
         {select(
           "Language",
           "language",
-          details.bonus_languages?.[0] ||
-          "",
-          languages
-            .filter(
-              (language) =>
-                language.index !== "common" && language.index !== "elvish"
-            ),
+          details.bonus_languages?.[0] || "",
+          languages.filter(
+            (language) =>
+              language.index !== "common" && language.index !== "elvish"
+          ),
           handleChangeLanguage
         )}
       </CharacterCreationLanguages>
@@ -180,24 +179,16 @@ export default function HalfElf({
         {select(
           "Skill",
           "first",
-          details.bonus_skills?.[0] ||
-          "",
-          skills.filter(
-            (skill) =>
-              skill.index !== details.bonus_skills?.[1]
-          ),
+          details.bonus_skills?.[0] || "",
+          skills.filter((skill) => skill.index !== details.bonus_skills?.[1]),
           handleChangeSkill
         )}
 
         {select(
           "Skill",
           "second",
-          details.bonus_skills?.[1] ||
-          "",
-          skills.filter(
-            (skill) =>
-              skill.index !== details.bonus_skills?.[0]
-          ),
+          details.bonus_skills?.[1] || "",
+          skills.filter((skill) => skill.index !== details.bonus_skills?.[0]),
           handleChangeSkill
         )}
       </CharacterCreationFeature>
