@@ -184,6 +184,7 @@ export const select = (label, name, value, options, onChange) => {
           block
           w-full
           appearance-none
+          capitalize
           truncate
           rounded
           border

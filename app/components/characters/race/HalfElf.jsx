@@ -20,7 +20,6 @@ export default function HalfElf({
 
   const handleChangeAbilityScore = (e) => {
     const { value, name } = e.target;
-    const { details } = character.race;
 
     let new_scores = details.bonus_ability_scores || [];
 
@@ -66,14 +65,21 @@ export default function HalfElf({
 
   const handleChangeSkill = (e) => {
     const { value, name } = e.target;
-    const { details } = character.race;
+
+    let old_skill = '';
 
     let new_skills = details.bonus_skills || [];
 
     if (name === "first") {
+      old_skill = new_skills[0];
       new_skills[0] = value;
     } else {
+      old_skill = new_skills[1];
       new_skills[1] = value;
+    }
+
+    if (old_skill) {
+      character.proficiencies.splice(character.proficiencies.indexOf(old_skill), 1);
     }
 
     setCharacter((character) => ({
@@ -85,6 +91,10 @@ export default function HalfElf({
           bonus_skills: [...new_skills],
         },
       },
+      proficiencies: [
+        ...character.proficiencies,
+        value
+      ]
     }));
   };
 

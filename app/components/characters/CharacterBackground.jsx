@@ -68,6 +68,14 @@ export default function CharacterBackground({
       (bg) => bg.type === "skill"
     );
 
+    let old_skills = skills;
+
+    if (old_skills) {
+      old_skills = old_skills.forEach((skill) => {
+        character.proficiencies.splice(character.proficiencies.indexOf(skill), 1);
+      });
+    }
+
     setSkills(bgSkills);
 
     setCharacter((character) => ({
@@ -78,8 +86,18 @@ export default function CharacterBackground({
       flaw: "",
       background: {
         index: value,
-        skill_proficiencies: bgSkills.map((skill) => skill.index),
+        skill_proficiencies: bgSkills.reduce((acc, skill) => {
+          acc.push(skill.index);
+          return acc;
+        }, []),
       },
+      proficiencies: [
+        ...character.proficiencies,
+        ...bgSkills.reduce((acc, skill) => {
+          acc.push(skill.index);
+          return acc;
+        }, []),
+      ],
     }));
   };
 

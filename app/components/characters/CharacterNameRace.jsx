@@ -58,6 +58,7 @@ export default function CharacterNameRace({
         },
       },
       languages: [],
+      proficiencies: [],
       ability_scores: {
         str: 0,
         dex: 0,
@@ -261,7 +262,7 @@ export default function CharacterNameRace({
               <p className="ml-5 text-lg uppercase text-gray-500">
                 {race.subrace
                   ? subraces.find((subrace) => subrace.index === race.subrace)
-                      .name
+                    .name
                   : races.find((r) => r.index === race.index).name}
               </p>
 

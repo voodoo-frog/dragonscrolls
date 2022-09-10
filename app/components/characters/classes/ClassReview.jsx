@@ -26,9 +26,14 @@ export default function ClassReview({
     const { value } = e.target;
     const { bonus_skills } = details;
 
+    let old_skill = bonus_skills?.[opt] || '';
+
+    if (old_skill) {
+      character.proficiencies.splice(character.proficiencies.indexOf(old_skill), 1);
+    }
+
     setCharacter((character) => ({
       ...character,
-      languages: [...character.languages, value],
       class: {
         ...character.class,
         details: {
@@ -39,6 +44,7 @@ export default function ClassReview({
           },
         },
       },
+      proficiencies: [...character.proficiencies, value],
     }));
   };
 

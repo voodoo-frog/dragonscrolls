@@ -216,6 +216,7 @@ export default function NewCharacter() {
     ideal: "",
     bond: "",
     flaw: "",
+    proficiencies: [],
   });
 
   const handleNext = () => {
@@ -293,6 +294,7 @@ export default function NewCharacter() {
                 setCharacter={setCharacter}
                 classes={classes}
                 subclasses={subclasses}
+                skills={skills}
                 feats={feats}
                 features={features}
               />

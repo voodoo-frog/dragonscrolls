@@ -24,6 +24,7 @@ export default function CharacterClass({
   setCharacter,
   classes,
   subclasses,
+  skills,
   feats,
   features,
 }) {
@@ -207,13 +208,12 @@ export default function CharacterClass({
         <Artificer
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -256,14 +256,12 @@ export default function CharacterClass({
         <Cleric
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
-          subclassFeatures={subclassFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -274,13 +272,12 @@ export default function CharacterClass({
         <Druid
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -307,13 +304,12 @@ export default function CharacterClass({
         <Monk
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -324,13 +320,12 @@ export default function CharacterClass({
         <Paladin
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -341,13 +336,12 @@ export default function CharacterClass({
         <Ranger
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -358,13 +352,13 @@ export default function CharacterClass({
         <Rogue
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
+          features={fullFeatures}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          skills={skills}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -375,13 +369,12 @@ export default function CharacterClass({
         <Sorcerer
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -392,13 +385,12 @@ export default function CharacterClass({
         <Warlock
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
@@ -409,13 +401,12 @@ export default function CharacterClass({
         <Wizard
           character={character}
           setCharacter={setCharacter}
-          mainClass={classes.find((c) => c.index === character.class.index)}
           subclasses={subclasses.filter(
             (subclass) => subclass.class.index === character.class.index
           )}
           feats={feats}
           asiComplete={asiComplete}
-          features={classFeatures(features, character.class.index)}
+          features={fullFeatures}
           expanded={expanded}
           handleChangeExpanded={handleChangeExpanded}
         />
