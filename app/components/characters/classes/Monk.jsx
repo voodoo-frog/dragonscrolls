@@ -81,6 +81,7 @@ export default function Fighter({
                 subclasses,
                 handleSubclassChange
               )}
+              <p className="my-2">{subclasses.find(sc => sc.index === subclass)?.desc}</p>
             </>
           )}
         </CharacterCreationClassFeature>

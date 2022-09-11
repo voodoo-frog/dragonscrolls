@@ -32,6 +32,7 @@ import Equipment from "~/models/equipment";
 import Feat from "~/models/feat";
 import Feature from "~/models/feature";
 import Language from "~/models/language";
+import Level from "~/models/level";
 import Race from "~/models/race";
 import Skill from "~/models/skill";
 import Spell from "~/models/spell";
@@ -80,6 +81,9 @@ export const loader = async () => {
   const languageResults = await Language.find({});
   const languages = sorter(languageResults);
 
+  // Levels
+  const levels = await Level.find({});
+
   // Races
   const raceResults = await Race.find({});
   const races = sorter(raceResults);
@@ -113,6 +117,7 @@ export const loader = async () => {
     feats,
     features,
     languages,
+    levels,
     races,
     skills,
     spells,
@@ -142,6 +147,7 @@ export default function NewCharacter() {
     feats,
     features,
     languages,
+    levels,
     races,
     skills,
     spells,
@@ -217,6 +223,7 @@ export default function NewCharacter() {
     bond: "",
     flaw: "",
     proficiencies: [],
+    spells: [],
   });
 
   const handleNext = () => {
@@ -295,6 +302,7 @@ export default function NewCharacter() {
                 classes={classes}
                 feats={feats}
                 features={features}
+                levels={levels}
                 skills={skills}
                 spells={spells}
                 subclasses={subclasses}

@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-
-import { sorter, alphabetizeNum } from "~/lib/common";
+import { sorter } from "~/lib/common";
 import { CharacterCreationSelect } from "../../../lib/character_creator";
+import { tabs } from "../../../lib/common";
+import ClassFeaturesView from "./ClassFeaturesView";
+import SpellsView from "./SpellsView";
 
 export default function ClassReview({
   character,
@@ -16,11 +12,14 @@ export default function ClassReview({
   mainClass,
   subclass = {},
   changeClass,
+  levels,
+  spells,
   expanded,
   handleChangeExpanded,
   children,
 }) {
   const { details } = character.class;
+  const [currTab, setCurrTab] = useState('Class Features');
 
   const handleSelectSkills = (e, opt) => {
     const { value } = e.target;
@@ -55,31 +54,10 @@ export default function ClassReview({
     name,
     index,
     desc,
-    hit_die,
     brief,
-    proficiencies,
     proficiency_choices,
-    saving_throws,
     source_book,
   } = mainClass;
-
-  const armors =
-    proficiencies
-      .filter((prof) => prof.category === "armor")
-      .map((res) => res.name)
-      .join(", ") || "None";
-
-  const weapons =
-    proficiencies
-      .filter((prof) => prof.category === "weapon")
-      .map((res) => res.name)
-      .join(", ") || "None";
-
-  let tools =
-    proficiencies
-      .filter((prof) => prof.category === "tool")
-      .map((res) => res.name)
-      .join(", ") || "None";
 
   const skill_choices = proficiency_choices.find((pc) => pc.type === "skills");
 
@@ -138,18 +116,18 @@ export default function ClassReview({
     }
   }
 
-  const throws = saving_throws.map((st) => st.name).join(", ");
+  const handleChangeTab = (e) => {
+    const { value } = e.target;
 
-  if (name === "Bard") tools = "Three musical instruments of your choice";
-  if (name === "Monk")
-    tools = "One type of artisan's tools or one musical instrument";
+    setCurrTab(value);
+  };
 
   return (
     <div className="text-black">
       <div className="justify-between-align-center flex w-full">
         <div className="grow">
           <h4 className="text-2xl">
-            {name} {subclass.name && `(${subclass.flavor_name})`}
+            {name} {subclass.name && `(${subclass?.flavor_name})`}
           </h4>
           <p className="mb-3 text-sm italic text-gray-500">
             Source: {subclass.source_book || source_book}
@@ -212,91 +190,32 @@ export default function ClassReview({
         </div>
       </div>
 
-      <Accordion
-        className="mb-3"
-        expanded={expanded === "hit-points"}
-        onChange={handleChangeExpanded("hit-points")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls={`hit-points-content`}
-          id={`hit-points-header`}
-        >
-          <div className="flex w-full justify-between">
-            <div>
-              <strong>Hit Points</strong>
-              <p className="text-sm text-gray-500">Level 1</p>
-            </div>
-          </div>
-        </AccordionSummary>
-        <AccordionDetails>
-          <p>
-            <strong>Hit Points:</strong> 1d{hit_die} per {index} level
-          </p>
-          <p>
-            <strong>Hit Points at 1st Level:</strong> {hit_die} + Constitution
-            modifier
-          </p>
-          <p>
-            <strong>Hit Points at Higher Levels:</strong> 1d{hit_die} (or{" "}
-            {hit_die / 2 + 1}) + your Constitution modifier per {index} level
-            after 1st
-          </p>
-        </AccordionDetails>
-      </Accordion>
+      {mainClass.spellcasting && tabs(['Class Features', 'Spells'], currTab, (e) => handleChangeTab(e))}
 
-      <Accordion
-        className="mb-3"
-        expanded={expanded === "proficiencies"}
-        onChange={handleChangeExpanded("proficiencies")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls={`proficiencies-content`}
-          id={`proficiencies-header`}
-        >
-          <div className="flex w-full items-center justify-between">
-            <div>
-              <strong>Proficiencies</strong>
-              <p className="text-sm text-gray-500">Level 1</p>
-            </div>
-            {(!details.bonus_skills ||
-              Object.keys(details.bonus_skills).length <
-                skill_choices?.choose) && (
-              <WarningAmberIcon sx={{ color: "red" }} />
-            )}
-          </div>
-        </AccordionSummary>
-        <AccordionDetails>
-          <p>
-            <strong>Armor:</strong> {armors}
-          </p>
-          <p>
-            <strong>Weapons:</strong> {weapons}
-          </p>
-          <p>
-            <strong>Tools:</strong> {tools}
-          </p>
-          <p>
-            <strong>Saving Throws:</strong> {throws}
-          </p>
-          <div>
-            <strong>Skills:</strong>
-            <p>
-              {skill_choices?.from?.length === 18
-                ? `Choose any ${alphabetizeNum(skill_choices?.choose)} skills:`
-                : `Choose ${alphabetizeNum(
-                    skill_choices?.choose
-                  )} skills from: ${skill_choices?.from
-                    .map((skill) => skill.name)
-                    .join(", ")}`}
-            </p>
-            {skillSelection}
-          </div>
-        </AccordionDetails>
-      </Accordion>
+      {currTab === 'Class Features' && (
+        <>
+          <ClassFeaturesView
+            character={character}
+            mainClass={mainClass}
+            details={details}
+            expanded={expanded}
+            handleChangeExpanded={handleChangeExpanded}
+          />
+          {children}
+        </>
+      )}
 
-      {children}
+      {currTab === 'Spells' && (
+        <>
+          <SpellsView
+            character={character}
+            levels={sorter(levels.filter((l) => l.class.index === character.class.index), 'level', true)}
+            spells={spells}
+            expanded={expanded}
+            handleChangeExpanded={handleChangeExpanded}
+          />
+        </>
+      )}
     </div>
   );
 }

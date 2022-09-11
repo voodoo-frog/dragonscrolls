@@ -23,6 +23,7 @@ export default function CharacterClass({
   character,
   setCharacter,
   classes,
+  levels,
   subclasses,
   skills,
   spells,
@@ -42,64 +43,64 @@ export default function CharacterClass({
 
   const lvl4ASIComplete = Boolean(
     level >= 4 &&
-      ability_score_improvements["4th"].option &&
-      (ability_score_improvements["4th"].feat ||
-        (ability_score_improvements["4th"].first &&
-          ability_score_improvements["4th"].second))
+    ability_score_improvements["4th"].option &&
+    (ability_score_improvements["4th"].feat ||
+      (ability_score_improvements["4th"].first &&
+        ability_score_improvements["4th"].second))
   );
 
   const lvl6ASIComplete = Boolean(
     (level >= 6 && character.class.index !== "fighter") ||
-      (ability_score_improvements["6th"]?.option &&
-        (ability_score_improvements["6th"]?.feat ||
-          (ability_score_improvements["6th"]?.first &&
-            ability_score_improvements["6th"]?.second)) &&
-        lvl4ASIComplete)
+    (ability_score_improvements["6th"]?.option &&
+      (ability_score_improvements["6th"]?.feat ||
+        (ability_score_improvements["6th"]?.first &&
+          ability_score_improvements["6th"]?.second)) &&
+      lvl4ASIComplete)
   );
 
   const lvl8ASIComplete = Boolean(
     level >= 8 &&
-      ability_score_improvements["8th"].option &&
-      (ability_score_improvements["8th"].feat ||
-        (ability_score_improvements["8th"].first &&
-          ability_score_improvements["8th"].second)) &&
-      lvl6ASIComplete
+    ability_score_improvements["8th"].option &&
+    (ability_score_improvements["8th"].feat ||
+      (ability_score_improvements["8th"].first &&
+        ability_score_improvements["8th"].second)) &&
+    lvl6ASIComplete
   );
 
   const lvl12ASIComplete = Boolean(
     level >= 12 &&
-      ability_score_improvements["12th"].option &&
-      (ability_score_improvements["12th"].feat ||
-        (ability_score_improvements["12th"].first &&
-          ability_score_improvements["12th"].second)) &&
-      lvl8ASIComplete
+    ability_score_improvements["12th"].option &&
+    (ability_score_improvements["12th"].feat ||
+      (ability_score_improvements["12th"].first &&
+        ability_score_improvements["12th"].second)) &&
+    lvl8ASIComplete
   );
 
   const lvl14ASIComplete = Boolean(
     (level >= 14 && character.class.index !== "fighter") ||
-      (ability_score_improvements["14th"]?.option &&
-        (ability_score_improvements["14th"]?.feat ||
-          (ability_score_improvements["14th"]?.first &&
-            ability_score_improvements["14th"]?.second)) &&
-        lvl12ASIComplete)
+    (ability_score_improvements["14th"]?.option &&
+      (ability_score_improvements["14th"]?.feat ||
+        (ability_score_improvements["14th"]?.first &&
+          ability_score_improvements["14th"]?.second)) &&
+      lvl12ASIComplete)
   );
 
   const lvl16ASIComplete = Boolean(
     level >= 16 &&
-      ability_score_improvements["16th"].option &&
-      (ability_score_improvements["16th"].feat ||
-        (ability_score_improvements["16th"].first &&
-          ability_score_improvements["16th"].second)) &&
-      lvl14ASIComplete
+    ability_score_improvements["16th"].option &&
+    (ability_score_improvements["16th"].feat ||
+      (ability_score_improvements["16th"].first &&
+        ability_score_improvements["16th"].second)) &&
+    lvl14ASIComplete
   );
 
   const lvl19ASIComplete = Boolean(
     level >= 19 &&
-      ability_score_improvements["19th"].option &&
-      (ability_score_improvements["19th"].feat ||
-        (ability_score_improvements["19th"].first &&
-          ability_score_improvements["19th"].second)) &&
-      lvl16ASIComplete
+    ability_score_improvements["19th"].option &&
+    (ability_score_improvements["19th"].feat ||
+      (ability_score_improvements["19th"].first &&
+        ability_score_improvements["19th"].second)) &&
+    lvl16ASIComplete
   );
 
   let asiComplete = false;
@@ -189,8 +190,8 @@ export default function CharacterClass({
     setChangeClass(false);
   };
 
-  const handleChangeExpanded = (panel) => (e, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChangeExpanded = (value) => {
+    setExpanded(value !== expanded ? value : false);
   };
 
   const fullFeatures = [...classFeatures(features, character.class.index)];
@@ -462,6 +463,8 @@ export default function CharacterClass({
               (subclass) => subclass.index === character.class.subclass
             )}
             changeClass={() => setChangeClass(true)}
+            levels={levels}
+            spells={spells}
             expanded={expanded}
             handleChangeExpanded={handleChangeExpanded}
           >

@@ -115,6 +115,7 @@ export default function Rogue({
                 subclasses,
                 handleSubclassChange
               )}
+              <p className="my-2">{subclasses.find(sc => sc.index === subclass)?.desc}</p>
             </>
           )}
           {feature.name === "Expertise" && (

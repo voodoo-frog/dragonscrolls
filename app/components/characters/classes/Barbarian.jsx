@@ -15,7 +15,10 @@ export default function Barbarian({
   expanded,
   handleChangeExpanded,
 }) {
-  const { level } = character;
+  const {
+    level,
+    class: { subclass },
+  } = character;
 
   const [featureList, setFeatureList] = useState([]);
 
@@ -46,7 +49,7 @@ export default function Barbarian({
     },
     {
       name: "Primal Path",
-      error: !character.class.subclass,
+      error: !subclass,
     },
   ];
 
@@ -74,10 +77,11 @@ export default function Barbarian({
               {select(
                 "Primal Path",
                 "primal-path",
-                character.class.subclass,
+                subclass,
                 subclasses,
                 handleSubclassChange
               )}
+              <p className="my-2">{subclasses.find(sc => sc.index === subclass)?.desc}</p>
             </>
           )}
         </CharacterCreationClassFeature>

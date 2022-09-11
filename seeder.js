@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const colors = require("colors");
 const dotenv = require("dotenv");
 
-const models = require("./app/models");
-
 const AbilityScore = require("./app/models/ability_score");
 const Alignment = require("./app/models/alignment");
 const Background = require("./app/models/background");
@@ -29,7 +27,7 @@ const Spell = require("./app/models/spell");
 const Subclass = require("./app/models/subclass");
 const Subrace = require("./app/models/subrace");
 const Trait = require("./app/models/trait");
-const User = require("./app/models/user");
+// const User = require("./app/models/user");
 const WeaponProperty = require("./app/models/weapon_property");
 
 // Load env variables
@@ -116,9 +114,9 @@ const subraces = JSON.parse(
 const traits = JSON.parse(
   fs.readFileSync(`${__dirname}/app/_data/traits.json`, "utf-8")
 );
-const users = JSON.parse(
-  fs.readFileSync(`${__dirname}/app/_data/users.json`, "utf-8")
-);
+// const users = JSON.parse(
+//   fs.readFileSync(`${__dirname}/app/_data/users.json`, "utf-8")
+// );
 const weapon_properties = JSON.parse(
   fs.readFileSync(`${__dirname}/app/_data/weapon_properties.json`, "utf-8")
 );
@@ -150,7 +148,7 @@ const importData = async () => {
     await Subclass.insertMany(subclasses);
     await Subrace.insertMany(subraces);
     await Trait.insertMany(traits);
-    await User.insertMany(users);
+    // await User.insertMany(users);
     await WeaponProperty.insertMany(weapon_properties);
 
     console.log("Data Imported...".green.inverse);
@@ -187,7 +185,7 @@ const deleteData = async () => {
     await Subclass.deleteMany();
     await Subrace.deleteMany();
     await Trait.deleteMany();
-    await User.deleteMany();
+    // await User.deleteMany();
     await WeaponProperty.deleteMany();
 
     console.log("Data Destroyed...".red.inverse);
