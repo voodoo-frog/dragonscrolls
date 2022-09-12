@@ -44,7 +44,6 @@ const Document = ({ children }: Props) => {
       </head>
       <body className="min-h-screen bg-[#aa885a] bg-fixed bg-center xl:bg-[url('/images/parchment.jpeg')]">
         {children}
-        <ScrollRestoration />
         {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
       </body>
     </html>
@@ -56,13 +55,14 @@ export default function App() {
     <Document>
       <Layout>
         <Outlet />
+        <ScrollRestoration />
         <Scripts />
       </Layout>
     </Document>
   );
 }
 
-export function ErrorBoundary({ error }: { error: Error }) {
+export function ErrorBoundary({ error }: { error: Error; }) {
   return (
     <Document>
       <Layout>

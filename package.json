@@ -1,5 +1,5 @@
 {
-  "name": "dragonscrolls-3c52",
+  "name": "dragonscrolls",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -64,7 +64,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.4.9",
     "binode": "^1.0.5",
     "c8": "^7.12.0",
     "cookie": "^0.5.0",
