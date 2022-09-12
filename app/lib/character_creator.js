@@ -1,4 +1,4 @@
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import { RiAlertFill as Warning } from "react-icons/ri";
 
 import { select, Accordion, AccordionItem } from "./common";
 
@@ -13,7 +13,7 @@ export const CharacterCreationAbilityScore = ({
         title={
           <p className="flex w-full justify-between">
         Ability Score Increase
-        {error && <WarningAmberIcon sx={{ color: "red" }} />}
+        {error && <Warning className="mx-2" size={25} color="red" />}
       </p>
         }
         expanded={expanded === "ability-score"}
@@ -35,7 +35,7 @@ export const CharacterCreationLanguages = ({
   title={
     <p className="flex w-full justify-between">
       Languages
-      {error && <WarningAmberIcon sx={{ color: "red" }} />}
+      {error && <Warning className="mx-2" size={25} color="red" />}
     </p>
   }
   expanded={expanded === "language"}
@@ -59,7 +59,7 @@ export const CharacterCreationFeature = ({
   title={
     <p className="flex w-full justify-between">
         {name}
-        {error && <WarningAmberIcon sx={{ color: "red" }} />}
+        {error && <Warning className="mx-2" size={25} color="red" />}
       </p>
   }
   expanded={expanded === name}
@@ -235,7 +235,7 @@ export const CharacterCreationClassFeature = ({
             <strong>{name}</strong>
             <p className="text-sm text-gray-500">Level {level}</p>
           </div>
-          {error && error.error && <WarningAmberIcon sx={{ color: "red" }} />}
+          {error && error.error && <Warning className="mx-2" size={25} color="red" />}
         </div>
         }
         expanded={expanded === name}
@@ -266,15 +266,12 @@ export const CharacterCreationBackgroundFeature = ({
           <div className="flex w-full justify-between">
           <strong>{title}</strong>
           {error && (
-            <WarningAmberIcon
-              className="h-full self-center"
-              sx={{ color: "red" }}
-            />
+            <Warning className="h-full self-center mx-2" size={25} color="red" />
           )}
         </div>
         }
         expanded={expanded === index}
-        onClick={() => handleChangeExpanded(index)}
+        onClick={() => handleExpanded(index)}
       >
         {/* Table */}
         <div className="flex flex-col">

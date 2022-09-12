@@ -1,7 +1,7 @@
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import { RiAlertFill as Warning } from "react-icons/ri";
 
 import { sorter, alphabetizeNum, Accordion } from "~/lib/common";
-import { CharacterCreationSelect } from "../../../lib/character_creator";
+import { CharacterCreationSelect } from "~/lib/character_creator";
 
 export default function ClassFeaturesView({
   character,
@@ -170,7 +170,7 @@ export default function ClassFeaturesView({
             {(!details.bonus_skills ||
               Object.keys(details.bonus_skills).length <
               skill_choices?.choose) && (
-                <WarningAmberIcon sx={{ color: "red" }} />
+                <Warning className="mx-2" size={25} color="red" />
               )}
           </div>
         }

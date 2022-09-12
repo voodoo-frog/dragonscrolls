@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import { RiAlertFill as Warning } from "react-icons/ri";
 
 import { sorter, alphabetizeNum, select, Accordion } from "~/lib/common";
 import {
@@ -376,7 +376,7 @@ export default function CharacterBackground({
                       <p className="flex w-full justify-between">
                         <strong>Languages</strong>
                         {errors.find((err) => err.name === "Languages")
-                          ?.error && <WarningAmberIcon sx={{ color: "red" }} />}
+                          ?.error && <Warning className="mx-2" size={25} color="red" />}
                       </p>
                     </>
                   )}
@@ -410,7 +410,7 @@ export default function CharacterBackground({
                     Suggested Characteristics
                     {errors.find(
                       (err) => err.name === "Suggested Characteristics"
-                    )?.error && <WarningAmberIcon sx={{ color: "red" }} />}
+                    )?.error && <Warning className="mx-2" size={25} color="red" />}
                   </p>
                 }
                 expanded={expanded === "suggested-characteristics"}

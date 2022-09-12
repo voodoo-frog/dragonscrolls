@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { sorter } from "~/lib/common";
-import { tabs } from "../../../lib/common";
+import { sorter, tabs } from "~/lib/common";
 import ClassFeaturesView from "./ClassFeaturesView";
 import SpellsView from "./SpellsView";
 

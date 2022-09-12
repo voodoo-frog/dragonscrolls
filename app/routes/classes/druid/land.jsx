@@ -2,12 +2,11 @@ import { useLoaderData } from "@remix-run/react";
 
 import SubclassLayout from "~/components/subclass/SubclassLayout";
 
-import { createSet, sorter } from "~/lib/common";
+import { createSet, sorter, table } from "~/lib/common";
 import dbConnect from "~/lib/dbConnect";
 
 import Feature from "~/models/feature";
 import SubclassData from "~/models/subclass";
-import { table } from "../../../lib/common";
 
 export const loader = async () => {
   await dbConnect();
