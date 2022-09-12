@@ -1,17 +1,11 @@
 import { useState } from "react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
 import {
   CharacterCreationAbilityScore,
   CharacterCreationFeature,
   CharacterCreationLanguages,
 } from "~/lib/character_creator";
-import { select } from "~/lib/common";
+import { select, Accordion } from "~/lib/common";
 
 export default function Elf({
   character,
@@ -66,7 +60,7 @@ export default function Elf({
   };
 
   return (
-    <>
+    <div className="accordion">
       <CharacterCreationAbilityScore
         race={race}
         expanded={expanded}
@@ -144,34 +138,23 @@ export default function Elf({
 
             {details.bonus_spells?.[0] && (
               <Accordion
-                elevation={0}
-                className="my-3"
+                title='Spell Details'
                 expanded={expandSpell}
-                onChange={() => setExpandSpell(!expandSpell)}
+                onClick={() => setExpandSpell(!expandSpell)}
+                flush={true}
               >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="expand-spell-content"
-                  id="expand-spell-header"
-                >
-                  <p>
-                    <strong>Spell Details</strong>
-                  </p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  {spells
-                    .find((spell) => spell.index === details.bonus_spells[0])
-                    .desc.map((desc, index) => (
-                      <p key={index} className="mb-3">
-                        {desc}
-                      </p>
-                    ))}
-                </AccordionDetails>
+                {spells
+                  .find((spell) => spell.index === details.bonus_spells[0])
+                  .desc.map((desc, index) => (
+                    <p key={index} className="mb-3">
+                      {desc}
+                    </p>
+                  ))}
               </Accordion>
             )}
           </CharacterCreationFeature>
         </>
       )}
-    </>
+    </div>
   );
 }

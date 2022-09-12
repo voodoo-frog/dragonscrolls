@@ -1,11 +1,6 @@
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
-import { select } from "./common";
+import { select, Accordion, AccordionItem } from "./common";
 
 export const CharacterCreationAbilityScore = ({
   race,
@@ -14,26 +9,19 @@ export const CharacterCreationAbilityScore = ({
   error = false,
   children,
 }) => (
-  <Accordion
-    className="mb-3"
-    expanded={expanded === "ability-score"}
-    onChange={handleChangeExpanded("ability-score")}
-  >
-    <AccordionSummary
-      expandIcon={<ExpandMoreIcon />}
-      aria-controls={`${race.index}-ability-score-content`}
-      id={`${race.index}-ability-score-header`}
-    >
-      <p className="flex w-full justify-between">
-        <strong>Ability Score Increase</strong>
+  <AccordionItem
+        title={
+          <p className="flex w-full justify-between">
+        Ability Score Increase
         {error && <WarningAmberIcon sx={{ color: "red" }} />}
       </p>
-    </AccordionSummary>
-    <AccordionDetails>
-      <p className="mb-3">{race.ability_score_desc}</p>
+        }
+        expanded={expanded === "ability-score"}
+        onClick={() => handleChangeExpanded("ability-score")}
+      >
+        <p className="mb-3">{race.ability_score_desc}</p>
       {children}
-    </AccordionDetails>
-  </Accordion>
+      </AccordionItem>
 );
 
 export const CharacterCreationLanguages = ({
@@ -43,26 +31,19 @@ export const CharacterCreationLanguages = ({
   error = false,
   children,
 }) => (
-  <Accordion
-    className="mb-3"
-    expanded={expanded === "language"}
-    onChange={handleChangeExpanded("language")}
-  >
-    <AccordionSummary
-      expandIcon={<ExpandMoreIcon />}
-      aria-controls={`${race.index}-language-content`}
-      id={`${race.index}-language-header`}
-    >
-      <p className="flex w-full justify-between">
-        <strong>Languages</strong>
-        {error && <WarningAmberIcon sx={{ color: "red" }} />}
-      </p>
-    </AccordionSummary>
-    <AccordionDetails>
-      <p className="mb-3">{race.language_desc}</p>
+  <AccordionItem
+  title={
+    <p className="flex w-full justify-between">
+      Languages
+      {error && <WarningAmberIcon sx={{ color: "red" }} />}
+    </p>
+  }
+  expanded={expanded === "language"}
+  onClick={() => handleChangeExpanded("language")}
+>
+<p className="mb-3">{race.language_desc}</p>
       {children}
-    </AccordionDetails>
-  </Accordion>
+</AccordionItem>
 );
 
 export const CharacterCreationFeature = ({
@@ -74,23 +55,17 @@ export const CharacterCreationFeature = ({
   error = false,
   children,
 }) => (
-  <Accordion
-    className="mb-3"
-    expanded={expanded === name}
-    onChange={handleChangeExpanded(name)}
-  >
-    <AccordionSummary
-      expandIcon={<ExpandMoreIcon />}
-      aria-controls={`${index}-content`}
-      id={`${index}-header`}
-    >
-      <p className="flex w-full justify-between">
-        <strong>{name}</strong>
+  <AccordionItem
+  title={
+    <p className="flex w-full justify-between">
+        {name}
         {error && <WarningAmberIcon sx={{ color: "red" }} />}
       </p>
-    </AccordionSummary>
-    <AccordionDetails>
-      {traits
+  }
+  expanded={expanded === name}
+  onClick={() => handleChangeExpanded(name)}
+>
+{traits
         .find((t) => t.index === index)
         .desc.map((trait) => (
           <p key={trait} className="mb-3">
@@ -98,8 +73,7 @@ export const CharacterCreationFeature = ({
           </p>
         ))}
       {children}
-    </AccordionDetails>
-  </Accordion>
+</AccordionItem>
 );
 
 export const CharacterCreationClassAbilityScore = ({
@@ -107,8 +81,8 @@ export const CharacterCreationClassAbilityScore = ({
   character,
   setCharacter,
   feats,
-  expandFeat,
-  setExpandFeat,
+  expanded,
+  handleChangeExpanded,
 }) => {
   const handleChangeOption = (e) => {
     const { value } = e.target;
@@ -221,22 +195,11 @@ export const CharacterCreationClassAbilityScore = ({
       {character.class.ability_score_improvements[level]?.feat &&
         character.class.ability_score_improvements[level]?.feat !== "" && (
           <Accordion
-            elevation={0}
-            className="my-3"
-            expanded={expandFeat}
-            onChange={() => setExpandFeat(!expandFeat)}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="expand-feat-content"
-              id="expand-feat-header"
-            >
-              <p>
-                <strong>Feat Details</strong>
-              </p>
-            </AccordionSummary>
-            <AccordionDetails>
-              {feats
+  title="Feat Details"
+  expanded={expanded === "expand-feat"}
+  onClick={() => handleChangeExpanded("expand-feat")}
+>
+{feats
                 .find(
                   (feat) =>
                     feat.index ===
@@ -247,8 +210,7 @@ export const CharacterCreationClassAbilityScore = ({
                     {desc}
                   </p>
                 ))}
-            </AccordionDetails>
-          </Accordion>
+</Accordion>
         )}
     </>
   );
@@ -267,32 +229,24 @@ export const CharacterCreationClassFeature = ({
 
   return (
     <Accordion
-      className="mb-3"
-      expanded={expanded === name}
-      onChange={handleChangeExpanded(name)}
-    >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls={`${index}-content`}
-        id={`${index}-header`}
-      >
-        <div className="flex w-full items-center justify-between">
+        title={
+          <div className="flex w-full items-center justify-between">
           <div>
             <strong>{name}</strong>
             <p className="text-sm text-gray-500">Level {level}</p>
           </div>
           {error && error.error && <WarningAmberIcon sx={{ color: "red" }} />}
         </div>
-      </AccordionSummary>
-      <AccordionDetails>
+        }
+        expanded={expanded === name}
+        onClick={() => handleChangeExpanded(name)}
+      >
         {desc.map((item) => (
           <p key={item} className="mb-3">
             {item}
           </p>
         ))}
-        {children}
-      </AccordionDetails>
-    </Accordion>
+      </Accordion>
   );
 };
 
@@ -308,16 +262,8 @@ export const CharacterCreationBackgroundFeature = ({
 }) => {
   return (
     <Accordion
-      className="mb-3"
-      expanded={expanded === `sc-${index}`}
-      onChange={handleExpanded(`sc-${index}`)}
-    >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls={`sc-${index}-content`}
-        id={`sc-${index}-header`}
-      >
-        <div className="flex w-full justify-between">
+        title={
+          <div className="flex w-full justify-between">
           <strong>{title}</strong>
           {error && (
             <WarningAmberIcon
@@ -326,8 +272,10 @@ export const CharacterCreationBackgroundFeature = ({
             />
           )}
         </div>
-      </AccordionSummary>
-      <AccordionDetails className="overflow-hidden">
+        }
+        expanded={expanded === index}
+        onClick={() => handleChangeExpanded(index)}
+      >
         {/* Table */}
         <div className="flex flex-col">
           <div className="overflow-hidden sm:-mx-6 lg:-mx-8">
@@ -371,8 +319,7 @@ export const CharacterCreationBackgroundFeature = ({
         </div>
 
         {children}
-      </AccordionDetails>
-    </Accordion>
+      </Accordion>
   );
 };
 

@@ -1,55 +1,10 @@
-import { styled } from "@mui/material/styles";
-
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import MuiAccordion from "@mui/material/Accordion";
-import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import MuiAccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
-
-import { table } from "~/lib/common";
+import { table, AccordionItem } from "~/lib/common";
 
 import { Remarkable } from "remarkable";
 const md = new Remarkable("full", {
   html: true,
   typographer: true,
 });
-
-const Accordion = styled((props) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  "&:not(:last-child)": {
-    borderBottom: 0,
-  },
-  "&:before": {
-    display: "none",
-  },
-}));
-
-const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary
-    sx={{ bgcolor: "rgba(0,0,0,0.2)" }}
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
-    {...props}
-  />
-))(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === "dark"
-      ? "rgba(255, 255, 255, .05)"
-      : "rgba(0, 0, 0, .03)",
-  flexDirection: "row-reverse",
-  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-    transform: "rotate(90deg)",
-  },
-  "& .MuiAccordionSummary-content": {
-    marginLeft: theme.spacing(1),
-  },
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
-  borderTop: "1px solid rgba(0, 0, 0, .125)",
-}));
 
 export default function EquipmentCard({
   item,
@@ -93,29 +48,31 @@ export default function EquipmentCard({
   }
 
   return (
-    <Accordion expanded={expanded} onChange={handleChangeExpanded(index)}>
-      <AccordionSummary
-        aria-controls={`${index}d-content`}
-        id={`${index}d-header`}
-      >
-        <div className="w-[250px]">
-          <Typography>{name}</Typography>
-          <Typography variant="caption">{equipment_category.name}</Typography>
-        </div>
+    <AccordionItem
+      title={
+        <>
+          <div className="w-[250px]">
+            <p>{name}</p>
+            <p className="text-xs">{equipment_category.name}</p>
+          </div>
 
-        <div className="hidden lg:flex">
-          <Typography className="w-[150px]">
-            {cost.quantity ? `${cost.quantity} ${cost.unit}` : "--"}
-          </Typography>
+          <div className="hidden lg:flex">
+            <p className="w-[150px]">
+              {cost.quantity ? `${cost.quantity} ${cost.unit}` : "--"}
+            </p>
 
-          <Typography className="w-[150px]">
-            {weight ? `${weight} ${weight === 1 ? "lb" : "lbs"}` : "--"}
-          </Typography>
+            <p className="w-[150px]">
+              {weight ? `${weight} ${weight === 1 ? "lb" : "lbs"}` : "--"}
+            </p>
 
-          <Typography>{category_name}</Typography>
-        </div>
-      </AccordionSummary>
-      <AccordionDetails>
+            <p>{category_name}</p>
+          </div>
+        </>
+      }
+      expanded={expanded === index}
+      onClick={() => handleChangeExpanded(index)}
+    >
+      <>
         {desc.map((descItem, index) => {
           if (descItem instanceof Array) {
             const rows = [];
@@ -141,7 +98,7 @@ export default function EquipmentCard({
             />
           );
         })}
-      </AccordionDetails>
-    </Accordion>
+      </>
+    </AccordionItem>
   );
 }

@@ -352,3 +352,111 @@ export const alphabetizeNum = (number) => {
     x += 1;
   }
 };
+
+export const tabs = (tabs, activeTab, onChange) => {
+  return (
+    <ul className="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4" id="tabs-tab"
+        role="tablist">
+      {tabs.map((tab, idx) => (
+        <li key={idx} className="nav-item" role="presentation">
+        <button className={`
+          nav-link
+          block
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          border-x-0 border-t-0 border-b-2 border-transparent
+          px-6
+          py-3
+          my-2
+          hover:border-transparent hover:bg-gray-100
+          focus:border-transparent
+          ${activeTab === tab && 'active'}
+        `}
+        id={`${tab}-tab`}
+        data-bs-toggle="pill"
+        data-bs-target={`#${tab}`}
+        role={`tab`}
+        aria-controls={`${tab}`}
+        aria-selected="true"
+        value={tab}
+        onClick={onChange}
+        >
+          {tab}
+        </button>
+      </li>
+      ))}
+      </ul>
+  )
+}
+
+export const Accordion = ({title, expanded, onClick, small = false, children}) => (
+  <div className="accordion" id={`${title}-accordion`}>
+    <div className="accordion-item bg-white border border-gray-200">
+      <h2 className="accordion-header mb-0" id={`#${title}-heading`}>
+        <button value={title} onClick={onClick} className={`accordion-button
+          ${!expanded && 'collapsed'}
+          relative
+          flex
+          items-center
+          w-full
+          ${small ? 'py-2' : 'py-4'}
+          px-5
+          text-base text-gray-800 text-left
+          bg-white
+          border-0
+          rounded-none
+          transition
+          focus:outline-none`}
+            type="button"
+        data-bs-toggle="collapse"
+        data-bs-target={`#${title}-collapse`}
+        aria-expanded={expanded && title}
+        aria-controls={`${title}-collapse`}>
+          {title}
+        </button>
+      </h2>
+      <div id={`${title}-collapse`} className={`accordion-collapse collapse ${expanded && 'show'}`} aria-labelledby={`#${title}-heading`}
+        data-bs-parent={`${title}-accordion`}>
+        <div className="accordion-body py-4 px-5">
+          {children}
+          </div>
+      </div>
+    </div>
+  </div>
+)
+
+export const AccordionItem = ({title, expanded, onClick, small = false, children}) => (
+  <div className="accordion-item bg-white border border-gray-200">
+  <h2 className="accordion-header mb-0" id={`#${title}-heading`}>
+      <button value={title} onClick={onClick} className={`accordion-button
+        ${!expanded && 'collapsed'}
+      relative
+      flex
+      items-center
+      w-full
+      ${small ? 'py-2' : 'py-4'}
+      px-5
+      text-base text-gray-800 text-left
+      bg-white
+      border-0
+      rounded-none
+      transition
+      focus:outline-none`}
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target={`#${title}-collapse`}
+      aria-expanded={expanded && title}
+      aria-controls={`${title}-collapse`}>
+        {title}
+      </button>
+    </h2>
+    <div id={`${title}-collapse`} className={`accordion-collapse collapse ${expanded && 'show'}`} aria-labelledby={`#${title}-heading`}
+      data-bs-parent={`${title}-accordion`}>
+      <div className="accordion-body py-4 px-5">
+        {children}
+        </div>
+    </div>
+  </div>
+)

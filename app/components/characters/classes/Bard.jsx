@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
 import ClassAbilityScores from "./ClassAbilityScores";
 
 import { CharacterCreationClassFeature } from "~/lib/character_creator";
-import { select } from "~/lib/common";
+import { select, Accordion } from "~/lib/common";
 
 export default function Bard({
   character,
@@ -49,6 +43,10 @@ export default function Bard({
         subclass: value,
       },
     });
+  };
+
+  const handleChangeExpandedSpell = (value) => {
+    setExpandSpell(value !== expanded ? value : false);
   };
 
   const handleChangeExpertiseChoice = (e) => {
@@ -253,32 +251,20 @@ export default function Bard({
               )}
               {details.magical_secrets?.first && (
                 <Accordion
-                  elevation={0}
-                  className="my-3"
-                  expanded={expandSpell}
-                  onChange={() => setExpandSpell(!expandSpell)}
+                  title='Spell Details'
+                  expanded={expanded === 'magical-secrets-first'}
+                  onClick={() => handleChangeExpandedSpell('magical-secrets-first')}
                 >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="expand-spell-content"
-                    id="expand-spell-header"
-                  >
-                    <p>
-                      <strong>Spell Details</strong>
-                    </p>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    {spells
-                      .find(
-                        (spell) =>
-                          spell.index === details.magical_secrets?.first
-                      )
-                      .desc.map((desc, index) => (
-                        <p key={index} className="mb-3">
-                          {desc}
-                        </p>
-                      ))}
-                  </AccordionDetails>
+                  {spells
+                    .find(
+                      (spell) =>
+                        spell.index === details.magical_secrets?.first
+                    )
+                    .desc.map((desc, index) => (
+                      <p key={index} className="mb-3">
+                        {desc}
+                      </p>
+                    ))}
                 </Accordion>
               )}
 
@@ -303,32 +289,20 @@ export default function Bard({
               )}
               {details.magical_secrets?.second && (
                 <Accordion
-                  elevation={0}
-                  className="my-3"
-                  expanded={expandSpell}
-                  onChange={() => setExpandSpell(!expandSpell)}
+                  title='Spell Details'
+                  expanded={expanded === 'magical-secrets-second'}
+                  onClick={() => handleChangeExpandedSpell('magical-secrets-second')}
                 >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="expand-spell-content"
-                    id="expand-spell-header"
-                  >
-                    <p>
-                      <strong>Spell Details</strong>
-                    </p>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    {spells
-                      .find(
-                        (spell) =>
-                          spell.index === details.magical_secrets?.second
-                      )
-                      .desc.map((desc, index) => (
-                        <p key={index} className="mb-3">
-                          {desc}
-                        </p>
-                      ))}
-                  </AccordionDetails>
+                  {spells
+                    .find(
+                      (spell) =>
+                        spell.index === details.magical_secrets?.second
+                    )
+                    .desc.map((desc, index) => (
+                      <p key={index} className="mb-3">
+                        {desc}
+                      </p>
+                    ))}
                 </Accordion>
               )}
 
@@ -356,32 +330,20 @@ export default function Bard({
                   )}
                   {details.magical_secrets?.third && (
                     <Accordion
-                      elevation={0}
-                      className="my-3"
-                      expanded={expandSpell}
-                      onChange={() => setExpandSpell(!expandSpell)}
+                      title='Spell Details'
+                      expanded={expanded === 'magical-secrets-third'}
+                      onClick={() => handleChangeExpandedSpell('magical-secrets-third')}
                     >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="expand-spell-content"
-                        id="expand-spell-header"
-                      >
-                        <p>
-                          <strong>Spell Details</strong>
-                        </p>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        {spells
-                          .find(
-                            (spell) =>
-                              spell.index === details.magical_secrets?.third
-                          )
-                          .desc.map((desc, index) => (
-                            <p key={index} className="mb-3">
-                              {desc}
-                            </p>
-                          ))}
-                      </AccordionDetails>
+                      {spells
+                        .find(
+                          (spell) =>
+                            spell.index === details.magical_secrets?.third
+                        )
+                        .desc.map((desc, index) => (
+                          <p key={index} className="mb-3">
+                            {desc}
+                          </p>
+                        ))}
                     </Accordion>
                   )}
 
@@ -406,32 +368,20 @@ export default function Bard({
                   )}
                   {details.magical_secrets?.fourth && (
                     <Accordion
-                      elevation={0}
-                      className="my-3"
-                      expanded={expandSpell}
-                      onChange={() => setExpandSpell(!expandSpell)}
+                      title='Spell Details'
+                      expanded={expanded === 'magical-secrets-fourth'}
+                      onClick={() => handleChangeExpandedSpell('magical-secrets-fourth')}
                     >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="expand-spell-content"
-                        id="expand-spell-header"
-                      >
-                        <p>
-                          <strong>Spell Details</strong>
-                        </p>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        {spells
-                          .find(
-                            (spell) =>
-                              spell.index === details.magical_secrets?.fourth
-                          )
-                          .desc.map((desc, index) => (
-                            <p key={index} className="mb-3">
-                              {desc}
-                            </p>
-                          ))}
-                      </AccordionDetails>
+                      {spells
+                        .find(
+                          (spell) =>
+                            spell.index === details.magical_secrets?.fourth
+                        )
+                        .desc.map((desc, index) => (
+                          <p key={index} className="mb-3">
+                            {desc}
+                          </p>
+                        ))}
                     </Accordion>
                   )}
                 </>
@@ -459,32 +409,20 @@ export default function Bard({
                   )}
                   {details.magical_secrets?.fifth && (
                     <Accordion
-                      elevation={0}
-                      className="my-3"
-                      expanded={expandSpell}
-                      onChange={() => setExpandSpell(!expandSpell)}
+                      title='Spell Details'
+                      expanded={expanded === 'magical-secrets-fifth'}
+                      onClick={() => handleChangeExpandedSpell('magical-secrets-fifth')}
                     >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="expand-spell-content"
-                        id="expand-spell-header"
-                      >
-                        <p>
-                          <strong>Spell Details</strong>
-                        </p>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        {spells
-                          .find(
-                            (spell) =>
-                              spell.index === details.magical_secrets?.fifth
-                          )
-                          .desc.map((desc, index) => (
-                            <p key={index} className="mb-3">
-                              {desc}
-                            </p>
-                          ))}
-                      </AccordionDetails>
+                      {spells
+                        .find(
+                          (spell) =>
+                            spell.index === details.magical_secrets?.fifth
+                        )
+                        .desc.map((desc, index) => (
+                          <p key={index} className="mb-3">
+                            {desc}
+                          </p>
+                        ))}
                     </Accordion>
                   )}
 
@@ -507,32 +445,20 @@ export default function Bard({
                   )}
                   {details.magical_secrets?.sixth && (
                     <Accordion
-                      elevation={0}
-                      className="my-3"
-                      expanded={expandSpell}
-                      onChange={() => setExpandSpell(!expandSpell)}
+                      title='Spell Details'
+                      expanded={expanded === 'magical-secrets-sixth'}
+                      onClick={() => handleChangeExpandedSpell('magical-secrets-sixth')}
                     >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="expand-spell-content"
-                        id="expand-spell-header"
-                      >
-                        <p>
-                          <strong>Spell Details</strong>
-                        </p>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        {spells
-                          .find(
-                            (spell) =>
-                              spell.index === details.magical_secrets?.sixth
-                          )
-                          .desc.map((desc, index) => (
-                            <p key={index} className="mb-3">
-                              {desc}
-                            </p>
-                          ))}
-                      </AccordionDetails>
+                      {spells
+                        .find(
+                          (spell) =>
+                            spell.index === details.magical_secrets?.sixth
+                        )
+                        .desc.map((desc, index) => (
+                          <p key={index} className="mb-3">
+                            {desc}
+                          </p>
+                        ))}
                     </Accordion>
                   )}
                 </>
@@ -563,33 +489,20 @@ export default function Bard({
               )}
               {details.additional_magical_secrets?.first && (
                 <Accordion
-                  elevation={0}
-                  className="my-3"
-                  expanded={expandSpell}
-                  onChange={() => setExpandSpell(!expandSpell)}
+                  title='Spell Details'
+                  expanded={expanded === 'magical-secrets-first'}
+                  onClick={() => handleChangeExpandedSpell('magical-secrets-first')}
                 >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="expand-spell-content"
-                    id="expand-spell-header"
-                  >
-                    <p>
-                      <strong>Spell Details</strong>
-                    </p>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    {spells
-                      .find(
-                        (spell) =>
-                          spell.index ===
-                          details.additional_magical_secrets?.first
-                      )
-                      .desc.map((desc, index) => (
-                        <p key={index} className="mb-3">
-                          {desc}
-                        </p>
-                      ))}
-                  </AccordionDetails>
+                  {spells
+                    .find(
+                      (spell) =>
+                        spell.index === details.additional_magical_secrets?.first
+                    )
+                    .desc.map((desc, index) => (
+                      <p key={index} className="mb-3">
+                        {desc}
+                      </p>
+                    ))}
                 </Accordion>
               )}
 
@@ -615,33 +528,20 @@ export default function Bard({
               )}
               {details.additional_magical_secrets?.second && (
                 <Accordion
-                  elevation={0}
-                  className="my-3"
-                  expanded={expandSpell}
-                  onChange={() => setExpandSpell(!expandSpell)}
+                  title='Spell Details'
+                  expanded={expanded === 'magical-secrets-second'}
+                  onClick={() => handleChangeExpandedSpell('magical-secrets-second')}
                 >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="expand-spell-content"
-                    id="expand-spell-header"
-                  >
-                    <p>
-                      <strong>Spell Details</strong>
-                    </p>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    {spells
-                      .find(
-                        (spell) =>
-                          spell.index ===
-                          details.additional_magical_secrets?.second
-                      )
-                      .desc.map((desc, index) => (
-                        <p key={index} className="mb-3">
-                          {desc}
-                        </p>
-                      ))}
-                  </AccordionDetails>
+                  {spells
+                    .find(
+                      (spell) =>
+                        spell.index === details.additional_magical_secrets?.second
+                    )
+                    .desc.map((desc, index) => (
+                      <p key={index} className="mb-3">
+                        {desc}
+                      </p>
+                    ))}
                 </Accordion>
               )}
             </>

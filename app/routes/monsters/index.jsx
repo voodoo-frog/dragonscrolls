@@ -122,8 +122,8 @@ export default function MonstersPage() {
     setSelectedSizes(value.sort());
   };
 
-  const handleChangeExpanded = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChangeExpanded = (value) => {
+    setExpanded(value !== expanded ? value : false);
   };
 
   const handleChangePage = (event, value) => {
@@ -207,9 +207,8 @@ export default function MonstersPage() {
 
       <div className="flex grid w-full grid-cols-3 justify-items-center gap-4 p-3 md:grid-cols-4 lg:grid-cols-8">
         <div
-          className={`content-center justify-center ${
-            typePage === 1 && "hidden"
-          }`}
+          className={`content-center justify-center ${typePage === 1 && "hidden"
+            }`}
           onClick={() => setTypePage(1)}
         >
           <div className="align-center flex h-[100px] w-[100px] justify-center rounded-full bg-red-500 text-center">
@@ -231,11 +230,9 @@ export default function MonstersPage() {
                 name={type}
                 src={`/images/${type}.jpeg`}
                 alt={`${type} type Emblem in color`}
-                className={`block rounded-[50%] opacity-${
-                  selectedTypes.includes(type) ? 100 : 60
-                } hover:opacity-100 ${
-                  selectedTypes.includes(type) ? "ring-2 ring-white" : ""
-                }`}
+                className={`block rounded-[50%] opacity-${selectedTypes.includes(type) ? 100 : 60
+                  } hover:opacity-100 ${selectedTypes.includes(type) ? "ring-2 ring-white" : ""
+                  }`}
               />
               <p className="text-center font-bold capitalize">{type}</p>
             </div>
@@ -243,9 +240,8 @@ export default function MonstersPage() {
           .slice(typePage === 1 ? 0 : 7, typePage === 1 ? 7 : 14)}
 
         <div
-          className={`content-center justify-center ${
-            typePage === 2 && "hidden"
-          }`}
+          className={`content-center justify-center ${typePage === 2 && "hidden"
+            }`}
           onClick={() => setTypePage(2)}
         >
           <div className="align-center flex h-[100px] w-[100px] justify-center rounded-full bg-red-500 text-center">
@@ -486,13 +482,13 @@ export default function MonstersPage() {
         </div>
       </div>
 
-      <div className="m-3">
+      <div className="accordion m-3" id="monsters-accordion">
         {filtered
           .map((monster) => (
             <MonsterCard
               key={monster.index}
               monster={monster}
-              expanded={expanded === monster.index}
+              expanded={expanded}
               handleChangeExpanded={handleChangeExpanded}
             />
           ))

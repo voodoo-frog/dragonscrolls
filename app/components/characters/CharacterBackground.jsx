@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
-import { sorter, alphabetizeNum, select } from "~/lib/common";
+import { sorter, alphabetizeNum, select, Accordion } from "~/lib/common";
 import {
   CharacterCreationBackgroundFeature,
   CharacterCreationSelect,
@@ -52,8 +47,8 @@ export default function CharacterBackground({
     }
   }, [backgrounds, character.background]);
 
-  const handleChangeExpanded = (panel) => (e, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChangeExpanded = (value) => {
+    setExpanded(value !== expanded ? value : false);
   };
 
   const handleChangeScExpanded = (panel) => (e, newExpanded) => {
@@ -156,7 +151,7 @@ export default function CharacterBackground({
       error:
         !character.background.bonus_languages ||
         Object.keys(character.background.bonus_languages).length <
-          background.language_options.choose,
+        background.language_options.choose,
     },
     {
       name: "Suggested Characteristics",
@@ -376,154 +371,133 @@ export default function CharacterBackground({
 
               {background.language_options && (
                 <Accordion
-                  className="mb-3"
+                  title={(
+                    <>
+                      <p className="flex w-full justify-between">
+                        <strong>Languages</strong>
+                        {errors.find((err) => err.name === "Languages")
+                          ?.error && <WarningAmberIcon sx={{ color: "red" }} />}
+                      </p>
+                    </>
+                  )}
                   expanded={expanded === "proficiencies"}
-                  onChange={handleChangeExpanded("proficiencies")}
+                  onClick={() => handleChangeExpanded("proficiencies")}
                 >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls={`proficiencies-content`}
-                    id={`proficiencies-header`}
-                  >
-                    <p className="flex w-full justify-between">
-                      <strong>Languages</strong>
-                      {errors.find((err) => err.name === "Languages")
-                        ?.error && <WarningAmberIcon sx={{ color: "red" }} />}
-                    </p>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <p>
-                      Choose any {alphabetizeNum(language_options.choose)}{" "}
-                      languages:
-                    </p>
+                  <p>
+                    Choose any {alphabetizeNum(language_options.choose)}{" "}
+                    languages:
+                  </p>
 
-                    {languageOptions}
-                  </AccordionDetails>
+                  {languageOptions}
                 </Accordion>
               )}
 
               <Accordion
-                className="mb-3"
+                title={feature.name}
                 expanded={expanded === "bg-feature"}
-                onChange={handleChangeExpanded("bg-feature")}
+                onClick={() => handleChangeExpanded('bg-feature')}
               >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls={`bg-feature-content`}
-                  id={`bg-feature-header`}
-                >
-                  <strong>{feature.name}</strong>
-                </AccordionSummary>
-                <AccordionDetails>
-                  {feature.desc.map((item) => (
-                    <p key={item} className="mb-3">
-                      {item}
-                    </p>
-                  ))}
-                </AccordionDetails>
+                {feature.desc.map((item) => (
+                  <p key={item} className="mb-3">
+                    {item}
+                  </p>
+                ))}
               </Accordion>
 
               <Accordion
-                className="mb-3"
-                expanded={expanded === "suggested-characteristics"}
-                onChange={handleChangeExpanded("suggested-characteristics")}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls={`suggested-characteristics-content`}
-                  id={`suggested-characteristics-header`}
-                >
+                title={
                   <p className="flex w-full justify-between">
-                    <strong>Suggested Characteristics</strong>
+                    Suggested Characteristics
                     {errors.find(
                       (err) => err.name === "Suggested Characteristics"
                     )?.error && <WarningAmberIcon sx={{ color: "red" }} />}
                   </p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  {suggested_characteristics}
+                }
+                expanded={expanded === "suggested-characteristics"}
+                onClick={() => handleChangeExpanded("suggested-characteristics")}
+              >
+                {suggested_characteristics}
 
-                  {/* Personality Traits */}
-                  <CharacterCreationBackgroundFeature
-                    headers={ptHeaders}
-                    rows={ptRows}
-                    index="personality-traits"
-                    title="Personality Traits"
-                    expanded={scExpanded}
-                    handleExpanded={handleChangeScExpanded}
-                    error={character.personality_traits.length !== 2}
-                  >
-                    {select(
-                      "Personality Trait",
-                      "first",
-                      character.personality_traits[0],
-                      personality_traits.from.filter(
-                        (trait) => trait !== character.personality_traits[1]
-                      ),
-                      handlePersonality
-                    )}
+                {/* Personality Traits */}
+                <CharacterCreationBackgroundFeature
+                  headers={ptHeaders}
+                  rows={ptRows}
+                  index="personality-traits"
+                  title="Personality Traits"
+                  expanded={scExpanded}
+                  handleExpanded={handleChangeScExpanded}
+                  error={character.personality_traits.length !== 2}
+                >
+                  {select(
+                    "Personality Trait",
+                    "first",
+                    character.personality_traits[0],
+                    personality_traits.from.filter(
+                      (trait) => trait !== character.personality_traits[1]
+                    ),
+                    handlePersonality
+                  )}
 
-                    {select(
-                      "Personality Trait",
-                      "second",
-                      character.personality_traits[1],
-                      personality_traits.from.filter(
-                        (trait) => trait !== character.personality_traits[0]
-                      ),
-                      handlePersonality
-                    )}
-                  </CharacterCreationBackgroundFeature>
+                  {select(
+                    "Personality Trait",
+                    "second",
+                    character.personality_traits[1],
+                    personality_traits.from.filter(
+                      (trait) => trait !== character.personality_traits[0]
+                    ),
+                    handlePersonality
+                  )}
+                </CharacterCreationBackgroundFeature>
 
-                  {/* Ideals */}
-                  <CharacterCreationBackgroundFeature
-                    headers={idealsHeaders}
-                    rows={idealsRows}
-                    index="ideals"
-                    title="Ideals"
-                    expanded={scExpanded}
-                    handleExpanded={handleChangeScExpanded}
-                    error={!character.ideal.length > 0}
-                  >
-                    {select(
-                      "Ideal",
-                      "ideal",
-                      character.ideal,
-                      ideals.from.map((ideal) => ideal.desc),
-                      (e) =>
-                        setCharacter({ ...character, ideal: e.target.value })
-                    )}
-                  </CharacterCreationBackgroundFeature>
+                {/* Ideals */}
+                <CharacterCreationBackgroundFeature
+                  headers={idealsHeaders}
+                  rows={idealsRows}
+                  index="ideals"
+                  title="Ideals"
+                  expanded={scExpanded}
+                  handleExpanded={handleChangeScExpanded}
+                  error={!character.ideal.length > 0}
+                >
+                  {select(
+                    "Ideal",
+                    "ideal",
+                    character.ideal,
+                    ideals.from.map((ideal) => ideal.desc),
+                    (e) =>
+                      setCharacter({ ...character, ideal: e.target.value })
+                  )}
+                </CharacterCreationBackgroundFeature>
 
-                  {/* Bonds */}
-                  <CharacterCreationBackgroundFeature
-                    headers={bondsHeaders}
-                    rows={bondsRows}
-                    index="bonds"
-                    title="Bonds"
-                    expanded={scExpanded}
-                    handleExpanded={handleChangeScExpanded}
-                    error={!character.bond.length > 0}
-                  >
-                    {select("Bond", "bond", character.bond, bonds.from, (e) =>
-                      setCharacter({ ...character, bond: e.target.value })
-                    )}
-                  </CharacterCreationBackgroundFeature>
+                {/* Bonds */}
+                <CharacterCreationBackgroundFeature
+                  headers={bondsHeaders}
+                  rows={bondsRows}
+                  index="bonds"
+                  title="Bonds"
+                  expanded={scExpanded}
+                  handleExpanded={handleChangeScExpanded}
+                  error={!character.bond.length > 0}
+                >
+                  {select("Bond", "bond", character.bond, bonds.from, (e) =>
+                    setCharacter({ ...character, bond: e.target.value })
+                  )}
+                </CharacterCreationBackgroundFeature>
 
-                  {/* Flaws */}
-                  <CharacterCreationBackgroundFeature
-                    headers={flawsHeaders}
-                    rows={flawsRows}
-                    index="flaws"
-                    title="Flaws"
-                    expanded={scExpanded}
-                    handleExpanded={handleChangeScExpanded}
-                    error={!character.flaw.length > 0}
-                  >
-                    {select("Flaw", "flaw", character.flaw, flaws.from, (e) =>
-                      setCharacter({ ...character, flaw: e.target.value })
-                    )}
-                  </CharacterCreationBackgroundFeature>
-                </AccordionDetails>
+                {/* Flaws */}
+                <CharacterCreationBackgroundFeature
+                  headers={flawsHeaders}
+                  rows={flawsRows}
+                  index="flaws"
+                  title="Flaws"
+                  expanded={scExpanded}
+                  handleExpanded={handleChangeScExpanded}
+                  error={!character.flaw.length > 0}
+                >
+                  {select("Flaw", "flaw", character.flaw, flaws.from, (e) =>
+                    setCharacter({ ...character, flaw: e.target.value })
+                  )}
+                </CharacterCreationBackgroundFeature>
               </Accordion>
             </>
           )}

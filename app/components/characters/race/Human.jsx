@@ -37,7 +37,7 @@ export default function Human({
   };
 
   return (
-    <>
+    <div className="accordion">
       <CharacterCreationAbilityScore
         race={race}
         expanded={expanded}
@@ -58,6 +58,6 @@ export default function Human({
           handleChangeLanguage
         )}
       </CharacterCreationLanguages>
-    </>
+    </div>
   );
 }

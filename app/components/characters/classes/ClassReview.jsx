@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { sorter } from "~/lib/common";
-import { CharacterCreationSelect } from "../../../lib/character_creator";
 import { tabs } from "../../../lib/common";
 import ClassFeaturesView from "./ClassFeaturesView";
 import SpellsView from "./SpellsView";
@@ -21,100 +20,15 @@ export default function ClassReview({
   const { details } = character.class;
   const [currTab, setCurrTab] = useState('Class Features');
 
-  const handleSelectSkills = (e, opt) => {
-    const { value } = e.target;
-    const { bonus_skills } = details;
-
-    let old_skill = bonus_skills?.[opt] || "";
-
-    if (old_skill) {
-      character.proficiencies.splice(
-        character.proficiencies.indexOf(old_skill),
-        1
-      );
-    }
-
-    setCharacter((character) => ({
-      ...character,
-      class: {
-        ...character.class,
-        details: {
-          ...details,
-          bonus_skills: {
-            ...bonus_skills,
-            [opt]: value,
-          },
-        },
-      },
-      proficiencies: [...character.proficiencies, value],
-    }));
-  };
-
   const {
     name,
     index,
     desc,
     brief,
-    proficiency_choices,
     source_book,
   } = mainClass;
 
-  const skill_choices = proficiency_choices.find((pc) => pc.type === "skills");
 
-  const skillSelection = [];
-  if (skill_choices) {
-    const { choose, from } = skill_choices;
-    const { bonus_skills } = details;
-    for (let i = 0; i < choose; i++) {
-      const idx = i + 1;
-      const opt = `option${idx}`;
-
-      const remainingChosenOptions = Object.entries(bonus_skills || {})
-        .filter(([key, value]) => key !== opt && !value.includes("option"))
-        .map(([key, value]) => value);
-
-      const options = sorter(
-        from.filter((skill) => !remainingChosenOptions.includes(skill.index))
-      ).map((skill) => {
-        const { index, name } = skill;
-
-        let option;
-
-        if (character.race.details?.bonus_skills?.includes(index)) {
-          option = (
-            <option key={index} value={index} disabled>
-              {name} (race)
-            </option>
-          );
-        } else if (
-          character.background.details?.bonus_skills?.includes(index)
-        ) {
-          option = (
-            <option key={index} value={index} disabled>
-              {name} (background)
-            </option>
-          );
-        } else {
-          option = (
-            <option key={index} value={index}>
-              {name}
-            </option>
-          );
-        }
-
-        return option;
-      });
-
-      skillSelection.push(
-        CharacterCreationSelect({
-          label: "Skill",
-          value: details.bonus_skills?.[opt] || "",
-          onChange: (e) => handleSelectSkills(e, opt),
-          options,
-        })
-      );
-    }
-  }
 
   const handleChangeTab = (e) => {
     const { value } = e.target;
@@ -196,6 +110,7 @@ export default function ClassReview({
         <>
           <ClassFeaturesView
             character={character}
+            setCharacter={setCharacter}
             mainClass={mainClass}
             details={details}
             expanded={expanded}

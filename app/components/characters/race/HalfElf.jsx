@@ -99,7 +99,7 @@ export default function HalfElf({
   };
 
   return (
-    <>
+    <div className="accordion">
       <CharacterCreationAbilityScore
         race={race}
         error={
@@ -192,6 +192,6 @@ export default function HalfElf({
           handleChangeSkill
         )}
       </CharacterCreationFeature>
-    </>
+    </div>
   );
 }

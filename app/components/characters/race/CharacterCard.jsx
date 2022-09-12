@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { AccordionItem } from "~/lib/common";
 
 export default function CharacterCard({ race, subrace = {}, traits }) {
   const [expanded, setExpanded] = useState(false);
@@ -19,8 +15,8 @@ export default function CharacterCard({ race, subrace = {}, traits }) {
 
   let racialTraits = [...raceTraits, ...subraceTraits];
 
-  const handleChangeExpanded = (panel) => (e, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChangeExpanded = (value) => {
+    setExpanded(value !== expanded ? value : false);
   };
 
   if (race.index === "dragonborn")
@@ -59,58 +55,37 @@ export default function CharacterCard({ race, subrace = {}, traits }) {
         {race.index === "human"
           ? "Your ability scores each increase by 1."
           : race.ability_bonuses
-              .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
-              .join(", ")}
+            .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
+            .join(", ")}
         {subrace.ability_bonuses &&
           `, ${subrace.ability_bonuses
             .map((ab) => `+${ab.bonus} ${ab.ability_score.name}`)
             .join(", ")}`}
       </p>
 
-      {/* Language */}
-      <Accordion
-        className="mb-3"
-        expanded={expanded === "language"}
-        onChange={handleChangeExpanded("language")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls={`${subrace.index || race.index}d-content`}
-          id={`${subrace.index || race.index}d-header`}
+      <div className="accordion m-4">
+        {/* Language */}
+        <AccordionItem
+          title='Languages'
+          expanded={expanded === 'language'}
+          onClick={() => handleChangeExpanded('language')}
         >
-          <p>
-            <strong>Languages</strong>
-          </p>
-        </AccordionSummary>
-        <AccordionDetails>
           <p>{race.language_desc}</p>
-        </AccordionDetails>
-      </Accordion>
+        </AccordionItem>
 
-      {/* Racial Traits */}
-      {race.index !== "human"
-        ? racialTraits.map((trait) => (
-            <Accordion
-              className="mb-3"
-              key={trait.name}
+        {/* Racial Traits */}
+        {race.index !== "human"
+          && racialTraits.map((trait) => (
+            <AccordionItem
+              key={trait.index}
+              title={trait.name}
               expanded={expanded === trait.name}
-              onChange={handleChangeExpanded(trait.name)}
+              onClick={() => handleChangeExpanded(trait.name)}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={`${trait.name}d-content`}
-                id={`${trait.name}d-header`}
-              >
-                <p>
-                  <strong>{trait.name}</strong>
-                </p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p>{racialTraits.find((t) => t.index === trait.index).desc}</p>
-              </AccordionDetails>
-            </Accordion>
-          ))
-        : null}
+              <p>{racialTraits.find((t) => t.index === trait.index).desc}</p>
+            </AccordionItem>
+          ))}
+      </div>
     </div>
   );
 }

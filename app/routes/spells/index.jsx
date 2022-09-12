@@ -121,8 +121,8 @@ export default function SpellsPage() {
     }
   };
 
-  const handleChangeExpanded = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChangeExpanded = (value) => {
+    setExpanded(value !== expanded ? value : false);
   };
 
   const handleReset = () => {
@@ -208,11 +208,9 @@ export default function SpellsPage() {
               name={caster.name}
               src={`/images/${caster.index}-emblem-color.jpeg`}
               alt={`${caster.name} Caster Emblem in color`}
-              className={`block rounded-[50%] opacity-${
-                selectedClasses.includes(caster.name) ? 100 : 60
-              } hover:opacity-100 ${
-                selectedClasses.includes(caster.name) ? "ring-2 ring-white" : ""
-              }`}
+              className={`block rounded-[50%] opacity-${selectedClasses.includes(caster.name) ? 100 : 60
+                } hover:opacity-100 ${selectedClasses.includes(caster.name) ? "ring-2 ring-white" : ""
+                }`}
             />
             <p className="text-center">{caster.name}</p>
           </div>
@@ -380,13 +378,13 @@ export default function SpellsPage() {
         </div>
       </Form>
 
-      <div className="m-3">
+      <div className="accordion m-3" id="spells-accordion">
         {filtered
           .map((spell) => (
             <SpellCard
               key={spell.index}
               spell={spell}
-              expanded={expanded === spell.index}
+              expanded={expanded}
               handleChangeExpanded={handleChangeExpanded}
             />
           ))

@@ -63,7 +63,7 @@ export default function Dragonborn({
   ];
 
   return (
-    <>
+    <div className="accordion">
       <CharacterCreationAbilityScore
         race={race}
         expanded={expanded}
@@ -110,6 +110,6 @@ export default function Dragonborn({
         expanded={expanded}
         handleChangeExpanded={handleChangeExpanded}
       />
-    </>
+    </div>
   );
 }

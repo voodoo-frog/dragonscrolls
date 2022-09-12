@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-import { classFeatures } from "~/lib/common";
+import { classFeatures, Accordion } from "~/lib/common";
 
 export default function ClassCard({ mainClass, features }) {
   const [expanded, setExpanded] = useState(false);
 
-  const handleChangeExpanded = (panel) => (e, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChangeExpanded = (value) => {
+    setExpanded(value !== expanded ? value : false);
   };
 
   let filteredFeatures = classFeatures(features, mainClass.index);
@@ -73,27 +67,16 @@ export default function ClassCard({ mainClass, features }) {
       {/* Class Features */}
       {filteredFeatures.map((feature) => (
         <Accordion
-          className="mb-3"
-          key={feature.name}
+          key={feature.index}
+          title={feature.name}
           expanded={expanded === feature.name}
-          onChange={handleChangeExpanded(feature.name)}
+          onClick={() => handleChangeExpanded(feature.name)}
         >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls={`${feature.name}d-content`}
-            id={`${feature.name}d-header`}
-          >
-            <p>
-              <strong>{feature.name}</strong>
+          {feature.desc.map((item) => (
+            <p key={item} className="mb-3">
+              {item}
             </p>
-          </AccordionSummary>
-          <AccordionDetails>
-            {feature.desc.map((item) => (
-              <p key={item} className="mb-3">
-                {item}
-              </p>
-            ))}
-          </AccordionDetails>
+          ))}
         </Accordion>
       ))}
     </div>

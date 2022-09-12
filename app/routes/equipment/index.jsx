@@ -69,8 +69,8 @@ export default function EquipmentPage() {
     setCategories(value.sort());
   };
 
-  const handleChangeExpanded = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChangeExpanded = (value) => {
+    setExpanded(value !== expanded ? value : false);
   };
 
   const handleChangePage = (event, value) => {
@@ -389,13 +389,13 @@ export default function EquipmentPage() {
         </div>
       </div>
 
-      <div className="m-3">
+      <div className="accordion m-3" id="equipment-accordion">
         {filtered
           .map((item) => (
             <EquipmentCard
               key={item.index}
               item={item}
-              expanded={expanded === item.index}
+              expanded={expanded}
               handleChangeExpanded={handleChangeExpanded}
             />
           ))

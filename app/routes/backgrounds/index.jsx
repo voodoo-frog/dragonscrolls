@@ -28,11 +28,11 @@ export const loader = async () => {
 export default function BackgroundsPage() {
   const { backgrounds } = useLoaderData();
 
-  const [expanded, setExpanded] = useState("");
+  const [expanded, setExpanded] = useState(false);
   const [page, setPage] = useState(1);
 
-  const handleChangeExpanded = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChangeExpanded = (value) => {
+    setExpanded(value !== expanded ? value : false);
   };
 
   const handleChangePage = (event, value) => {
@@ -43,13 +43,13 @@ export default function BackgroundsPage() {
     <>
       <h3 className="m-3	text-4xl">Backgrounds</h3>
 
-      <div className="m-3">
+      <div className="accordion m-3" id="backgrounds-accordion">
         {backgrounds
           .map((bg) => (
             <BackgroundsCard
               key={bg.index}
               background={bg}
-              expanded={expanded === bg.index}
+              expanded={expanded}
               handleChangeExpanded={handleChangeExpanded}
             />
           ))

@@ -34,7 +34,7 @@ export default function Dwarf({
   };
 
   return (
-    <>
+    <div className="accordion">
       <CharacterCreationAbilityScore
         race={race}
         expanded={expanded}
@@ -110,6 +110,6 @@ export default function Dwarf({
             handleChangeExpanded={handleChangeExpanded}
           />
         ))}
-    </>
+    </div>
   );
 }
